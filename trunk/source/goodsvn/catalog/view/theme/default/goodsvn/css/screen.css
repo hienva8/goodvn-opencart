@@ -1,0 +1,29 @@
+.graphic, #prevBtn, #nextBtn, #slider1prev, #slider1next
+{
+	margin:0;
+	padding:0;
+	display:none;
+	overflow:hidden;
+	text-indent:-8000px;
+}
+/*slide hot product*/
+.slide_hot_product
+{
+	height:351px;
+	width:200px;
+	margin:5px auto;
+}
+.slide_hot_product marquee
+{
+	width:100%;
+	height:100%;
+}
+marquee div
+{
+	text-align:center;
+	padding-top:5px;
+}
+.slide_hot_product img
+{
+	border:dashed 1px #999;
+}
