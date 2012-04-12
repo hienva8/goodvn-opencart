@@ -30,30 +30,26 @@
             <div class="line"></div>
             <div class="title_img">
             	<div class="best_offer">
-            		<img src="image/goodsvn/title_offers.png">
-               	  <ul class="list_item">
-                    	<li>
-                        	<div class="icon_li"></div><a href="">Cosmetic chemistry (Goods)</a><div class="arrow"></div>
-                            <ul>
-                            	<li>
-                                	<a href="">Menu List Item 1</a> <div class="arrow"></div>
-                                	<ul>
-                                        <li><a href="">Menu List Item 1</a></li>
-                                        <li><a href="">Menu List Item 1</a></li>
-                                        <li><a href="">Menu List Item 1</a></li>
-                                        <li><a href="">Menu List Item 1</a></li>
-                                    </ul>
-                                </li>	
-                                <li><a href="">Menu List Item 1</a><div class="arrow"></div></li>
-                                <li><a href="">Menu List Item 1</a><div class="arrow"></div></li>
-                                <li><a href="">Menu List Item 1</a><div class="arrow"></div></li>
-                            </ul>
-                        </li>
-                        <li><div class="icon_li"></div><a href="">Foodstuff &amp; Beverage</a><div class="arrow"></div></li>
-                        <li><div class="icon_li"></div><a href="">Ceramic (Pottery)</a><div class="arrow"></div></li>
-                        <li><div class="icon_li"></div><a href="">Rattan</a><div class="arrow"></div></li>
-                        <li><div class="icon_li"></div><a href="">Others</a><div class="arrow"></div></li>
-                    </ul>
+            	<img src="image/goodsvn/title_offers.png">
+				<ul class="list_item">
+				<?php
+					 foreach ($categories as $category) {
+						echo '<li><div class="icon_li"></div><a href="'.$category['href'].'">'.$category['name'].'</a>';
+						if ($category['children']) {
+							echo '<div class="arrow"></div><ul>';
+							foreach ($category['children'] as $child) 
+							{
+								echo '<li><a href="'.$child['href'].'">'.$child['name'].'</a></li>';
+							}
+							echo '</ul></li>';
+						}
+						else
+						{
+							echo '</li>';
+						}
+					}
+				?>
+				</ul>
                     <a href=""><img src="image/goodsvn/btn_more.png" class="btn_more"></a>
                 </div>
                 <div class="line_vertical"></div>
@@ -103,10 +99,10 @@
         <div class="clear_both20"></div>
         <div class="title_support"></div>
         <div class="support">
-        	<div class="support_item"><img src="image/goodsvn/icon_yahoo.png"><a href="">Line1</a></div>
-            <div class="support_item"><img src="image/goodsvn/icon_skype.png"><a href="">Line1</a></div>
-            <div class="support_item"><img src="image/goodsvn/icon_yahoo.png"><a href="">Line1</a></div>
-            <div class="support_item"><img src="image/goodsvn/icon_skype.png"><a href="">Line1</a></div>
+        	<div class="support_item"><img src="image/goodsvn/icon_yahoo.png"><a href="ymsgr:sendim?goodsvn@ymail.com">GoodsVN</a></div>
+            <div class="support_item"><img src="image/goodsvn/icon_skype.png"><a href="">Mr.Khanh</a></div>
+            <div class="support_item"><img src="image/goodsvn/icon_yahoo.png"><a href="ymsgr:sendim?llicklick">GoodsVN</a></div>
+            <div class="support_item"><img src="image/goodsvn/icon_skype.png"><a href="">Mr.Khanh</a></div>
             <div class="clear_both5"></div>
         </div>
         <div class="like_google">

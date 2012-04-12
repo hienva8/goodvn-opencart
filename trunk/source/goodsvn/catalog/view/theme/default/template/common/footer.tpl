@@ -1,4 +1,4 @@
-<div id="footer">
+<!--<div id="footer">
   <div class="column">
     <h3><?php echo $text_information; ?></h3>
     <ul>
@@ -33,15 +33,13 @@
       <li><a href="<?php echo $newsletter; ?>"><?php echo $text_newsletter; ?></a></li>
     </ul>
   </div>
+</div>-->
+<div id="footer">
+	<div class="footer">
+		<div class="logo1"><img width="70" height="70" src="image/goodsvn/logo1.png"></div>
+		<div class="sign"><?php echo $powered; ?></div>
+		<div class="logo2"><img width="70" height="70" src="image/goodsvn/logo2.png"></div>
+	</div>
 </div>
-<!-- 
-OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
-Please donate via PayPal to donate@opencart.com
-//-->
-<div id="powered"><?php echo $powered; ?></div>
-<!-- 
-OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
-Please donate via PayPal to donate@opencart.com
-//-->
 </div>
 </body></html>
