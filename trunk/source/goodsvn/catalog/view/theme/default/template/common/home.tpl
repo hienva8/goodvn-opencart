@@ -105,16 +105,6 @@ With a clear target is to bring the most qualified products to international mar
     <div class="main_right">
     	<div class="select">
             <div id="google_translate_element" align="center"></div>  
-				<script type="text/javascript">
-				function googleTranslateElementInit() {
-				  new google.translate.TranslateElement({
-					pageLanguage: 'auto',
-					autoDisplay: false,
-					layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-				  }, 'google_translate_element');
-				}
-				</script>
-				<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         </div>
         <div class="title_hot_product"></div>
         <div class="slide_hot_product">
