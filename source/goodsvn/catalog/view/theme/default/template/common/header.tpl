@@ -52,7 +52,16 @@ DD_belatedPNG.fix('#logo img');
 
 <script type="text/javascript" src="catalog/view/theme/default/goodsvn/js/easySlider1.7.js"></script>
 <script type="text/javascript" src="catalog/view/theme/default/goodsvn/js/jquery.cycle.all.js"></script>
-
+<script type="text/javascript">
+				function googleTranslateElementInit() {
+				  new google.translate.TranslateElement({
+					pageLanguage: 'auto',
+					autoDisplay: true,
+					layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+				  }, 'google_translate_element');
+				}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
 <div id="container">
