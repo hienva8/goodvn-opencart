@@ -1,4 +1,4 @@
-body
+//body
 {
 	background:#f3f3f3;
 	font-family:Arial, Helvetica, sans-serif;
@@ -57,7 +57,7 @@ img,input[type="text"],input[type="submit"]
 }
 .menu_link
 {
-	margin-left:7px;
+	margin-left:13px;
 	padding-top:20px;
 	width:653px;
 	text-align:center;
@@ -151,21 +151,23 @@ ul,li
 {
 	width:606px;
 	height:381px;
-	background:url(../image/bg_img.png) no-repeat;
-	padding:13px;
+
 }
 .slide img
 {
-	width:606px;
-	height:382px;
+	width:623px;
+	height:400px;
+    background: url("../image/bg_img.png") no-repeat scroll 0 0 transparent;
+    padding: 1px;
+    border-radius: 5px 5px 5px 5px;
 }
 .slide_text
 {
-	padding-left:20px;
-	margin-left:30px;
-	background:url(../image/icon_circle.png) no-repeat 0 3px;
-	font-size:18px;
-	margin-top:8px;
+    background: url("../image/icon_circle.png") no-repeat scroll 0 6px transparent;
+    font-size: 18px;
+    margin-left: 30px;
+    margin-top: 32px;
+    padding-left: 20px;
 }
 .slide_text a:link,.slide_text a:visited
 {
@@ -343,7 +345,6 @@ ul,li
 {
 	background:url(../image/bg_footer.png) repeat-x;
 	height:100px;
-	width:960px;
 	margin:0 auto;
 	position:relative;
 }
@@ -398,7 +399,7 @@ ul,li
 }
 .support
 {
-	width:200px;
+	width:260px;
 	margin:5px auto;
 }
 .hotline
@@ -418,7 +419,7 @@ ul,li
 }
 .support_item
 {
-	width:80px;
+	width:100px;
 	height:30px;
 	float:left;
 	padding:5px 10px;
