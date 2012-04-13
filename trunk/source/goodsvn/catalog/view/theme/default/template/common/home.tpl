@@ -1,20 +1,42 @@
 <?php echo $header; ?>
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/goodsvn/css/index.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/goodsvn/css/screen.css" />
+
+<script type="text/javascript" src="catalog/view/theme/default/goodsvn/js/easySlider1.7.js"></script>
+<script type="text/javascript" src="catalog/view/theme/default/goodsvn/js/jquery.cycle.all.js"></script>
+    <script type="text/javascript">
+		$(document).ready(function(){	
+			$("#slider").easySlider({
+				auto: true, 
+				continuous: true
+			});
+		});	
+	</script>
+
+
+
 <div class="main">
 	<div class="main_left">
-    	<div class="slide" id="slider" style="width: 654px; height: 464px; overflow: hidden;">
-            <ul style="width: 1308px; margin-left: -129.637px;"><li style="margin-left: -654px; float: left;">
-                	<div class="bg_img"><img src="image/goodsvn/slide1.jpg"></div>
-                	<div class="slide_text"><a href="">Sed lobortis egestas nibh vel laoreet</a></div>
-                </li>				
-				<li style="float: left;">
-                	<div class="bg_img"><img src="image/goodsvn/slide1.jpg"></div>
+    <div id="slider" class="slide">
+            <ul>				
+				<li>
+                	<div class="bg_img"><img src="image/goodsvn/slide/slide1.png" /></div>
                 	<div class="slide_text"><a href="">Sed lobortis egestas nibh vel laoreet</a></div>
                 </li>
-			<li style="float: left;">
-                	<div class="bg_img"><img src="image/goodsvn/slide1.jpg"></div>
+                <li>
+                	<div class="bg_img"><img src="image/goodsvn/slide/slide2.png" /></div>
                 	<div class="slide_text"><a href="">Sed lobortis egestas nibh vel laoreet</a></div>
-                </li></ul>
-        </div> <span id="prevBtn"><a href="javascript:void(0);">Previous</a></span> <span id="nextBtn"><a href="javascript:void(0);">Next</a></span>
+                </li>
+                <li>
+                	<div class="bg_img"><img src="image/goodsvn/slide/slide3.png" /></div>
+                	<div class="slide_text"><a href="">Sed lobortis egestas nibh vel laoreet</a></div>
+                </li>
+                <li>
+                	<div class="bg_img"><img src="image/goodsvn/slide/slide4.png" /></div>
+                	<div class="slide_text"><a href="">Sed lobortis egestas nibh vel laoreet</a></div>
+                </li>
+			</ul>
+        </div>
         <!--end slider -->
         <div class="content_left">
         	<div class="title_img">
@@ -22,7 +44,9 @@
                 <div class="news">
                 	<img src="image/goodsvn/news_img.png">
                     <div class="news_text">
-                    Donec nibh orci, pellentesque ac sollicitudin vel, tincidunt eget elit. Etiam pretium, lacus ac dignissim pellentesque, urna leo euismod ligula, non laoreet 					erat purus in mauris.Sed volutpat pellentesque leo, ut sagittis eros ultricies nec...
+Welcome to Goodsvn Trading Services import and export Joint Stock Company. We are a wholesale company specialized in consumer goods, foodstuff and ceramics... More specially, we can process ceramic products according to your requirements.
+With a clear target is to bring the most qualified products to international market and to maximize your comfortable life, we bring "goods for life" with an absolute assurance. We hope that we can receive your understandability, your trust and your support.
+
                     </div>
                     <div class="clear_both"></div>
                 </div>
@@ -54,16 +78,24 @@
                 </div>
                 <div class="line_vertical"></div>
               <div class="your_request">
-            		<img src="image/goodsvn/title_your_request.png">
+            		<img src="image/goodsvn/title_your_request.png" />
                 	<div class="your_request_text">
                     	Donec nibh orci, pellentesque ac sollicitudin vel, tincidunt eget elit. Etiam pretium, lacus ac dignissim pellentesque, 
-                        urna leo euismod ligula, non laoreet erat purus
                     </div>
-                    <form action="">
-                   	  <input type="text" onblur="this.value='Name'" onclick="this.value=''" value="Name">
-                      <input type="text" onblur="this.value='Email'" onclick="this.value=''" value="Email">
-                      <textarea onblur="this.value='Message'" onclick="this.value=''" rows="4">Message</textarea>
-                      <input type="submit" value="">
+                    <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="contact">
+                   	      <input name="name" type="text" value="<?php if($name != ''){echo $name;}else{echo 'Name';}  ?>">
+                          <?php if ($error_name) { ?>
+                                <span class="error"><?php echo $error_name; ?></span>
+                          <?php } ?>
+                          <input name="email" type="text" value="<?php if($email != ''){echo $email;}else{echo 'Email';}  ?>">
+                              <?php if ($error_email) { ?>
+                                <span class="error"><?php echo $error_email; ?></span>
+                                <?php } ?>
+                          <textarea name="enquiry" rows="4"><?php if($enquiry != ''){echo $enquiry;}else{echo 'Messsage';}  ?></textarea>
+                            <?php if ($error_enquiry) { ?>
+                               <br/> <span class="error"><?php echo $error_enquiry; ?></span>
+                                <?php } ?><br/>
+                      <input onclick="$('#contact').submit();" type="submit" value="" />
                     </form>
               </div>
             </div>
@@ -87,12 +119,12 @@
         <div class="title_hot_product"></div>
         <div class="slide_hot_product">
         	<marquee direction="down" scrollamount="4" onmouseout="this.start()" onmouseover="this.stop()"> 
-                <div><a href=""><img title="sanpham 1" src="image/goodsvn/hot/hot_product_1.jpg"></a></div>
-                <div><a href=""><img title="sanpham 2" src="image/goodsvn/hot/hot_product_2.jpg"></a></div>
-                <div><a href=""><img title="sanpham 3" src="image/goodsvn/hot/hot_product_3.jpg"></a></div>
-                <div><a href=""><img title="sanpham 1" src="image/goodsvn/hot/hot_product_1.jpg"></a></div>
-                <div><a href=""><img title="sanpham 1" src="image/goodsvn/hot/hot_product_2.jpg"></a></div>
-                <div><a href=""><img title="sanpham 1" src="image/goodsvn/hot/hot_product_3.jpg"></a></div>
+            <?php foreach($products as $p): ?>
+                <div>
+                    <a href="<?php echo $p['href'];?>"><img title="<?php echo $p['name'];?>" src="<?php echo $p['thumb'];?>"></a>
+                    <p style="font-weight:bold;color:blue"><?php echo $p['name'];?></p>
+                </div>
+            <?php endforeach; ?>
 			</marquee>
         </div>
         <div class="line3"></div>
@@ -120,7 +152,7 @@
         	<img src="image/goodsvn/manufactory.jpg">
             <div class="manufactory_text">Here is stove to burn ceramic products by gas system of goodsvn SJC., Ours manufactory in ThuanAn Dist, BinhDuong Province. </div>
         </div>
-        <div class="statistics">Vistors: 1738<br>Online:  279
+        <div class="statistics">
         </div>
     </div>
     <div class="clear_both"></div>

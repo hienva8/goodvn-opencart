@@ -18,8 +18,6 @@
 <?php } ?>
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/stylesheet.css" />
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/goodsvn/css/fix_ie7.css" />
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/goodsvn/css/index.css" />
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/goodsvn/css/screen.css" />
 <?php foreach ($styles as $style) { ?>
 <link rel="<?php echo $style['rel']; ?>" type="text/css" href="<?php echo $style['href']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
@@ -27,10 +25,7 @@
 <script type="text/javascript" src="catalog/view/javascript/jquery/ui/jquery-ui-1.8.16.custom.min.js"></script>
 <link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/ui/themes/ui-lightness/jquery-ui-1.8.16.custom.css" />
 <script type="text/javascript" src="catalog/view/javascript/jquery/ui/external/jquery.cookie.js"></script>
-<script type="text/javascript" src="catalog/view/javascript/jquery/fancybox/easySlider1.7.js"></script>
 <script type="text/javascript" src="catalog/view/javascript/jquery/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-<script type="text/javascript" src="catalog/view/theme/default/goodsvn/js/easySlider1.7.js"></script>
-<script type="text/javascript" src="catalog/view/theme/default/goodsvn/js/jquery.cycle.all.js"></script>
 <link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
 <!--[if IE]>
 <script type="text/javascript" src="catalog/view/javascript/jquery/fancybox/jquery.fancybox-1.3.4-iefix.js"></script>
@@ -51,6 +46,8 @@ DD_belatedPNG.fix('#logo img');
 </script>
 <![endif]-->
 <?php echo $google_analytics; ?>
+
+
 </head>
 <body>
 <div id="container">
@@ -77,10 +74,9 @@ DD_belatedPNG.fix('#logo img');
 <div class="menu_bar">
 	<div class="menu_link">
    	  <div class="menu_item menu_item_active" onclick="location.href='<?php echo $home; ?>'">Home</div>
-        <div class="menu_item" onclick="location.href='<?php echo $home; ?>'">About us</div>
+        <div class="menu_item" onclick="location.href='<?php echo $aboutus; ?>'">About us</div>
         <div class="menu_item" onclick="location.href='<?php echo $home; ?>'">Products</div>
-        <div class="menu_item" onclick="location.href='<?php echo $home; ?>'">Contact</div>
-		<div class="menu_item" onclick="location.href='<?php echo $home; ?>'">Activity Us</div>
+        <div class="menu_item" onclick="location.href='<?php echo $contact; ?>'">Contact</div>
         <div class="clear_both"></div>
     </div>
 </div>

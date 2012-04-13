@@ -85,6 +85,10 @@ class ControllerCommonHeader extends Controller {
 		$this->data['account'] = $this->url->link('account/account', '', 'SSL');
 		$this->data['cart'] = $this->url->link('checkout/cart');
 		$this->data['checkout'] = $this->url->link('checkout/checkout', '', 'SSL');
+        $this->data['aboutus'] = $this->url->link('information/aboutus');
+        $this->data['product'] = $this->url->link('common/home');
+        $this->data['contact'] = $this->url->link('information/contact');
+        
 		
 		if (isset($this->request->get['filter_name'])) {
 			$this->data['filter_name'] = $this->request->get['filter_name'];
