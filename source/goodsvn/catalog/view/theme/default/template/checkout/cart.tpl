@@ -29,9 +29,11 @@
               <td class="image"><?php echo $column_image; ?></td>
               <td class="name"><?php echo $column_name; ?></td>
               <td class="model"><?php echo $column_model; ?></td>
+              <!--
               <td class="quantity"><?php echo $column_quantity; ?></td>
               <td class="price"><?php echo $column_price; ?></td>
               <td class="total"><?php echo $column_total; ?></td>
+              -->
             </tr>
           </thead>
           <tbody>
@@ -50,13 +52,18 @@
                   - <small><?php echo $option['name']; ?>: <?php echo $option['value']; ?></small><br />
                   <?php } ?>
                 </div>
+                <!--
                 <?php if ($product['reward']) { ?>
                 <small><?php echo $product['reward']; ?></small>
-                <?php } ?></td>
+                <?php } ?>
+                -->
+              </td>
               <td class="model"><?php echo $product['model']; ?></td>
+              <!--
               <td class="quantity"><input type="text" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="3" /></td>
               <td class="price"><?php echo $product['price']; ?></td>
               <td class="total"><?php echo $product['total']; ?></td>
+              -->
             </tr>
             <?php } ?>
             <?php foreach ($vouchers as $voucher) { ?>
@@ -65,9 +72,11 @@
               <td class="image"></td>
               <td class="name"><?php echo $voucher['description']; ?></td>
               <td class="model"></td>
+              <!--
               <td class="quantity">1</td>
               <td class="price"><?php echo $voucher['amount']; ?></td>
               <td class="total"><?php echo $voucher['amount']; ?></td>
+              -->
             </tr>
             <?php } ?>
           </tbody>
@@ -92,7 +101,7 @@
     </div>
     <div class="buttons">
       <div class="left"><a onclick="$('#basket').submit();" class="button"><span><?php echo $button_update; ?></span></a></div>
-      <div class="right"><a href="<?php echo $checkout; ?>" class="button"><span><?php echo $button_checkout; ?></span></a></div>
+      <div class="right"><!--<a href="<?php echo $checkout; ?>" class="button"><span><?php echo $button_checkout; ?></span></a>--></div>
       <div class="center"><a href="<?php echo $continue; ?>" class="button"><span><?php echo $button_shopping; ?></span></a></div>
     </div>
     <?php echo $content_bottom; ?></div>
