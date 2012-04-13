@@ -48,6 +48,7 @@
         </tr>
       </table>
     </div>
+    <!--
     <h2><?php echo $text_your_address; ?> </h2>
     <div class="content">
       <table class="form">
@@ -106,6 +107,7 @@
         </tr>
       </table>
     </div>
+    -->
     <h2><?php echo $text_your_password; ?></h2>
     <div class="content">
       <table class="form">
