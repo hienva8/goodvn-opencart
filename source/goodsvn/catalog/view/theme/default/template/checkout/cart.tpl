@@ -101,7 +101,7 @@
     </div>
     <div class="buttons">
       <div class="left"><a onclick="$('#basket').submit();" class="button"><span><?php echo $button_update; ?></span></a></div>
-      <div class="right"><!--<a href="<?php echo $checkout; ?>" class="button"><span><?php echo $button_checkout; ?></span></a>--></div>
+      <div class="right"><a href="<?php echo $checkout; ?>" class="button"><span><?php echo $button_checkout; ?></span></a></div>
       <div class="center"><a href="<?php echo $continue; ?>" class="button"><span><?php echo $button_shopping; ?></span></a></div>
     </div>
     <?php echo $content_bottom; ?></div>
