@@ -52,7 +52,7 @@ class ControllerCommonColumnLeft extends Controller {
 							'code'       => $extension['code'],
 							'setting'    => $module,
 							'sort_order' => $module['sort_order']
-						);				
+						);			
 					}
 				}
 			}
