@@ -33,19 +33,8 @@
                 <option>Select One</option>
             </select>
         </div>
-        <div class="product_menu">New Products</div>
-        <div class="new_products">
-        	<marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="4" direction="down"> 
-                <div><a href=""><img src="image/hot/hot_product_1.jpg" title="sanpham 1"/><div title="sanpham 1">New Products Name</div></a></div>
-                <div><a href=""><img src="image/hot/hot_product_2.jpg" title="sanpham 2"/><div title="sanpham 1">New Products Name</div></a></div>
-                <div><a href=""><img src="image/hot/hot_product_3.jpg" title="sanpham 3"/><div title="sanpham 1">New Products Name</div></a></div>
-                <div><a href=""><img src="image/hot/hot_product_1.jpg" title="sanpham 1"/><div title="sanpham 1">New Products Name</div></a></div>
-                <div><a href=""><img src="image/hot/hot_product_1.jpg" title="sanpham 1"/><div title="sanpham 1">New Products Name</div></a></div>
-                <div><a href=""><img src="image/hot/hot_product_2.jpg" title="sanpham 2"/><div title="sanpham 1">New Products Name</div></a></div>
-                <div><a href=""><img src="image/hot/hot_product_3.jpg" title="sanpham 3"/><div title="sanpham 1">New Products Name</div></a></div>
-                <div><a href=""><img src="image/hot/hot_product_1.jpg" title="sanpham 1"/><div title="sanpham 1">New Products Name</div></a></div>
-			</marquee>
-        </div>
+        <!-- newproduct_left -->
+        <?php echo $newproduct_left;?>
         <div class="product_menu">Informations</div>
         <div class="informations">
          	<div class="information_item"><a href="">How to Send an inquiry ?</a></div>
@@ -74,20 +63,8 @@
 		    		echo '<div class="clear_both"></div></div>';
 		    	}
          ?>
-	
-        <div class="menu_center">HOT PRODUCTS</div>
-        <div class="products_list">
-        	<div class="products_item"><a href=""><img src="image/product/product2_img.jpg" /><div class="products_item_name">Product Item Name</div></a></div>
-            <div class="products_item"><a href=""><img src="image/product/product2_img.jpg" /><div class="products_item_name">Product Item Name</div></a></div>
-            <div class="products_item"><a href=""><img src="image/product/product2_img.jpg" /><div class="products_item_name">Product Item Name</div></a></div>
-            <div class="products_item"><a href=""><img src="image/product/product2_img.jpg" /><div class="products_item_name">Product Item Name</div></a></div>
-            <div class="products_item"><a href=""><img src="image/product/product2_img.jpg" /><div class="products_item_name">Product Item Name</div></a></div>
-            <div class="products_item"><a href=""><img src="image/product/product2_img.jpg" /><div class="products_item_name">Product Item Name</div></a></div>
-            <div class="products_item"><a href=""><img src="image/product/product2_img.jpg" /><div class="products_item_name">Product Item Name</div></a></div>
-            <div class="products_item"><a href=""><img src="image/product/product2_img.jpg" /><div class="products_item_name">Product Item Name</div></a></div>
-            <div class="products_item"><a href=""><img src="image/product/product2_img.jpg" /><div class="products_item_name">Product Item Name</div></a></div>
-            <div class="clear_both"></div>
-        </div>
+		<?php echo $newproduct;?>
+        
     </div>
     <!--end main center-->
     <div class="line2"></div>
@@ -99,19 +76,8 @@
                 <option>Vietnamese</option>
             </select>
         </div>
-        <div class="product_menu">Hot Products</div>
-        <div class="hot_products">
-            <div class="hot_product_item"><a href="">Hand Washing Solution Gel Ht 300Ml</a></div>
-            <div class="hot_product_item"><a href="">Camay Soap Romantic Red 125G</a></div>
-            <div class="hot_product_item"><a href="">Clothes Detergent Axo Pink Herbal 800Ml</a></div>
-            <div class="hot_product_item"><a href="">Clothes Detergent Zononrro Blue Nature</a></div>
-            <div class="hot_product_item"><a href="">Clothes Detergent Zononrro Violet Nature 1000Ml</a></div>
-            <div class="hot_product_item"><a href="">Dan Cream Shower 250Ml</a></div>
-            <div class="hot_product_item"><a href="">Deodorant Roll Cool Kick For Men 50Ml</a></div>
-            <div class="hot_product_item"><a href="">Deodorant Roll Fresh Vitality Energy 50Ml</a></div>
-            <div class="hot_product_item"><a href="">Deodorant Roll Happy Time 20Ml</a></div>
-            <div class="hot_product_item"><a href="">Dial Soy Almond Milk Shower Gel</a></div>
-        </div>
+         <!-- hotproduct_right -->
+        <?php echo $hotproduct_right;?>
         <div class="newsletters">Newsletters
         	<form name="" method="">
             	<input type="text" value="Type your email adress" onclick="this.value=''" onblur="this.value='Type your email adress'"/>
@@ -135,14 +101,4 @@
     <div class="clear_both"></div>
 </div>
 <div class="count_visited"><div class="statistics">Vistors: 1738<br />Online:  279</div></div>
-<div class="footer">
-	
-    
-	<div class="logo1"><img src="image/logo1.png" width="70" height="70" /></div>
-	<div class="sign">Copyright 2012 Goodsvn - All Right Reserved</div>
-    <div class="logo2"><img src="image/logo2.png" width="70" height="70" /></div>
-</div>
-<body>
-
-</body>
-</html>
+<?php echo $footer;?>
