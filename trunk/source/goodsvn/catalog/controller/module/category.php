@@ -17,24 +17,33 @@ class ControllerModuleCategory extends Controller {
 			$this->data['category_id'] = 0;
 		}
 		
+		//add new
 		if (isset($parts[1])) {
-			$this->data['child_id'] = $parts[1];
+			if(isset($parts[2]))
+			{
+				$this->data['child_id'] = $parts[2];
+				$this->data['category_id'] = $parts[1];
+			}
+			else{
+				$this->data['child_id'] = $parts[1];
+			}
 		} else {
-			$this->data['child_id'] = 0;
+			$this->data['child_id'] = $this->data['category_id'] ;
 		}
+		
 							
 		$this->load->model('catalog/category');
 		$this->load->model('catalog/product');
 		
 		$this->data['categories'] = array();
-					
-		$categories = $this->model_catalog_category->getCategories(0);
+		$this->data['parent_category'] = $this->model_catalog_category->getCategory($this->data['category_id']);			
+		$categories = $this->model_catalog_category->getCategories($this->data['child_id']);
 		
 		foreach ($categories as $category) {
 			$children_data = array();
 			
 			$children = $this->model_catalog_category->getCategories($category['category_id']);
-			
+			$total = 0;
 			foreach ($children as $child) {
 				$data = array(
 					'filter_category_id'  => $child['category_id'],
@@ -42,11 +51,13 @@ class ControllerModuleCategory extends Controller {
 				);		
 					
 				$product_total = $this->model_catalog_product->getTotalProducts($data);
-							
+				$total += $product_total;			
 				$children_data[] = array(
 					'category_id' => $child['category_id'],
-					'name'        => $child['name'] . ' (' . $product_total . ')',
-					'href'        => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])	
+					'name'        => $child['name'] ,
+					'total'		  => $product_total ,
+					//'image'		  => HTTP_IMAGE. '/cache/'.$child['image'],
+					'href'        => $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' .$category['category_id'] . '_' . $child['category_id'])	
 				);					
 			}
 			
@@ -59,9 +70,11 @@ class ControllerModuleCategory extends Controller {
 						
 			$this->data['categories'][] = array(
 				'category_id' => $category['category_id'],
-				'name'        => $category['name'] . ' (' . $product_total . ')',
+				'name'        => $category['name'] ,
+				'total'		  => $product_total ,
 				'children'    => $children_data,
-				'href'        => $this->url->link('product/category', 'path=' . $category['category_id'])
+				//'image'		  => HTTP_IMAGE. '/cache/'.$child['image'],
+				'href'        => $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' . $category['category_id'])
 			);
 		}
 		
