@@ -52,12 +52,17 @@ class ControllerProductCategory extends Controller {
 				);		
 					
 				$product_total = $this->model_catalog_product->getTotalProducts($data);
-				$total += $product_total;			
+				$total += $product_total;	
+			 if ($child['image']) { 
+				$image = $this->model_tool_image->resize($child['image'], 183, 164); 
+				} else { 
+				$image = $this->model_tool_image->resize('no_image.jpg', 183, 164);  
+				}		
 				$children_data[] = array(
 					'category_id' => $child['category_id'],
 					'name'        => $child['name'] ,
 					'total'		  => $product_total ,
-					'image'		  => HTTP_IMAGE. 'cache/'.$child['image'],
+					'image'		  => $image,
 					'href'        => $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' .$category['category_id'] . '_' . $child['category_id'])	
 				);					
 			}
@@ -68,13 +73,17 @@ class ControllerProductCategory extends Controller {
 			);		
 				
 			$product_total = $this->model_catalog_product->getTotalProducts($data);
-						
+			if ($category['image']) { 
+				$image = $this->model_tool_image->resize($category['image'], 183, 164); 
+				} else { 
+				$image = $this->model_tool_image->resize('no_image.jpg', 183, 164);  
+				}					
 			$this->data['categories'][] = array(
 				'category_id' => $category['category_id'],
 				'name'        => $category['name'] ,
 				'total'		  => $product_total ,
 				'children'    => $children_data,
-				'image'		  => HTTP_IMAGE. 'cache/'.$category['image'],
+				'image'		  => $image,
 				'href'        => $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' . $category['category_id'])
 			);
 		}
@@ -91,7 +100,10 @@ class ControllerProductCategory extends Controller {
 				'common/content_top',
 				'common/content_bottom',
 				'common/footer',
-				'common/header'
+				'common/header',
+				'product/newproduct',
+				'product/newproduct_left',
+				'product/hotproduct_right'
 			);
 				
 			$this->response->setOutput($this->render());	
