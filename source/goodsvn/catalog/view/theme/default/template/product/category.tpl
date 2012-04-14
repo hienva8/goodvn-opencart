@@ -1,220 +1,138 @@
-<?php echo $header; ?><?php echo $column_left; ?><?php echo $column_right; ?>
-<div id="content"><?php echo $content_top; ?>
-  <div class="breadcrumb">
-    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-    <?php echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
-    <?php } ?>
-  </div>
-  <h1><?php echo $heading_title; ?></h1>
-  <?php if ($thumb || $description) { ?>
-  <div class="category-info">
-    <?php if ($thumb) { ?>
-    <div class="image"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" /></div>
-    <?php } ?>
-    <?php if ($description) { ?>
-    <?php echo $description; ?>
-    <?php } ?>
-  </div>
-  <?php } ?>
-  <?php if ($categories) { ?>
-  <h2><?php echo $text_refine; ?></h2>
-  <div class="category-list">
-    <?php if (count($categories) <= 5) { ?>
-    <ul>
-      <?php foreach ($categories as $category) { ?>
-      <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-      <?php } ?>
-    </ul>
-    <?php } else { ?>
-    <?php for ($i = 0; $i < count($categories);) { ?>
-    <ul>
-      <?php $j = $i + ceil(count($categories) / 4); ?>
-      <?php for (; $i < $j; $i++) { ?>
-      <?php if (isset($categories[$i])) { ?>
-      <li><a href="<?php echo $categories[$i]['href']; ?>"><?php echo $categories[$i]['name']; ?></a></li>
-      <?php } ?>
-      <?php } ?>
-    </ul>
-    <?php } ?>
-    <?php } ?>
-  </div>
-  <?php } ?>
-  <?php if ($products) { ?>
-  <div class="product-filter">
-    <div class="display"><b><?php echo $text_display; ?></b> <?php echo $text_list; ?> <b>/</b> <a onclick="display('grid');"><?php echo $text_grid; ?></a></div>
-    <div class="limit"><b><?php echo $text_limit; ?></b>
-      <select onchange="location = this.value;">
-        <?php foreach ($limits as $limits) { ?>
-        <?php if ($limits['value'] == $limit) { ?>
-        <option value="<?php echo $limits['href']; ?>" selected="selected"><?php echo $limits['text']; ?></option>
-        <?php } else { ?>
-        <option value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
-        <?php } ?>
-        <?php } ?>
-      </select>
-    </div>
-    <div class="sort"><b><?php echo $text_sort; ?></b>
-      <select onchange="location = this.value;">
-        <?php foreach ($sorts as $sorts) { ?>
-        <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
-        <option value="<?php echo $sorts['href']; ?>" selected="selected"><?php echo $sorts['text']; ?></option>
-        <?php } else { ?>
-        <option value="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></option>
-        <?php } ?>
-        <?php } ?>
-      </select>
-    </div>
-  </div>
-  <div class="product-compare"><a href="<?php echo $compare; ?>" id="compare_total"><?php echo $text_compare; ?></a></div>
-  <div class="product-list">
-    <?php foreach ($products as $product) { ?>
-    <div>
-      <?php if ($product['thumb']) { ?>
-      <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" title="<?php echo $product['name']; ?>" alt="<?php echo $product['name']; ?>" /></a></div>
-      <?php } ?>
-      <div class="name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
-      <div class="description"><?php echo $product['description']; ?></div>
-      <!--
-      <?php if ($product['price']) { ?>
-      <div class="price">
-        <?php if (!$product['special']) { ?>
-        <?php echo $product['price']; ?>
-        <?php } else { ?>
-        <span class="price-old"><?php echo $product['price']; ?></span> <span class="price-new"><?php echo $product['special']; ?></span>
-        <?php } ?>
-        <?php if ($product['tax']) { ?>
-        <br />
-        <span class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
-        <?php } ?>
-      </div>
-      <?php } ?>
-      -->
-      <?php if ($product['rating']) { ?>
-      <div class="rating"><img src="catalog/view/theme/default/image/stars-<?php echo $product['rating']; ?>.png" alt="<?php echo $product['reviews']; ?>" /></div>
-      <?php } ?>
-      <div class="cart">
-          <a onclick="addToCart('<?php echo $product['product_id']; ?>');" class="button">
-              <span><?php echo $button_cart; ?></span>
-          </a>
-      </div>
-      
-      <div class="wishlist">
-          <!--
-          <a onclick="addToWishList('<?php echo $product['product_id']; ?>');">
-              <?php echo $button_wishlist; ?>
-          </a>
-          -->
-      </div>
-      <div class="compare">
-          <!--
-          <a onclick="addToCompare('<?php echo $product['product_id']; ?>');">
-              <?php echo $button_compare; ?>
-          </a>
-          -->
-      </div>
-      
-    </div>
-    <?php } ?>
-  </div>
-  <div class="pagination"><?php echo $pagination; ?></div>
-  <?php } ?>
-  <?php if (!$categories && !$products) { ?>
-  <div class="content"><?php echo $text_empty; ?></div>
-  <div class="buttons">
-    <div class="right"><a href="<?php echo $continue; ?>" class="button"><span><?php echo $button_continue; ?></span></a></div>
-  </div>
-  <?php } ?>
-  <?php echo $content_bottom; ?></div>
-<script type="text/javascript"><!--
-function display(view) {
-	if (view == 'list') {
-		$('.product-grid').attr('class', 'product-list');
-		
-		$('.product-list > div').each(function(index, element) {
-			html  = '<div class="right">';
-			html += '  <div class="cart">' + $(element).find('.cart').html() + '</div>';
-			html += '  <div class="wishlist">' + $(element).find('.wishlist').html() + '</div>';
-			html += '  <div class="compare">' + $(element).find('.compare').html() + '</div>';
-			html += '</div>';			
-			
-			html += '<div class="left">';
-			
-			var image = $(element).find('.image').html();
-			
-			if (image != null) { 
-				html += '<div class="image">' + image + '</div>';
-			}
-			
-			var price = $(element).find('.price').html();
-			
-			if (price != null) {
-				html += '<div class="price">' + price  + '</div>';
-			}
-					
-			html += '  <div class="name">' + $(element).find('.name').html() + '</div>';
-			html += '  <div class="description">' + $(element).find('.description').html() + '</div>';
-			
-			var rating = $(element).find('.rating').html();
-			
-			if (rating != null) {
-				html += '<div class="rating">' + rating + '</div>';
-			}
-				
-			html += '</div>';
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/goodsvn/css/products.css" media="screen" />
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="css/fix_ie7.css" />
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="css/fix_ie7.css" />
+<![endif]-->
+<title>Goodfo</title>
+</head>
+<body>
+<div class="header"><a href=""><img src="image/logo.png" align="goodfo.vn" /></a></div>
+<div class="menu_bar">
+	<div class="menu_link">
+   	  <div class="menu_item menu_item_active"><a href="#">Home</a></div>
+        <div class="menu_item">About us</div>
+        <div class="menu_item">Products</div>
+        <div class="menu_item">Contact</div>
+        <div class="clear_both"></div>
+    <a href=""><img src="image/sign_in.png"/></a>
+  <input type="text" value="Search products" onclick="this.value=''" onblur="this.value='Search products'"/>
+</div>
+<div class="main">
+	<div class="main_left">
+    	<?php echo $column_left; ?>
+        <div class="manufactures">Manufactures 
+        	<select>
+                <option>Select One</option>
+                <option>Select One</option>
+                <option>Select One</option>
+            </select>
+        </div>
+        <div class="product_menu">New Products</div>
+        <div class="new_products">
+        	<marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="4" direction="down"> 
+                <div><a href="#"><img src="image/hot/hot_product_1.jpg" title="sanpham 1"/><div title="sanpham 1">New Products Name</div></a></div>
+                <div><a href=""><img src="image/hot/hot_product_2.jpg" title="sanpham 2"/><div title="sanpham 1">New Products Name</div></a></div>
+                <div><a href=""><img src="image/hot/hot_product_3.jpg" title="sanpham 3"/><div title="sanpham 1">New Products Name</div></a></div>
+                <div><a href=""><img src="image/hot/hot_product_1.jpg" title="sanpham 1"/><div title="sanpham 1">New Products Name</div></a></div>
+                <div><a href=""><img src="image/hot/hot_product_1.jpg" title="sanpham 1"/><div title="sanpham 1">New Products Name</div></a></div>
+                <div><a href=""><img src="image/hot/hot_product_2.jpg" title="sanpham 2"/><div title="sanpham 1">New Products Name</div></a></div>
+                <div><a href=""><img src="image/hot/hot_product_3.jpg" title="sanpham 3"/><div title="sanpham 1">New Products Name</div></a></div>
+                <div><a href=""><img src="image/hot/hot_product_1.jpg" title="sanpham 1"/><div title="sanpham 1">New Products Name</div></a></div>
+			</marquee>
+        </div>
+        <div class="product_menu">Informations</div>
+        <div class="informations">
+         	<div class="information_item"><a href="">How to Send an inquiry ?</a></div>
+            <div class="information_item"><a href="">Privacy Notice</a></div>
+            <div class="information_item"><a href="">Conditions of Use</a></div>
+            <div class="information_item"><a href="">Contact Us</a></div>
+            <div class="information_item"><a href="">Sitemap</a></div> 
+        </div>
 
-						
-			$(element).html(html);
-		});		
-		
-		$('.display').html('<b><?php echo $text_display; ?></b> <?php echo $text_list; ?> <b>/</b> <a onclick="display(\'grid\');"><?php echo $text_grid; ?></a>');
-		
-		$.cookie('display', 'list'); 
-	} else {
-		$('.product-list').attr('class', 'product-grid');
-		
-		$('.product-grid > div').each(function(index, element) {
-			html = '';
-			
-			var image = $(element).find('.image').html();
-			
-			if (image != null) {
-				html += '<div class="image">' + image + '</div>';
-			}
-			
-			html += '<div class="name">' + $(element).find('.name').html() + '</div>';
-			html += '<div class="description">' + $(element).find('.description').html() + '</div>';
-			
-			var price = $(element).find('.price').html();
-			
-			if (price != null) {
-				html += '<div class="price">' + price  + '</div>';
-			}
-			
-			var rating = $(element).find('.rating').html();
-			
-			if (rating != null) {
-				html += '<div class="rating">' + rating + '</div>';
-			}
-						
-			html += '<div class="cart">' + $(element).find('.cart').html() + '</div>';
-			html += '<div class="wishlist">' + $(element).find('.wishlist').html() + '</div>';
-			html += '<div class="compare">' + $(element).find('.compare').html() + '</div>';
-			
-			$(element).html(html);
-		});	
-					
-		$('.display').html('<b><?php echo $text_display; ?></b> <a onclick="display(\'list\');"><?php echo $text_list; ?></a> <b>/</b> <?php echo $text_grid; ?>');
-		
-		$.cookie('display', 'grid');
-	}
-}
-
-view = $.cookie('display');
-
-if (view) {
-	display(view);
-} else {
-	display('list');
-}
-//--></script> 
-<?php echo $footer; ?>
+    <!--end main left-->
+    <div class="line2"></div>
+    <div class="main_center">
+    <?php 
+   // var_dump($categories);
+    	foreach ($categories as $category)
+    	{
+    		echo '<div class="menu_center">' . $category['name']. '</div>';
+    		echo '<div class="products_list">';
+    		if($category['children'])
+    		{
+    			foreach ($category['children'] as $child)
+    			{
+    				echo '<div class="products_item"><a href="'. $child['href'] .'"><img src="'. $child['image'].'" /><div class="products_item_name">'. $child['name'] .'</div></a></div>';
+    			}
+    		}
+    		echo '<div class="clear_both"></div></div>';
+    	}
+    ?>
+    	
+                    
+        <div class="menu_center">HOT PRODUCTS</div>
+        <div class="products_list">
+        	<div class="products_item"><a href=""><img src="image/product/product2_img.jpg" /><div class="products_item_name">Product Item Name</div></a></div>
+            <div class="products_item"><a href=""><img src="image/product/product2_img.jpg" /><div class="products_item_name">Product Item Name</div></a></div>
+            <div class="products_item"><a href=""><img src="image/product/product2_img.jpg" /><div class="products_item_name">Product Item Name</div></a></div>
+            <div class="products_item"><a href=""><img src="image/product/product2_img.jpg" /><div class="products_item_name">Product Item Name</div></a></div>
+            <div class="products_item"><a href=""><img src="image/product/product2_img.jpg" /><div class="products_item_name">Product Item Name</div></a></div>
+            <div class="products_item"><a href=""><img src="image/product/product2_img.jpg" /><div class="products_item_name">Product Item Name</div></a></div>
+            <div class="products_item"><a href=""><img src="image/product/product2_img.jpg" /><div class="products_item_name">Product Item Name</div></a></div>
+            <div class="products_item"><a href=""><img src="image/product/product2_img.jpg" /><div class="products_item_name">Product Item Name</div></a></div>
+            <div class="products_item"><a href=""><img src="image/product/product2_img.jpg" /><div class="products_item_name">Product Item Name</div></a></div>
+            <div class="clear_both"></div>
+        </div>
+    <!--end main center-->
+    <div class="line2"></div>
+    <div class="main_right">
+    	<div class="select">
+            <select>
+                <option>Select Language</option>
+                <option>English</option>
+                <option>Vietnamese</option>
+            </select>
+        </div>
+        <div class="product_menu">Hot Products</div>
+        <div class="hot_products">
+            <div class="hot_product_item"><a href="">Hand Washing Solution Gel Ht 300Ml</a></div>
+            <div class="hot_product_item"><a href="">Camay Soap Romantic Red 125G</a></div>
+            <div class="hot_product_item"><a href="">Clothes Detergent Axo Pink Herbal 800Ml</a></div>
+            <div class="hot_product_item"><a href="">Clothes Detergent Zononrro Blue Nature</a></div>
+            <div class="hot_product_item"><a href="">Clothes Detergent Zononrro Violet Nature 1000Ml</a></div>
+            <div class="hot_product_item"><a href="">Dan Cream Shower 250Ml</a></div>
+            <div class="hot_product_item"><a href="">Deodorant Roll Cool Kick For Men 50Ml</a></div>
+            <div class="hot_product_item"><a href="">Deodorant Roll Fresh Vitality Energy 50Ml</a></div>
+            <div class="hot_product_item"><a href="">Deodorant Roll Happy Time 20Ml</a></div>
+            <div class="hot_product_item"><a href="">Dial Soy Almond Milk Shower Gel</a></div>
+        </div>
+        <div class="newsletters">Newsletters
+        	<form name="" method="">
+            	<input type="text" value="Type your email adress" onclick="this.value=''" onblur="this.value='Type your email adress'"/>
+                <input type="submit" value="Go" />
+            </form>
+        </div>
+        <div class="product_menu">Share with</div>
+        <div class="share_with">
+        	<a href=""><div class="icon1">Email</div></a>
+            <a href=""><div class="icon2">Facebook</div></a>
+            <a href=""><div class="icon3">Twitter</div></a>
+            <a href=""><div class="icon4">Del.ici.ous</div></a>
+            <a href=""><div class="icon5">Digg</div></a>
+            <a href=""><div class="icon6">StumbleUpon</div></a>
+        </div>
+		<div class="factory" class="factory">        
+            <img src="image/factory.jpg"  title="Goodfo's Factory"/>
+            <div>This is ceramic semi products, The Goodsvn processing for customer</div>
+        </div>
+    </div>
+    <div class="clear_both"></div>
+</div>
+<div class="count_visited"><div class="statistics">Vistors: 1738<br />Online:  279</div></div>
+<?php echo $footer;?>
