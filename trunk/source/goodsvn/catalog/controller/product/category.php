@@ -24,35 +24,50 @@ class ControllerProductCategory extends Controller {
 		
 		//add new
 		if (isset($parts[1])) {
-			if(isset($parts[2]))
-			{
-				$this->data['child_id'] = $parts[2];
-				$this->data['category_id'] = $parts[1];
-			}
-			else{
-				$this->data['child_id'] = $parts[1];
-			}
+			$this->data['child_id'] = $parts[1];
 		} else {
 			$this->data['child_id'] = $this->data['category_id'] ;
 		}
-		
+		$this->data['list_cate']=1;
+		if(count($parts)==0)
+		{
+			$this->data['name']='';
+			$this->data['child_id'] = 0;
+		}else{
+			if(count($parts)===2)
+			{
+				$this->data['list_cate']=0;
+			}
+			$this->data['name']='Catalogue';
+		}
+		//echo $this->data['child_id'];	
 		$this->data['categories'] = array();
-		$this->data['parent_category'] = $this->model_catalog_category->getCategory($this->data['category_id']);			
+		$this->data['parent_category'] = $this->model_catalog_category->getCategory($this->data['child_id']);	
+			
 		$categories = $this->model_catalog_category->getCategories($this->data['child_id']);
 		
-		foreach ($categories as $category) {
+		foreach ($categories as $category) 
+		{
 			$children_data = array();
 			
 			$children = $this->model_catalog_category->getCategories($category['category_id']);
 			$total = 0;
-			foreach ($children as $child) {
+			foreach ($children as $child) 
+			{
 				$data = array(
 					'filter_category_id'  => $child['category_id'],
 					'filter_sub_category' => true
 				);		
 					
 				$product_total = $this->model_catalog_product->getTotalProducts($data);
-				$total += $product_total;	
+				$total += $product_total;
+				if(count($parts)==0)
+				{
+					$href = $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' .$category['category_id'] . '_' . $child['category_id']);
+				}
+				else{
+					$href = $this->url->link('product/listproduct', 'path=' . $child['category_id']);
+				}		
 			 if ($child['image']) { 
 				$image = $this->model_tool_image->resize($child['image'], 183, 164); 
 				} else { 
@@ -63,7 +78,7 @@ class ControllerProductCategory extends Controller {
 					'name'        => $child['name'] ,
 					'total'		  => $product_total ,
 					'image'		  => $image,
-					'href'        => $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' .$category['category_id'] . '_' . $child['category_id'])	
+					'href'        => $href	
 				);					
 			}
 			
@@ -77,14 +92,24 @@ class ControllerProductCategory extends Controller {
 				$image = $this->model_tool_image->resize($category['image'], 183, 164); 
 				} else { 
 				$image = $this->model_tool_image->resize('no_image.jpg', 183, 164);  
-				}					
+				}
+
+				if(count($parts)==2)
+				{
+					$href = $this->url->link('product/listproduct', 'path=' . $category['category_id']);
+					
+				}
+				else{
+					$href = $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' . $category['category_id']);
+				}	
+				
 			$this->data['categories'][] = array(
 				'category_id' => $category['category_id'],
 				'name'        => $category['name'] ,
 				'total'		  => $product_total ,
 				'children'    => $children_data,
 				'image'		  => $image,
-				'href'        => $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' . $category['category_id'])
+				'href'        => $href
 			);
 		}
 		

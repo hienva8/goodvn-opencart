@@ -10,7 +10,6 @@ class ControllerModuleCategory extends Controller {
 		} else {
 			$parts = array();
 		}
-		
 		if (isset($parts[0])) {
 			$this->data['category_id'] = $parts[0];
 		} else {
@@ -30,13 +29,20 @@ class ControllerModuleCategory extends Controller {
 		} else {
 			$this->data['child_id'] = $this->data['category_id'] ;
 		}
-		
+		if(count($parts)==0)
+		{
+			$this->data['name']='';
+			$this->data['child_id'] = 0;
+		}else{
+			$this->data['name']='Catalogue';
+		}
 							
 		$this->load->model('catalog/category');
 		$this->load->model('catalog/product');
 		
 		$this->data['categories'] = array();
-		$this->data['parent_category'] = $this->model_catalog_category->getCategory($this->data['category_id']);			
+		$this->data['parent_category'] = $this->model_catalog_category->getCategory($this->data['child_id']);			
+		//var_dump($this->data['parent_category']);	
 		$categories = $this->model_catalog_category->getCategories($this->data['child_id']);
 		
 		foreach ($categories as $category) {
@@ -51,13 +57,20 @@ class ControllerModuleCategory extends Controller {
 				);		
 					
 				$product_total = $this->model_catalog_product->getTotalProducts($data);
-				$total += $product_total;			
+				$total += $product_total;
+				if(count($parts)==0)
+				{
+					$href = $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' .$category['category_id'] . '_' . $child['category_id']);
+				}
+				else{
+					$href = $this->url->link('product/listproduct', 'path=' . $child['category_id']);
+				}			
 				$children_data[] = array(
 					'category_id' => $child['category_id'],
 					'name'        => $child['name'] ,
 					'total'		  => $product_total ,
 					//'image'		  => HTTP_IMAGE. '/cache/'.$child['image'],
-					'href'        => $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' .$category['category_id'] . '_' . $child['category_id'])	
+					'href'        => $href	
 				);					
 			}
 			
@@ -67,14 +80,20 @@ class ControllerModuleCategory extends Controller {
 			);		
 				
 			$product_total = $this->model_catalog_product->getTotalProducts($data);
-						
+			if(count($parts)==2)
+			{
+				$href = $this->url->link('product/listproduct', 'path=' . $category['category_id']);	
+			}
+			else{
+				$href = $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' . $category['category_id']);
+			}				
 			$this->data['categories'][] = array(
 				'category_id' => $category['category_id'],
 				'name'        => $category['name'] ,
 				'total'		  => $product_total ,
 				'children'    => $children_data,
 				//'image'		  => HTTP_IMAGE. '/cache/'.$child['image'],
-				'href'        => $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' . $category['category_id'])
+				'href'        => $href
 			);
 		}
 		

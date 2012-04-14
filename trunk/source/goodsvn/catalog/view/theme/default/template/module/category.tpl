@@ -1,4 +1,7 @@
-<div class="product_menu"><?php echo $parent_category['name']?></div>
+<div class="product_menu">
+<?php if($name ==='')
+	{
+		echo 'Catalogue';}else{echo $parent_category['name'];}?></div>
    <div class="catalogue_list">
    <?php 
       foreach ($categories as $category) {

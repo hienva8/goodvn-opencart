@@ -49,6 +49,7 @@
     <div class="main_center">
     	<?php 
 		  //  var_dump($categories);
+		  if($list_cate === 1){
 		    	foreach ($categories as $category)
 		    	{
 		    		echo '<div class="menu_center">' . $category['name']. '</div>';
@@ -62,6 +63,15 @@
 		    		}
 		    		echo '<div class="clear_both"></div></div>';
 		    	}
+		  }else {
+		  	echo '<div class="menu_center">' . $parent_category['name']. '</div>';
+		  	echo '<div class="products_list">';
+		  	foreach ($categories as $category)
+		  	{
+		  		echo '<div class="products_item"><a href="'. $category['href'] .'"><img src="'. $category['image'].'" /><div class="products_item_name">'. $category['name'] .'</div></a></div>';
+		  	}
+		  	echo '<div class="clear_both"></div></div>';
+		  }
          ?>
 		<?php echo $newproduct;?>
         
