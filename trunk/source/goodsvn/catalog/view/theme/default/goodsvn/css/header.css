@@ -1,0 +1,80 @@
+.header
+{
+	position: relative;
+	background:url(../image/bg_header.png) repeat-x;
+	width:960px;
+	height:128px;
+	margin:0 auto;
+	border-bottom:#2a73b2 2px solid;
+	text-align:center;
+}
+.header img
+{
+	margin-top:20px;
+}
+.menu_bar
+{
+	width:960px;
+	height:62px;
+	margin:0 auto;
+	background:#f0f0f0;
+	border-bottom:#7eb5de 2px solid;
+	position:relative;
+}
+.menu_link
+{
+	margin-left:13px;
+	padding-top:20px;
+	width:653px;
+	text-align:center;
+	font-size:18px;
+}
+.menu_item
+{
+	float:left;
+	background:url(../image/menu_none_active.png) no-repeat;
+	width:127px;
+	height:32px;
+	padding-top:10px;
+	padding-right:3px;
+	color:#FFF;
+	cursor:pointer;
+}
+.menu_item_active,.menu_item:hover
+{
+	color:#d4eafc;
+	background:url(../image/menu_active.png) no-repeat;
+}
+.menu_bar img
+{
+	position:absolute;
+	top:30px;
+	right:188px;
+}
+
+.footer
+{
+	background:url(../image/bg_footer.png) repeat-x;
+	height:100px;
+	margin:0 auto;
+	position:relative;
+}
+.sign
+{
+	text-align:center;
+	padding-top:42px;
+	color:#333;
+	font-size:12px;
+}
+.logo1
+{
+	position:absolute;
+	left:35px;
+	top:15px;
+}
+.logo2
+{
+	position:absolute;
+	right:35px;
+	top:15px;
+}
