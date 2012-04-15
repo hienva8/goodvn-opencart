@@ -1,4 +1,4 @@
-//body
+body
 {
 	background:#f3f3f3;
 	font-family:Arial, Helvetica, sans-serif;
@@ -32,18 +32,69 @@ img,input[type="text"],input[type="submit"]
 	height:20px;
 	clear:both;
 }
-
-/*.menu_bar input[type="text"]
+.header
+{
+	background:url(../image/bg_header.png) repeat-x;
+	width:960px;
+	height:128px;
+	margin:0 auto;
+	border-bottom:#2a73b2 2px solid;
+	text-align:center;
+}
+.header img
+{
+	margin-top:20px;
+}
+.menu_bar
+{
+	width:960px;
+	height:62px;
+	margin:0 auto;
+	background:#f0f0f0;
+	border-bottom:#7eb5de 2px solid;
+	position:relative;
+}
+.menu_link
+{
+	margin-left:33px;
+	padding-top:20px;
+	width:580px;
+	text-align:center;
+	font-size:18px;
+}
+.menu_item
+{
+	float:left;
+	background:url(../image/menu_none_active.png) no-repeat;
+	width:132px;
+	height:32px;
+	padding-top:10px;
+	padding-right:3px;
+	color:#FFF;
+	cursor:pointer;
+}
+.menu_item_active,.menu_item:hover
+{
+	color:#d4eafc;
+	background:url(../image/menu_active.png) no-repeat;
+}
+.menu_bar img
+{
+	position:absolute;
+	top:30px;
+	right:220px;
+}
+.menu_bar input[type="text"]
 {
 	position:absolute;
 	top:28px;
-	right:8px;
+	right:38px;
 	background:url(../image/bg_textbox.jpg);
 	width:165px;
-	height:18px;
+	height:22px;
 	padding-left:6px;
 	border:#c6c6c6 1px solid;
-}*/
+}
 .main
 {
 	width:960px;
@@ -99,23 +150,21 @@ ul,li
 {
 	width:606px;
 	height:381px;
-
+	background:url(../image/bg_img.png) no-repeat;
+	padding:13px;
 }
 .slide img
 {
-	width:623px;
-	height:400px;
-    background: url("../image/bg_img.png") no-repeat scroll 0 0 transparent;
-    padding: 1px;
-    border-radius: 5px 5px 5px 5px;
+	width:606px;
+	height:382px;
 }
 .slide_text
 {
-    background: url("../image/icon_circle.png") no-repeat scroll 0 6px transparent;
-    font-size: 18px;
-    margin-left: 30px;
-    margin-top: 32px;
-    padding-left: 20px;
+	padding-left:20px;
+	margin-left:30px;
+	background:url(../image/icon_circle.png) no-repeat 0 3px;
+	font-size:18px;
+	margin-top:8px;
 }
 .slide_text a:link,.slide_text a:visited
 {
@@ -290,7 +339,6 @@ ul,li
 	left:50px;
 }
 
-
 /*cac thanh phan trong main right*/
 .select
 {
@@ -322,7 +370,7 @@ ul,li
 }
 .support
 {
-	width:260px;
+	width:200px;
 	margin:5px auto;
 }
 .hotline
@@ -342,7 +390,7 @@ ul,li
 }
 .support_item
 {
-	width:100px;
+	width:80px;
 	height:30px;
 	float:left;
 	padding:5px 10px;
@@ -450,5 +498,32 @@ ul,li
 	color:#999;
 	font-size:12px;
 	font-weight:bold;
+}
+.footer
+{
+	background:url(../image/bg_footer.png) repeat-x;
+	height:100px;
+	width:960px;
+	margin:0 auto;
+	position:relative;
+}
+.sign
+{
+	text-align:center;
+	padding-top:42px;
+	color:#333;
+	font-size:12px;
+}
+.logo1
+{
+	position:absolute;
+	left:35px;
+	top:15px;
+}
+.logo2
+{
+	position:absolute;
+	right:35px;
+	top:15px;
 }
 /*end cac thanh phan trong main right*/
