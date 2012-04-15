@@ -2,7 +2,9 @@
 class ControllerInformationActivity extends Controller {
 	    
   	public function index() {
-      
+        $this->document->setTitle($this->config->get('config_title'));
+		$this->document->setDescription($this->config->get('config_meta_description'));
+        
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/information/activity.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/information/activity.tpl';
 		} else {

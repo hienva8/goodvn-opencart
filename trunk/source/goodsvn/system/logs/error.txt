@@ -304,3 +304,11 @@
 2012-04-13 18:37:19 - PHP Notice:  Undefined variable: error_zone in C:\xampp\htdocs\goodsvn\source\goodsvn\catalog\view\theme\default\template\account\register.tpl on line 99
 2012-04-13 18:37:19 - PHP Notice:  Undefined variable: country_id in C:\xampp\htdocs\goodsvn\source\goodsvn\catalog\view\theme\default\template\account\register.tpl on line 162
 2012-04-13 18:37:19 - PHP Notice:  Undefined variable: zone_id in C:\xampp\htdocs\goodsvn\source\goodsvn\catalog\view\theme\default\template\account\register.tpl on line 162
+2012-04-14 18:16:17 - PHP Notice:  Undefined variable: activity in C:\xampp\htdocs\goodsvn\source\goodsvn\catalog\view\theme\default\template\information\aboutus.tpl on line 95
+2012-04-14 18:19:12 - PHP Notice:  Undefined variable: activity in C:\xampp\htdocs\goodsvn\source\goodsvn\catalog\view\theme\default\template\information\aboutus.tpl on line 95
+2012-04-14 18:21:16 - PHP Notice:  Undefined variable: heading_title in C:\xampp\htdocs\goodsvn\source\goodsvn\catalog\view\theme\default\template\information\aboutus.tpl on line 95
+2012-04-14 18:24:01 - PHP Notice:  Undefined variable: activity in C:\xampp\htdocs\goodsvn\source\goodsvn\catalog\view\theme\default\template\information\aboutus.tpl on line 95
+2012-04-14 18:24:43 - PHP Notice:  Undefined variable: activity in C:\xampp\htdocs\goodsvn\source\goodsvn\catalog\view\theme\default\template\information\aboutus.tpl on line 98
+2012-04-15 8:50:57 - PHP Notice:  Undefined variable: activity in C:\xampp\htdocs\goodsvn\source\goodsvn\catalog\view\theme\default\template\information\aboutus.tpl on line 95
+2012-04-15 8:58:55 - PHP Notice:  Undefined variable: activity in C:\xampp\htdocs\goodsvn\source\goodsvn\catalog\view\theme\default\template\information\aboutus.tpl on line 95
+2012-04-15 9:35:55 - PHP Notice:  Undefined variable: mail in C:\xampp\htdocs\goodsvn\source\goodsvn\catalog\view\theme\default\template\information\contact.tpl on line 90

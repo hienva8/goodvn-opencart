@@ -51,7 +51,6 @@ class ControllerInformationContact extends Controller {
     	$this->data['entry_name'] = $this->language->get('entry_name');
     	$this->data['entry_email'] = $this->language->get('entry_email');
     	$this->data['entry_enquiry'] = $this->language->get('entry_enquiry');
-		$this->data['entry_captcha'] = $this->language->get('entry_captcha');
 
 		if (isset($this->error['name'])) {
     		$this->data['error_name'] = $this->error['name'];
@@ -71,11 +70,6 @@ class ControllerInformationContact extends Controller {
 			$this->data['error_enquiry'] = '';
 		}		
 		
- 		if (isset($this->error['captcha'])) {
-			$this->data['error_captcha'] = $this->error['captcha'];
-		} else {
-			$this->data['error_captcha'] = '';
-		}	
 
     	$this->data['button_continue'] = $this->language->get('button_continue');
     
@@ -103,12 +97,6 @@ class ControllerInformationContact extends Controller {
 			$this->data['enquiry'] = '';
 		}
 		
-		if (isset($this->request->post['captcha'])) {
-			$this->data['captcha'] = $this->request->post['captcha'];
-		} else {
-			$this->data['captcha'] = '';
-		}		
-
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/information/contact.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/information/contact.tpl';
 		} else {
@@ -193,10 +181,6 @@ class ControllerInformationContact extends Controller {
 
     	if ((utf8_strlen($this->request->post['enquiry']) < 10) || (utf8_strlen($this->request->post['enquiry']) > 3000)) {
       		$this->error['enquiry'] = $this->language->get('error_enquiry');
-    	}
-
-    	if (!isset($this->session->data['captcha']) || ($this->session->data['captcha'] != $this->request->post['captcha'])) {
-      		$this->error['captcha'] = $this->language->get('error_captcha');
     	}
 		
 		if (!$this->error) {
