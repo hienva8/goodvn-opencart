@@ -85,19 +85,19 @@ class ControllerCheckoutShipping extends Controller {
 			$this->data['button_continue'] = $this->language->get('button_continue');
 			
 			if (isset($this->session->data['shipping_methods']) && !$this->session->data['shipping_methods']) {
-				$this->data['error_warning'] = sprintf($this->language->get('error_no_shipping'), $this->url->link('information/contact'));
+				//$this->data['error_warning'] = sprintf($this->language->get('error_no_shipping'), $this->url->link('information/contact'));
 			} else {
 				$this->data['error_warning'] = '';
 			}	
 						
 			if (isset($this->session->data['shipping_methods'])) {
-				$this->data['shipping_methods'] = $this->session->data['shipping_methods']; 
+				//$this->data['shipping_methods'] = $this->session->data['shipping_methods']; 
 			} else {
 				$this->data['shipping_methods'] = array();
 			}
 			
 			if (isset($this->session->data['shipping_method']['code'])) {
-				$this->data['code'] = $this->session->data['shipping_method']['code'];
+				//$this->data['code'] = $this->session->data['shipping_method']['code'];
 			} else {
 				$this->data['code'] = '';
 			}
