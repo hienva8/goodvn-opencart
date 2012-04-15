@@ -1,8 +1,12 @@
+<!--
 <?php if ($error_warning) { ?>
 <div class="warning"><?php echo $error_warning; ?></div>
 <?php } ?>
+
 <?php if ($shipping_methods) { ?>
 <p><?php echo $text_shipping_method; ?></p>
+
+
 <table class="form">
   <?php foreach ($shipping_methods as $shipping_method) { ?>
   <tr>
@@ -28,7 +32,9 @@
   <?php } ?>
   <?php } ?>
 </table>
+
 <?php } ?>
+-->
 <b><?php echo $text_comments; ?></b>
 <textarea name="comment" rows="8" style="width: 98%;"><?php echo $comment; ?></textarea>
 <br />
