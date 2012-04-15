@@ -9,7 +9,7 @@ class ControllerCommonHome extends Controller {
 		/*Some data*/
 		$this->load->model('catalog/category');
 		$this->load->model('catalog/product');
-		
+		$this->document->addLink('catalog/view/theme/default/goodsvn/css/header.css','stylesheet');
 		$this->data['categories'] = array();
 			
 		$categories = $this->model_catalog_category->getCategories(0);

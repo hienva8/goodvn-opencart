@@ -1,7 +1,7 @@
 <?php 
 class ControllerProductNewProductLeft extends Controller {  
-	public $image_with = 173;
-	public $image_height = 154;
+	public $image_with = 120;
+	public $image_height = 100;
 	public function index() 
 	{ 
 		//$this->language->load('product/category');
