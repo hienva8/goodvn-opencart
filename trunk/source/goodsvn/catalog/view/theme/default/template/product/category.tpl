@@ -1,31 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/goodsvn/css/products.css" media="screen" />
-<!--[if IE 7]>
-<link rel="stylesheet" type="text/css" href="css/fix_ie7.css" />
-<![endif]-->
-<!--[if IE 8]>
-<link rel="stylesheet" type="text/css" href="css/fix_ie7.css" />
-<![endif]-->
-<title>Goodfo</title>
-</head>
-<div class="header"><a href=""><img src="image/logo.png" align="goodfo.vn" /></a></div>
-<div class="menu_bar">
-	<div class="menu_link">
-   	  <div class="menu_item menu_item_active">Home</div>
-        <div class="menu_item">About us</div>
-        <div class="menu_item">Products</div>
-        <div class="menu_item">Contact</div>
-        <div class="clear_both"></div>
-    </div>
-    <a href=""><img src="image/sign_in.png"/></a>
-  <input type="text" value="Search products" onclick="this.value=''" onblur="this.value='Search products'"/>
-</div>
+<?php echo $header;?>
 <div class="main">
 	<div class="main_left">
-    	<?php echo $column_left;?>
+    	<?php echo $category;?>
         <div class="manufactures">Manufactures 
         	<select>
                 <option>Select One</option>

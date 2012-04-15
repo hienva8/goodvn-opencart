@@ -46,7 +46,6 @@ DD_belatedPNG.fix('#logo img');
 </script>
 <![endif]-->
 <?php echo $google_analytics; ?>
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/goodsvn/css/header.css" />
 
 <script type="text/javascript" src="catalog/view/theme/default/goodsvn/js/easySlider1.7.js"></script>
 <script type="text/javascript" src="catalog/view/theme/default/goodsvn/js/jquery.cycle.all.js"></script>
@@ -87,7 +86,7 @@ DD_belatedPNG.fix('#logo img');
 	<div class="menu_link">
    	  <div class="menu_item menu_item_active" onclick="location.href='<?php echo $home; ?>'">Home</div>
         <div class="menu_item" onclick="location.href='<?php echo $aboutus; ?>'">About us</div>
-        <div class="menu_item" onclick="location.href='<?php echo $home; ?>'">Products</div>
+        <div class="menu_item" onclick="location.href='<?php echo $product; ?>'">Products</div>
         <div class="menu_item" onclick="location.href='<?php echo $contact; ?>'">Contact</div>
         <div class="clear_both"></div>
     </div>
