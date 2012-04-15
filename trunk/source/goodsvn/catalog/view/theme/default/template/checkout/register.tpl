@@ -32,7 +32,8 @@
   <br />
 </div>
 <div class="right">
-  <h2><?php echo $text_your_address; ?></h2>
+  
+    <h2><?php echo $text_your_address; ?></h2>
   <?php echo $entry_company; ?><br />
   <input type="text" name="company" value="" class="large-field" />
   <br />
@@ -72,16 +73,19 @@
   <br />
   <br />
   <br />
+  
 </div>
 <div style="clear: both; padding-top: 15px; border-top: 1px solid #EEEEEE;">
   <input type="checkbox" name="newsletter" value="1" id="newsletter" />
   <label for="newsletter"><?php echo $entry_newsletter; ?></label>
   <br />
+  
   <?php if ($shipping_required) { ?>
   <input type="checkbox" name="shipping_address" value="1" id="shipping" checked="checked" />
   <label for="shipping"><?php echo $entry_shipping; ?></label>
   <br />
   <?php } ?>
+  
   <br />
   <br />
 </div>
@@ -96,9 +100,11 @@
   <div class="right"><a id="button-register" class="button"><span><?php echo $button_continue; ?></span></a></div>
 </div>
 <?php } ?>
-<script type="text/javascript"><!--
+
+<script type="text/javascript">
 $('#payment-address select[name=\'zone_id\']').load('index.php?route=checkout/address/zone&country_id=<?php echo $country_id; ?>');
-//--></script>
+</script>
+
 <script type="text/javascript"><!--
 $('.fancybox').fancybox({
 	width: 560,
