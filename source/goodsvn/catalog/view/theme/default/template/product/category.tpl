@@ -2,13 +2,9 @@
 <div class="main">
 	<div class="main_left">
     	<?php echo $category;?>
-        <div class="manufactures">Manufactures 
-        	<select>
-                <option>Select One</option>
-                <option>Select One</option>
-                <option>Select One</option>
-            </select>
-        </div>
+        <!-- start manufactor -->
+        <?php echo $manufacturer_left;?>
+        <!-- end manufactor -->
         <!-- newproduct_left -->
         <?php echo $newproduct_left;?>
         <div class="product_menu">Informations</div>

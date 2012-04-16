@@ -138,7 +138,8 @@ class ControllerProductCategory extends Controller {
 				'common/header',
 				'product/newproduct',
 				'product/newproduct_left',
-				'product/hotproduct_right'
+				'product/hotproduct_right',
+				'product/manufacturer_left'
 			);
 				
 			$this->response->setOutput($this->render());	
