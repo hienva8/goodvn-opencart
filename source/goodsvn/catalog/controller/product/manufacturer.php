@@ -17,6 +17,7 @@ class ControllerProductManufacturer extends Controller {
 		$this->data['button_continue'] = $this->language->get('button_continue');
 		
 		$this->data['breadcrumbs'] = array();
+		$this->document->addLink('catalog/view/theme/default/goodsvn/css/products.css','stylesheet');
 		
       	$this->data['breadcrumbs'][] = array(
         	'text'      => $this->language->get('text_home'),
@@ -60,12 +61,15 @@ class ControllerProductManufacturer extends Controller {
 		}			
 		
 		$this->children = array(
-			'common/column_left',
-			'common/column_right',
+			'module/category',
+			'product/newproduct_left',
 			'common/content_top',
 			'common/content_bottom',
 			'common/footer',
-			'common/header'
+			'common/header',
+			'product/newproduct',
+			'product/manufacturer_left',
+			'product/hotproduct_right'
 		);
 				
 		$this->response->setOutput($this->render());										
@@ -79,6 +83,7 @@ class ControllerProductManufacturer extends Controller {
 		$this->load->model('catalog/product');
 		
 		$this->load->model('tool/image'); 
+		$this->document->addLink('catalog/view/theme/default/goodsvn/css/products.css','stylesheet');
 		
 		if (isset($this->request->get['manufacturer_id'])) {
 			$manufacturer_id = $this->request->get['manufacturer_id'];
@@ -375,12 +380,15 @@ class ControllerProductManufacturer extends Controller {
 			}
 			
 			$this->children = array(
-				'common/column_left',
-				'common/column_right',
+				'module/category',
+				'product/newproduct_left',
 				'common/content_top',
 				'common/content_bottom',
 				'common/footer',
-				'common/header'
+				'common/header',
+				'product/newproduct',
+				'product/manufacturer_left',
+				'product/hotproduct_right'
 			);
 					
 			$this->response->setOutput($this->render());
@@ -430,12 +438,15 @@ class ControllerProductManufacturer extends Controller {
 			}
 			
 			$this->children = array(
-				'common/column_left',
-				'common/column_right',
+				'module/category',
+				'product/newproduct_left',
 				'common/content_top',
 				'common/content_bottom',
 				'common/footer',
-				'common/header'
+				'common/header',
+				'product/newproduct',
+				'product/manufacturer_left',
+				'product/hotproduct_right'
 			);
 					
 			$this->response->setOutput($this->render());
