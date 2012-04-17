@@ -112,7 +112,7 @@ class ControllerProductManufacturer extends Controller {
 		if (isset($this->request->get['limit'])) {
 			$limit = $this->request->get['limit'];
 		} else {
-			$limit = $this->config->get('config_catalog_limit');
+			$limit = 9;// $this->config->get('config_catalog_limit');
 		}
 
 		$this->data['breadcrumbs'] = array();
@@ -236,7 +236,7 @@ class ControllerProductManufacturer extends Controller {
 					'tax'         => $tax,
 					'rating'      => $result['rating'],
 					'reviews'     => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
-					'href'        => $this->url->link('product/product', $url . '&manufacturer_id=' . $result['manufacturer_id'] . '&product_id=' . $result['product_id'])
+					'href'        => $this->url->link('product/product', '&product_id=' . $result['product_id'])
 				);
 			}
 					

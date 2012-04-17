@@ -46,7 +46,7 @@ DD_belatedPNG.fix('#logo img');
 </script>
 <![endif]-->
 <?php echo $google_analytics; ?>
-
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/goodsvn/css/header.css" />
 <script type="text/javascript" src="catalog/view/theme/default/goodsvn/js/easySlider1.7.js"></script>
 <script type="text/javascript" src="catalog/view/theme/default/goodsvn/js/jquery.cycle.all.js"></script>
 <script type="text/javascript">
