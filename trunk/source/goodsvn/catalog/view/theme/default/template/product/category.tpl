@@ -76,7 +76,7 @@
             <a href=""><div class="icon6">StumbleUpon</div></a>
         </div>
 		<div class="factory" class="factory">        
-            <img src="image/factory.jpg"  title="Goodfo's Factory"/>
+            <img src="<?php echo HTTP_IMAGE;?>/data/Goodsvn/factory.jpg"  title="Goodfo's Factory"/>
             <div>This is ceramic semi products, The Goodsvn processing for customer</div>
         </div>
     </div>
