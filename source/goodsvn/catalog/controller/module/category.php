@@ -60,7 +60,7 @@ class ControllerModuleCategory extends Controller {
 				$total += $product_total;
 				if(count($parts)==0)
 				{
-					$href = $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' .$category['category_id'] . '_' . $child['category_id']);
+					$href = $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']);
 				}
 				else{
 					$href = $this->url->link('product/listproduct', 'path=' . $child['category_id']);
