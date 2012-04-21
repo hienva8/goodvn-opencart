@@ -76,11 +76,14 @@ $(document).ready(function(){
             </ul>
           </li>
           <li><a href="<?php echo $option; ?>"><?php echo $text_option; ?></a></li>
+          -->
           <li><a href="<?php echo $manufacturer; ?>"><?php echo $text_manufacturer; ?></a></li>
+          <!-- 
           <li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>
           <li><a href="<?php echo $review; ?>"><?php echo $text_review; ?></a></li>
+           -->
           <li><a href="<?php echo $information; ?>"><?php echo $text_information; ?></a></li>
-          -->
+       
         </ul>
       </li>
       <!--
@@ -95,8 +98,11 @@ $(document).ready(function(){
       </li>
       -->
       
-      <li id="sale"><a class="top">Newsletters</a>
+      <li id="sale"><a class="top"><?php echo $text_sale; ?></a>
         <ul>
+        	<li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
+   
+            <li><a href="<?php echo $customer; ?>"><?php echo $text_customer; ?></a></li>
             <!--        //Newsletter Subscribers-->
     	  <li><a href="<?php echo $newssubscribe; ?>"><?php echo $text_newssubscribe; ?></a></li>
 		  <!--        //Newsletter Subscribers-->  
@@ -155,10 +161,12 @@ $(document).ready(function(){
           <li><a class="parent"><?php echo $text_sale; ?></a>
             <ul>
               <li><a href="<?php echo $report_sale_order; ?>"><?php echo $text_report_sale_order; ?></a></li>
+             <!-- 
               <li><a href="<?php echo $report_sale_tax; ?>"><?php echo $text_report_sale_tax; ?></a></li>
               <li><a href="<?php echo $report_sale_shipping; ?>"><?php echo $text_report_sale_shipping; ?></a></li>
               <li><a href="<?php echo $report_sale_return; ?>"><?php echo $text_report_sale_return; ?></a></li>
               <li><a href="<?php echo $report_sale_coupon; ?>"><?php echo $text_report_sale_coupon; ?></a></li>
+             -->
             </ul>
           </li>
           <li><a class="parent"><?php echo $text_product; ?></a>
@@ -170,17 +178,22 @@ $(document).ready(function(){
           <li><a class="parent"><?php echo $text_customer; ?></a>
             <ul>
               <li><a href="<?php echo $report_customer_order; ?>"><?php echo $text_report_customer_order; ?></a></li>
+              <!-- 
               <li><a href="<?php echo $report_customer_reward; ?>"><?php echo $text_report_customer_reward; ?></a></li>
               <li><a href="<?php echo $report_customer_credit; ?>"><?php echo $text_report_customer_credit; ?></a></li>
+             -->
             </ul>
           </li>
+          <!-- 
           <li><a class="parent"><?php echo $text_affiliate; ?></a>
             <ul>
               <li><a href="<?php echo $report_affiliate_commission; ?>"><?php echo $text_report_affiliate_commission; ?></a></li>
             </ul>
           </li>
+           -->
         </ul>
       </li>
+      <!-- 
       <li id="help"><a class="top"><?php echo $text_help; ?></a>
         <ul>
           <li><a onClick="window.open('http://www.opencart.com');"><?php echo $text_opencart; ?></a></li>
@@ -188,6 +201,7 @@ $(document).ready(function(){
           <li><a onClick="window.open('http://forum.opencart.com');"><?php echo $text_support; ?></a></li>
         </ul>
       </li>
+       -->
     </ul>
     <ul class="right">
       <li id="store"><a onClick="window.open('<?php echo $store; ?>');" class="top"><?php echo $text_front; ?></a>

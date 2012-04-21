@@ -7,14 +7,9 @@
         <!-- end manufactor -->
         <!-- newproduct_left -->
         <?php echo $newproduct_left;?>
-        <div class="product_menu">Informations</div>
-        <div class="informations">
-         	<div class="information_item"><a href="">How to Send an inquiry ?</a></div>
-            <div class="information_item"><a href="">Privacy Notice</a></div>
-            <div class="information_item"><a href="">Conditions of Use</a></div>
-            <div class="information_item"><a href="">Contact Us</a></div>
-            <div class="information_item"><a href="">Sitemap</a></div> 
-        </div>
+        
+       <!--  information -->
+       	<?php echo $information;?>
     </div>
     <!--end main left-->
     <div class="line2"></div>
