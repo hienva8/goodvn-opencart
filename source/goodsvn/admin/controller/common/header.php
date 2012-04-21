@@ -98,6 +98,10 @@ class ControllerCommonHeader extends Controller {
 		$this->data['text_length_class'] = $this->language->get('text_length_class');
       	$this->data['text_zone'] = $this->language->get('text_zone');
 		
+		//Newsletter Subscribers
+		$this->data['text_newssubscribe'] = $this->language->get('text_newssubscribe');
+		//Newsletter Subscribers
+		
 		if (!$this->user->isLogged() || !isset($this->request->get['token']) || !isset($this->session->data['token']) || ($this->request->get['token'] != $this->session->data['token'])) {
 			$this->data['logged'] = '';
 			
@@ -178,6 +182,9 @@ class ControllerCommonHeader extends Controller {
 			$this->data['weight_class'] = $this->url->link('localisation/weight_class', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['length_class'] = $this->url->link('localisation/length_class', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['zone'] = $this->url->link('localisation/zone', 'token=' . $this->session->data['token'], 'SSL');
+			//Newsletter Subscribers
+			$this->data['newssubscribe'] = $this->url->link('sale/newssubscribers', 'token=' . $this->session->data['token'], 'SSL'); 						
+			//Newsletter Subscribers
 		}
 		
 		$this->template = 'common/header.tpl';

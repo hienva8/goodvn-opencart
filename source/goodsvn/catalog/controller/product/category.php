@@ -51,6 +51,7 @@ class ControllerProductCategory extends Controller {
 			
 			$this->data['heading_title'] = $category_info['name'];
 		}else {
+			$this->document->setTitle("Catalogue");
 			$this->data['heading_title'] = "Catalogue";
 		}
 		$this->document->addLink('catalog/view/theme/default/goodsvn/css/products.css','stylesheet');
@@ -139,7 +140,8 @@ class ControllerProductCategory extends Controller {
 				'product/newproduct',
 				'product/newproduct_left',
 				'product/hotproduct_right',
-				'product/manufacturer_left'
+				'product/manufacturer_left',
+				'module/newslettersubscribe'
 			);
 				
 			$this->response->setOutput($this->render());	

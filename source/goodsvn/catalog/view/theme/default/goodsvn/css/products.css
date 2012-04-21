@@ -280,7 +280,7 @@ ul,li
 .newsletters
 {
 	background:url(../image/bg_newsletters.png) no-repeat;
-	height:80px;
+	height:140px;
 	margin-bottom:10px;
 }
 .newsletters form
@@ -380,6 +380,7 @@ ul,li
 	color:#FFF;
 	margin:auto;
 	padding-top:7px;
+	font-size: 18px;
 }
 .products_list
 {
