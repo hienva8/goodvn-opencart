@@ -286,11 +286,12 @@ label {
 	box-shadow: 0px 2px 0px #F0F0F0;	
 }
 .header #welcome {
-	color: #999999;
+ color: #999999;
+    height: 24px;
     position: absolute;
-    right: 185px;
+    right: 181px;
     text-align: right;
-    top: 139px;
+    top: 160px;
     width: 209px;
     z-index: 5;
 }

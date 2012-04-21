@@ -1,4 +1,6 @@
 <?php echo $header; ?><?php echo $column_left; ?><?php echo $column_right; ?>
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/goodsvn/css/about.css" media="screen" />
+<div class="main">
 <div id="content"><?php echo $content_top; ?>
   <div class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -347,7 +349,7 @@
     <?php } ?>
   </div>
   <?php } ?>
-  <?php echo $content_bottom; ?></div>
+  <?php echo $content_bottom; ?></div></div>
 <script type="text/javascript"><!--
 $('.fancybox').fancybox({cyclic: true});
 //--></script> 

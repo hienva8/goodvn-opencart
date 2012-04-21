@@ -16,33 +16,7 @@
             <div class="checkout-heading"><span><?php echo $text_checkout_account; ?></span></div>
             <div class="checkout-content"></div>
         </div>
-        <?php } else { ?>
-        <div id="payment-address">
-            <div class="checkout-heading"><span><?php echo $text_checkout_payment_address; ?></span></div>
-            <div class="checkout-content"></div>
-        </div>
-        <?php } ?>
-        <?php if ($shipping_required) { ?>
-        <!--
-        <div id="shipping-address">
-            <div class="checkout-heading"><?php echo $text_checkout_shipping_address; ?></div>
-            <div class="checkout-content"></div>
-        </div>
-        <div id="shipping-method">
-            <div class="checkout-heading"><?php echo $text_checkout_shipping_method; ?></div>
-            <div class="checkout-content"></div>
-        </div>
-        <?php } ?>
-        
-        <div id="payment-method">
-            <div class="checkout-heading"><?php echo $text_checkout_payment_method; ?></div>
-            <div class="checkout-content"></div>
-        </div>
-        -->
-        <div id="confirm">
-            <div class="checkout-heading"><?php echo $text_checkout_confirm; ?></div>
-            <div class="checkout-content"></div>
-        </div>
+        <?php }?>
     </div>
     <?php echo $content_bottom; ?></div>
 <script type="text/javascript">
@@ -167,7 +141,7 @@ if (json['error']) {
 $('#checkout .checkout-content').prepend('<div class="warning" style="display: none;">' + json['error']['warning'] + '</div>');
 				
 $('.warning').fadeIn('slow');
-} else {								
+} else {	/*							
 $.ajax({
 url: 'index.php?route=checkout/address/payment',
 dataType: 'json',
@@ -188,7 +162,7 @@ $('#payment-address .checkout-heading span').html('<?php echo $text_checkout_pay
 $('.checkout-heading a').remove();
 }
 }
-});	
+});	*/
 }
 }
 });	
@@ -234,31 +208,8 @@ $('#payment-address input[name=\'lastname\'] + br').after('<span class="error">'
 				
 if (json['error']['email']) {
 $('#payment-address input[name=\'email\'] + br').after('<span class="error">' + json['error']['email'] + '</span>');
-}
-				
-if (json['error']['telephone']) {
-$('#payment-address input[name=\'telephone\'] + br').after('<span class="error">' + json['error']['telephone'] + '</span>');
-}		
-										
-if (json['error']['address_1']) {
-$('#payment-address input[name=\'address_1\'] + br').after('<span class="error">' + json['error']['address_1'] + '</span>');
-}	
-				
-if (json['error']['city']) {
-$('#payment-address input[name=\'city\'] + br').after('<span class="error">' + json['error']['city'] + '</span>');
-}	
-				
-if (json['error']['postcode']) {
-$('#payment-address input[name=\'postcode\'] + br').after('<span class="error">' + json['error']['postcode'] + '</span>');
-}	
-				
-if (json['error']['country']) {
-$('#payment-address select[name=\'country_id\'] + br').after('<span class="error">' + json['error']['country'] + '</span>');
-}	
-				
-if (json['error']['zone']) {
-$('#payment-address select[name=\'zone_id\'] + br').after('<span class="error">' + json['error']['zone'] + '</span>');
-}
+}					
+
 				
 if (json['error']['password']) {
 $('#payment-address input[name=\'password\'] + br').after('<span class="error">' + json['error']['password'] + '</span>');
@@ -308,118 +259,6 @@ else
 
 /*=============*/
 
-<?php if ($shipping_required) { ?>				
-var shipping_address = $('#payment-address input[name=\'shipping_address\']:checked').attr('value');
-				
-if (shipping_address) {
-$.ajax({
-url: 'index.php?route=checkout/shipping',
-dataType: 'json',
-success: function(json) {
-if (json['redirect']) {
-location = json['redirect'];
-}
-														
-if (json['output']) {
-$('#shipping-method .checkout-content').html(json['output']);
-								
-$('#payment-address .checkout-content').slideUp('slow');
-								
-$('#shipping-method .checkout-content').slideDown('slow');
-								
-$('#checkout .checkout-heading a').remove();
-$('#payment-address .checkout-heading a').remove();
-$('#shipping-address .checkout-heading a').remove();
-$('#shipping-method .checkout-heading a').remove();
-$('#payment-method .checkout-heading a').remove();											
-								
-$('#shipping-address .checkout-heading').append('<a><?php echo $text_modify; ?></a>');									
-$('#payment-address .checkout-heading').append('<a><?php echo $text_modify; ?></a>');	
-	
-$.ajax({
-url: 'index.php?route=checkout/address/shipping',
-dataType: 'json',
-success: function(json) {
-if (json['redirect']) {
-location = json['redirect'];
-}										
-										
-if (json['output']) {
-$('#shipping-address .checkout-content').html(json['output']);
-}
-}
-});	
-}
-}
-});	
-} else {
-$.ajax({
-url: 'index.php?route=checkout/address/shipping',
-dataType: 'json',
-success: function(json) {
-if (json['redirect']) {
-location = json['redirect'];
-}
-										
-if (json['output']) {
-$('#shipping-address .checkout-content').html(json['output']);
-								
-$('#payment-address .checkout-content').slideUp('slow');
-								
-$('#shipping-address .checkout-content').slideDown('slow');
-								
-$('#checkout .checkout-heading a').remove();
-$('#payment-address .checkout-heading a').remove();
-$('#shipping-address .checkout-heading a').remove();
-$('#shipping-method .checkout-heading a').remove();
-$('#payment-method .checkout-heading a').remove();							
-
-$('#payment-address .checkout-heading').append('<a><?php echo $text_modify; ?></a>');	
-}
-}
-});			
-}
-<?php } else { ?>
-$.ajax({
-url: 'index.php?route=checkout/payment',
-dataType: 'json',
-success: function(json) {
-if (json['redirect']) {
-location = json['redirect'];
-}	
-											
-if (json['output']) {
-$('#payment-method .checkout-content').html(json['output']);
-							
-$('#payment-address .checkout-content').slideUp('slow');
-							
-$('#payment-method .checkout-content').slideDown('slow');
-							
-$('#checkout .checkout-heading a').remove();
-$('#payment-address .checkout-heading a').remove();
-$('#payment-method .checkout-heading a').remove();								
-							
-$('#payment-address .checkout-heading').append('<a><?php echo $text_modify; ?></a>');	
-}
-}
-});					
-<?php } ?>
-				
-$.ajax({
-url: 'index.php?route=checkout/address/payment',
-dataType: 'json',
-success: function(json) {
-if (json['redirect']) {
-location = json['redirect'];
-}
-									
-if (json['output']) {
-$('#payment-address .checkout-content').html(json['output']);
-							
-$('#payment-address .checkout-heading span').html('<?php echo $text_checkout_payment_address; ?>');
-}
-}
-});
 }	 
 }
 });	

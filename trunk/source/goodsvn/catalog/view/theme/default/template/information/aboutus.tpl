@@ -38,6 +38,11 @@ jQuery(document).ready(function() {
 });
 
 </script>
+  <script type="text/javascript">
+		$(document).ready(function(){				
+	        $('#aboutus').addClass('menu_item_active');
+		});	
+	</script>
 <div id="content">
   
   <div class="main">
@@ -92,7 +97,7 @@ jQuery(document).ready(function() {
         </div>
     </div>
     <div class="clear_both10"></div>
-    <a href="http://localhost/goodsvn/source/goodsvn/index.php?route=information/activity"><img src="image/goodsvn/about/btn_view.png" width="141" height="35" /></a>
+    <a href="http://localhost/goodsvn/source/goodsvn/index.php?route=information/activity"><img src="image/goodsvn/about/ouractivity.png" width="141" height="35" /></a>
 </div>
   
 </div>

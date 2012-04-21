@@ -1,4 +1,6 @@
 <?php echo $header; ?>
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/goodsvn/css/about.css" media="screen" />
+<div class="main">
 <div class="container"><?php echo $column_left; ?><?php echo $column_right; ?>
   <div id="content"><?php echo $content_top; ?>
     <div class="breadcrumb">
@@ -105,6 +107,7 @@
       <div class="center"><a href="<?php echo $continue; ?>" class="button"><span><?php echo $button_shopping; ?></span></a></div>
     </div>
     <?php echo $content_bottom; ?></div>
+</div>
 </div>
 <script type="text/javascript"><!--
 $('.cart-module .cart-heading').bind('click', function() {
