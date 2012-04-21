@@ -69,7 +69,8 @@ class ControllerProductManufacturer extends Controller {
 			'common/header',
 			'product/newproduct',
 			'product/manufacturer_left',
-			'product/hotproduct_right'
+			'product/hotproduct_right',
+			'module/newslettersubscribe'
 		);
 				
 		$this->response->setOutput($this->render());										
@@ -388,7 +389,8 @@ class ControllerProductManufacturer extends Controller {
 				'common/header',
 				'product/newproduct',
 				'product/manufacturer_left',
-				'product/hotproduct_right'
+				'product/hotproduct_right',
+				'module/newslettersubscribe'
 			);
 					
 			$this->response->setOutput($this->render());
@@ -446,7 +448,8 @@ class ControllerProductManufacturer extends Controller {
 				'common/header',
 				'product/newproduct',
 				'product/manufacturer_left',
-				'product/hotproduct_right'
+				'product/hotproduct_right',
+				'module/newslettersubscribe'
 			);
 					
 			$this->response->setOutput($this->render());

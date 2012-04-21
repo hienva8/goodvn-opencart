@@ -52,11 +52,7 @@
     <div class="line2"></div>
     <div class="main_right">
     	<div class="select">
-            <select>
-                <option>Select Language</option>
-                <option>English</option>
-                <option>Vietnamese</option>
-            </select>
+            <div id="google_translate_element" align="center"></div>  
         </div>
          <!-- hotproduct_right -->
         <?php echo $hotproduct_right;?>

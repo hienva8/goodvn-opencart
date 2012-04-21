@@ -44,20 +44,12 @@
     <div class="line2"></div>
     <div class="main_right">
     	<div class="select">
-            <select>
-                <option>Select Language</option>
-                <option>English</option>
-                <option>Vietnamese</option>
-            </select>
+            <div id="google_translate_element" align="center"></div>  
         </div>
          <!-- hotproduct_right -->
         <?php echo $hotproduct_right;?>
-        <div class="newsletters">Newsletters
-        	<form name="" method="">
-            	<input type="text" value="Type your email adress" onclick="this.value=''" onblur="this.value='Type your email adress'"/>
-                <input type="submit" value="Go" />
-            </form>
-        </div>
+        <!-- newsletters -->
+        <?php echo $newslettersubscribe;?>
         <div class="product_menu">Share with</div>
         <div class="share_with">
         	<a href=""><div class="icon1">Email</div></a>
