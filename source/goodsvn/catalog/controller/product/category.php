@@ -141,7 +141,8 @@ class ControllerProductCategory extends Controller {
 				'product/newproduct_left',
 				'product/hotproduct_right',
 				'product/manufacturer_left',
-				'module/newslettersubscribe'
+				'module/newslettersubscribe',
+				'module/information'
 			);
 				
 			$this->response->setOutput($this->render());	
