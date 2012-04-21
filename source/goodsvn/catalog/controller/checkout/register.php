@@ -35,7 +35,7 @@ class ControllerCheckoutRegister extends Controller {
                     $json['error']['warning'] = $this->language->get('error_exists');
                 }
 
-                if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
+              /*  if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
                     $json['error']['telephone'] = $this->language->get('error_telephone');
                 }
 
@@ -61,7 +61,7 @@ class ControllerCheckoutRegister extends Controller {
 
                 if ($this->request->post['zone_id'] == '') {
                     $json['error']['zone'] = $this->language->get('error_zone');
-                }
+                }*/
 
                 if ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20)) {
                     $json['error']['password'] = $this->language->get('error_password');
@@ -144,7 +144,7 @@ class ControllerCheckoutRegister extends Controller {
                 $this->data['text_agree'] = '';
             }
 
-            $this->data['shipping_required'] = $this->cart->hasShipping();
+            $this->data['shipping_required'] = '0';//$this->cart->hasShipping();
 
             if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/register.tpl')) {
                 $this->template = $this->config->get('config_template') . '/template/checkout/register.tpl';

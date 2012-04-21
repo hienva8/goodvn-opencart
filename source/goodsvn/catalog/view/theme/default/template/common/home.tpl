@@ -7,10 +7,10 @@
 				auto: true, 
 				continuous: true
 			});
+			
+	        $('#home').addClass('menu_item_active');
 		});	
 	</script>
-
-
 
 <div class="main">
 	<div class="main_left">
@@ -71,29 +71,12 @@ With a clear target is to bring the most qualified products to international mar
 					}
 				?>
 				</ul>
-                    <a href=""><img src="image/goodsvn/btn_more.png" class="btn_more"></a>
+                    <a href="http://goodsvn.com/index.php?route=product/category"><img src="image/goodsvn/btn_more.png" class="btn_more"></a>
                 </div>
                 <div class="line_vertical"></div>
               <div class="your_request">
-            		<img src="image/goodsvn/title_your_request.png" />
-                	<div class="your_request_text">
-                    	Donec nibh orci, pellentesque ac sollicitudin vel, tincidunt eget elit. Etiam pretium, lacus ac dignissim pellentesque, 
-                    </div>
-                    <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="contact">
-                   	      <input name="name" type="text" value="<?php if($name != ''){echo $name;}else{echo 'Name';}  ?>">
-                          <?php if ($error_name) { ?>
-                                <span class="error"><?php echo $error_name; ?></span>
-                          <?php } ?>
-                          <input name="email" type="text" value="<?php if($email != ''){echo $email;}else{echo 'Email';}  ?>">
-                              <?php if ($error_email) { ?>
-                                <span class="error"><?php echo $error_email; ?></span>
-                                <?php } ?>
-                          <textarea name="enquiry" rows="4"><?php if($enquiry != ''){echo $enquiry;}else{echo 'Messsage';}  ?></textarea>
-                            <?php if ($error_enquiry) { ?>
-                               <br/> <span class="error"><?php echo $error_enquiry; ?></span>
-                                <?php } ?><br/>
-                      <input onclick="$('#contact').submit();" type="submit" value="" />
-                    </form>
+            		<img src="image/goodsvn/request.jpg" width="250px" />
+					<p>This is stove to burn ceramic follow traditional type </p>
               </div>
             </div>
         </div>
@@ -132,7 +115,7 @@ With a clear target is to bring the most qualified products to international mar
         	<div class="clear_both"></div>
         </div>
         <div class="clear_both10"></div>
-        <div class="hotline">Hotline: <span>(08-3) 261 3229</span></div>
+        <div class="hotline">Hotline: <span>(+84)983.977.377</span></div>
         <div class="line3"></div>
         <div class="title_services"></div>
         <div class="manufactory">

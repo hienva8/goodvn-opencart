@@ -8,7 +8,7 @@
 <![endif]-->
 
 <div id="content">
-  
+
 <div class="main">
 	<div class="activity_left">
     	<img src="image/goodsvn/activity/title_best_customers.png" title="" />
@@ -41,9 +41,7 @@
     <div class="activity_right">
     	<img src="image/goodsvn/activity/title_visitors.png" />
         <div class="clear_both20"></div>
-       	<a href="http://s06.flagcounter.com/more/xb5">
-           <img src="http://s06.flagcounter.com/count/xb5/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_50/viewers_3/labels_1/pageviews_1/flags_0/" alt="free counters" border="0">
-        </a>
+       	<a href="http://s10.flagcounter.com/more/TKV0"><img src="http://s10.flagcounter.com/count/TKV0/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_200/viewers_0/labels_1/pageviews_1/flags_0/" alt="free counters" border="0"></a>
         <br/>
         <a target="_blank" alt="page hit counter" href="http://www.histats.com">
             <embed width="112" height="62" align="middle" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="336.swf" quality="high" flashvars="jver=1&amp;acsid=1723023&amp;domi=4" src="http://s10.histats.com/336.swf">

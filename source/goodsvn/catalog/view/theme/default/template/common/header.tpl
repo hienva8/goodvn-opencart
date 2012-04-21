@@ -84,10 +84,10 @@ DD_belatedPNG.fix('#logo img');
 </div>
 <div class="menu_bar">
 	<div class="menu_link">
-   	  <div class="menu_item menu_item_active" onclick="location.href='<?php echo $home; ?>'">Home</div>
-        <div class="menu_item" onclick="location.href='<?php echo $aboutus; ?>'">About us</div>
-        <div class="menu_item" onclick="location.href='<?php echo $product; ?>'">Products</div>
-        <div class="menu_item" onclick="location.href='<?php echo $contact; ?>'">Contact</div>
+   	  <div id='home' class="menu_item" onclick="location.href='<?php echo $home; ?>'">Home</div>
+        <div id='aboutus' class="menu_item" onclick="location.href='<?php echo $aboutus; ?>'">About us</div>
+        <div id='product' class="menu_item" onclick="location.href='<?php echo $product; ?>'">Products</div>
+        <div id='contact' class="menu_item" onclick="location.href='<?php echo $contact; ?>'">Contact</div>
         <div class="clear_both"></div>
     </div>
 </div>

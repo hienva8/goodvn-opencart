@@ -1,4 +1,6 @@
 <?php echo $header; ?><?php echo $column_left; ?><?php echo $column_right; ?>
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/goodsvn/css/about.css" media="screen" />
+<div class="main">
 <div id="content"><?php echo $content_top; ?>
     <div class="breadcrumb">
         <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -138,6 +140,7 @@
     <div class="content"><?php echo $text_empty; ?></div>
     <?php }?>
     <?php echo $content_bottom; ?></div>
+	</div>
 <script type="text/javascript"><!--
     $('#content input[name=\'filter_name\']').keydown(function(e) {
     if (e.keyCode == 13) {

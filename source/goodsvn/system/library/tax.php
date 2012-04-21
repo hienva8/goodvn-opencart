@@ -14,7 +14,7 @@ final class Tax {
 		if (isset($this->session->data['shipping_address_id'])) {
 			$address_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "address WHERE address_id = '" . (int)$this->session->data['shipping_address_id'] . "'");
 		
-			$this->setShippingAddress($address_query->row['country_id'], $address_query->row['zone_id']);
+			//$this->setShippingAddress($address_query->row['country_id'], $address_query->row['zone_id']);
 		} elseif (isset($this->session->data['guest']['shipping'])) {
 			$this->setShippingAddress($this->session->data['guest']['shipping']['country_id'], $this->session->data['guest']['shipping']['zone_id']);
 		} elseif ($this->customer->isLogged() && ($this->config->get('config_tax_customer') == 'shipping')) {

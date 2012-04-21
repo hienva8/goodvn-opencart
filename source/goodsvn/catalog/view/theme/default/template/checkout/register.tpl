@@ -12,14 +12,6 @@
   <input type="text" name="email" value="" class="large-field" />
   <br />
   <br />
-  <span class="required">*</span> <?php echo $entry_telephone; ?><br />
-  <input type="text" name="telephone" value="" class="large-field" />
-  <br />
-  <br />
-  <?php echo $entry_fax; ?><br />
-  <input type="text" name="fax" value="" class="large-field" />
-  <br />
-  <br />
   <h2><?php echo $text_your_password; ?></h2>
   <span class="required">*</span> <?php echo $entry_password; ?><br />
   <input type="password" name="password" value="" class="large-field" />
@@ -31,7 +23,7 @@
   <br />
   <br />
 </div>
-<div class="right">
+<div class="right" style="display:none;">
   
     <h2><?php echo $text_your_address; ?></h2>
   <?php echo $entry_company; ?><br />

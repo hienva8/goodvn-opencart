@@ -86,7 +86,7 @@ $(document).ready(function(){
        
         </ul>
       </li>
-      <!--
+
       <li id="extension"><a class="top"><?php echo $text_extension; ?></a>
         <ul>
           <li><a href="<?php echo $module; ?>"><?php echo $text_module; ?></a></li>
@@ -96,7 +96,7 @@ $(document).ready(function(){
           <li><a href="<?php echo $feed; ?>"><?php echo $text_feed; ?></a></li>
         </ul>
       </li>
-      -->
+
       
       <li id="sale"><a class="top"><?php echo $text_sale; ?></a>
         <ul>
@@ -109,7 +109,7 @@ $(document).ready(function(){
 		  <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
         </ul>
       </li>
-      <!--
+<!--
       <li id="system"><a class="top"><?php echo $text_system; ?></a>
         <ul>
           <li><a href="<?php echo $setting; ?>"><?php echo $text_setting; ?></a></li>
@@ -154,8 +154,8 @@ $(document).ready(function(){
           <li><a href="<?php echo $error_log; ?>"><?php echo $text_error_log; ?></a></li>
           <li><a href="<?php echo $backup; ?>"><?php echo $text_backup; ?></a></li>
         </ul>
-      </li>
-      -->
+      </li>-->
+
       <li id="reports"><a class="top"><?php echo $text_reports; ?></a>
         <ul>
           <li><a class="parent"><?php echo $text_sale; ?></a>
