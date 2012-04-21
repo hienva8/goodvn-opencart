@@ -60,12 +60,8 @@
         </div>
          <!-- hotproduct_right -->
         <?php echo $hotproduct_right;?>
-        <div class="newsletters">Newsletters
-        	<form name="" method="">
-            	<input type="text" value="Type your email adress" onclick="this.value=''" onblur="this.value='Type your email adress'"/>
-                <input type="submit" value="Go" />
-            </form>
-        </div>
+        <!--  newsletter -->
+        <?php echo $newslettersubscribe;?>
         <div class="product_menu">Share with</div>
         <div class="share_with">
         	<a href=""><div class="icon1">Email</div></a>

@@ -93,29 +93,17 @@ $(document).ready(function(){
           <li><a href="<?php echo $feed; ?>"><?php echo $text_feed; ?></a></li>
         </ul>
       </li>
+      -->
       
-      <li id="sale"><a class="top"><?php echo $text_sale; ?></a>
+      <li id="sale"><a class="top">Newsletters</a>
         <ul>
-          <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
-          <li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>
-          <li><a class="parent"><?php echo $text_customer; ?></a>
-            <ul>
-              <li><a href="<?php echo $customer; ?>"><?php echo $text_customer; ?></a></li>
-              <li><a href="<?php echo $customer_group; ?>"><?php echo $text_customer_group; ?></a></li>
-            </ul>
-          </li>
-          <li><a href="<?php echo $affiliate; ?>"><?php echo $text_affiliate; ?></a></li>
-          <li><a href="<?php echo $coupon; ?>"><?php echo $text_coupon; ?></a></li>
-          <li><a class="parent"><?php echo $text_voucher; ?></a>
-            <ul>
-              <li><a href="<?php echo $voucher; ?>"><?php echo $text_voucher; ?></a></li>
-              <li><a href="<?php echo $voucher_theme; ?>"><?php echo $text_voucher_theme; ?></a></li>
-            </ul>
-          </li>
-          <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
+            <!--        //Newsletter Subscribers-->
+    	  <li><a href="<?php echo $newssubscribe; ?>"><?php echo $text_newssubscribe; ?></a></li>
+		  <!--        //Newsletter Subscribers-->  
+		  <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
         </ul>
       </li>
-      
+      <!--
       <li id="system"><a class="top"><?php echo $text_system; ?></a>
         <ul>
           <li><a href="<?php echo $setting; ?>"><?php echo $text_setting; ?></a></li>

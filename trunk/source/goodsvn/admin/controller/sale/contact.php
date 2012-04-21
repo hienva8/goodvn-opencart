@@ -33,6 +33,13 @@ class ControllerSaleContact extends Controller {
 					foreach ($results as $result) {
 						$emails[] = $result['email'];
 					}
+							// Newsletter subscribers
+					$results = $this->model_sale_customer->getNewsletterSubscribers();
+					    
+						foreach ($results as $result) {
+							$emails["s".$result['id']] = $result['email_id'];
+						}
+ 				   // Newsletter subscribers only
 					break;
 				case 'customer_all':
 					$results = $this->model_sale_customer->getCustomers();

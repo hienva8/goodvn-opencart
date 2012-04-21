@@ -499,6 +499,14 @@ class ModelSaleCustomer extends Model {
 		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "customer_ip WHERE ip = '" . $this->db->escape($ip) . "'");
 
 		return $query->row['total'];
-	}				
+	}		
+
+		// Newsletter subscribers only
+	public function getNewsletterSubscribers() {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "subscribe");
+	
+		return $query->rows;
+	}
+	// Newsletter subscribers only
 }
 ?>

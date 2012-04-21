@@ -16,7 +16,6 @@ class ControllerModuleCategory extends Controller {
 			$this->data['category_id'] = 0;
 		}
 		
-		//add new
 		if (isset($parts[1])) {
 			if(isset($parts[2]))
 			{
@@ -43,6 +42,7 @@ class ControllerModuleCategory extends Controller {
 		$this->data['categories'] = array();
 		$this->data['parent_category'] = $this->model_catalog_category->getCategory($this->data['child_id']);			
 		//var_dump($this->data['parent_category']);	
+		
 		$categories = $this->model_catalog_category->getCategories($this->data['child_id']);
 		
 		foreach ($categories as $category) {

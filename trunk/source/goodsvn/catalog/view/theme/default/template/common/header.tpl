@@ -91,5 +91,5 @@ DD_belatedPNG.fix('#logo img');
         <div class="clear_both"></div>
     </div>
 </div>
-
+<div id="notification"></div>
 

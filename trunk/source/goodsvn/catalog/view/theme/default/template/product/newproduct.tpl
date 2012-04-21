@@ -1,3 +1,4 @@
+<?php if($products && count($products)>0):?>
 <div class="menu_center">NEW PRODUCTS</div>
         <div class="products_list">
         <?php foreach ($products as $pro)
@@ -7,3 +8,4 @@
         }?>
             <div class="clear_both"></div>
         </div>
+<?php endif;?>
