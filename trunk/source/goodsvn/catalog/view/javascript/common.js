@@ -125,6 +125,8 @@ function addToCart(product_id) {
 				$('#cart_total').html(json['total']);
 				
 				$('html, body').animate({ scrollTop: 0 }, 'slow'); 
+                                
+                                window.location.href="index.php?route=checkout/cart";
 			}	
 		}
 	});
