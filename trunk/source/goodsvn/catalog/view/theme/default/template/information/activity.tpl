@@ -48,7 +48,6 @@
         </a>
     </div>
     <div class="clear_both"></div>
-    
 </div>
   
   <?php echo $content_bottom; ?></div>

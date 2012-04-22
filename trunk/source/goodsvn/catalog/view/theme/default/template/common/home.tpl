@@ -18,19 +18,19 @@
             <ul>				
 				<li>
                 	<div class="bg_img"><img src="image/goodsvn/slide/slide1.png" /></div>
-                	<div class="slide_text"><a href="">Sed lobortis egestas nibh vel laoreet</a></div>
+                	<div class="slide_text"><a href="">Consumer products</a></div>
                 </li>
                 <li>
                 	<div class="bg_img"><img src="image/goodsvn/slide/slide2.png" /></div>
-                	<div class="slide_text"><a href="">Sed lobortis egestas nibh vel laoreet</a></div>
+                	<div class="slide_text"><a href="">Foodstuff & Beverage</a></div>
                 </li>
                 <li>
                 	<div class="bg_img"><img src="image/goodsvn/slide/slide3.png" /></div>
-                	<div class="slide_text"><a href="">Sed lobortis egestas nibh vel laoreet</a></div>
+                	<div class="slide_text"><a href="">RATTAN & BAMBOO</a></div>
                 </li>
                 <li>
                 	<div class="bg_img"><img src="image/goodsvn/slide/slide4.png" /></div>
-                	<div class="slide_text"><a href="">Sed lobortis egestas nibh vel laoreet</a></div>
+                	<div class="slide_text"><a href="">HOUSEHOLD GOODS </a></div>
                 </li>
 			</ul>
         </div>
@@ -102,9 +102,9 @@ With a clear target is to bring the most qualified products to international mar
         <div class="title_support"></div>
         <div class="support">
         	<div class="support_item"><img src="image/goodsvn/icon_yahoo.png"><a href="ymsgr:sendim?goodsvn@ymail.com">GoodsVN</a></div>
-            <div class="support_item"><img src="image/goodsvn/icon_skype.png"><a href="">Mr.Khanh</a></div>
+            <div class="support_item"><img src="image/goodsvn/icon_skype.png"><a href="skype:goodsvn?call">Mr.Khanh</a></div>
             <div class="support_item"><img src="image/goodsvn/icon_yahoo.png"><a href="ymsgr:sendim?llicklick">GoodsVN</a></div>
-            <div class="support_item"><img src="image/goodsvn/icon_skype.png"><a href="">Mr.Khanh</a></div>
+            <div class="support_item"><img src="image/goodsvn/icon_skype.png"><a href="skype:llicklick?call">Mr.Khanh</a></div>
             <div class="clear_both5"></div>
         </div>
         <div class="like_google">
@@ -115,7 +115,7 @@ With a clear target is to bring the most qualified products to international mar
         	<div class="clear_both"></div>
         </div>
         <div class="clear_both10"></div>
-        <div class="hotline">Hotline: <span>(+84)983.977.377</span></div>
+        <div class="hotline">Hotline: <span>(+84) 983 977 377</span></div>
         <div class="line3"></div>
         <div class="title_services"></div>
         <div class="manufactory">

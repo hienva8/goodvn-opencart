@@ -93,7 +93,8 @@ jQuery(document).ready(function() {
          <p>The factory is processing ceramic products for customers</p>
          </div>
          <div style="width: 298px;float:left;">
-        <img src="image/goodsvn/about/about_img3.jpg" />
+        <img src="image/goodsvn/about/maydan.JPG" style="width: 267px;" />
+		<p>Here is Rattan & Bamboo, our products</p>
         </div>
     </div>
     <div class="clear_both10"></div>
