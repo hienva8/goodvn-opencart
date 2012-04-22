@@ -216,7 +216,7 @@
           
           &nbsp;
           
-          <a id="button-cart" class="button"><span><?php echo $button_cart; ?></span></a>
+          <a id="button-cart" class="button"><span>Quote</span></a>
         </div>
           
         <div>

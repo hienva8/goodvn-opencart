@@ -31,9 +31,9 @@
               <td class="image"><?php echo $column_image; ?></td>
               <td class="name"><?php echo $column_name; ?></td>
               <td class="model"><?php echo $column_model; ?></td>
-              <!--
+        
               <td class="quantity"><?php echo $column_quantity; ?></td>
-              <td class="price"><?php echo $column_price; ?></td>
+                   <!-- <td class="price"><?php echo $column_price; ?></td>
               <td class="total"><?php echo $column_total; ?></td>
               -->
             </tr>
@@ -61,9 +61,9 @@
                 -->
               </td>
               <td class="model"><?php echo $product['model']; ?></td>
-              <!--
+            
               <td class="quantity"><input type="text" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="3" /></td>
-              <td class="price"><?php echo $product['price']; ?></td>
+               <!-- <td class="price"><?php echo $product['price']; ?></td>
               <td class="total"><?php echo $product['total']; ?></td>
               -->
             </tr>
