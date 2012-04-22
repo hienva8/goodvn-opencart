@@ -32,14 +32,17 @@
         <div class="dashboard-heading"><?php echo $text_overview; ?></div>
         <div class="dashboard-content">
           <table>
+              <!--
             <tr>
               <td><?php echo $text_total_sale; ?></td>
               <td><?php echo $total_sale; ?></td>
             </tr>
+            
             <tr>
               <td><?php echo $text_total_sale_year; ?></td>
               <td><?php echo $total_sale_year; ?></td>
             </tr>
+            -->
             <tr>
               <td><?php echo $text_total_order; ?></td>
               <td><?php echo $total_order; ?></td>
