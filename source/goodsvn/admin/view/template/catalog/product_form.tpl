@@ -46,14 +46,17 @@
                                     <span class="error"><?php echo $error_name[$language['language_id']]; ?></span>
                                     <?php } ?></td>
                             </tr>
+                            <!--
                             <tr>
                                 <td><?php echo $entry_meta_description; ?></td>
                                 <td><textarea name="product_description[<?php echo $language['language_id']; ?>][meta_description]" cols="40" rows="5"><?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['meta_description'] : ''; ?></textarea></td>
                             </tr>
+                            
                             <tr>
                                 <td><?php echo $entry_meta_keyword; ?></td>
                                 <td><textarea name="product_description[<?php echo $language['language_id']; ?>][meta_keyword]" cols="40" rows="5"><?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['meta_keyword'] : ''; ?></textarea></td>
                             </tr>
+                            -->
                             <tr>
                                 <td><?php echo $entry_description; ?></td>
                                 <td><textarea name="product_description[<?php echo $language['language_id']; ?>][description]" id="description<?php echo $language['language_id']; ?>"><?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['description'] : ''; ?></textarea></td>
@@ -75,6 +78,7 @@
                                 <span class="error"><?php echo $error_model; ?></span>
                                 <?php } ?></td>
                         </tr>
+                        <!--
                         <tr>
                             <td><?php echo $entry_sku; ?></td>
                             <td><input type="text" name="sku" value="<?php echo $sku; ?>" /></td>
@@ -83,16 +87,17 @@
                             <td><?php echo $entry_upc; ?></td>
                             <td><input type="text" name="upc" value="<?php echo $upc; ?>" /></td>
                         </tr>
+                       
                         <tr>
                             <td><?php echo $entry_location; ?></td>
                             <td><input type="text" name="location" value="<?php echo $location; ?>" /></td>
                         </tr>
-                        <!--
+                        
                         <tr>
                             <td><?php echo $entry_price; ?></td>
                             <td><input type="text" name="price" value="<?php echo $price; ?>" /></td>
                         </tr>
-                        -->
+                     
                         <tr>
                             <td><?php echo $entry_tax_class; ?></td>
                             <td><select name="tax_class_id">
@@ -106,7 +111,7 @@
                                     <?php } ?>
                                 </select></td>
                         </tr>
-                        <!--
+                        
                         <tr>
                             <td><?php echo $entry_quantity; ?></td>
                             <td><input type="text" name="quantity" value="<?php echo $quantity; ?>" size="2" /></td>
@@ -116,7 +121,7 @@
                             <td><?php echo $entry_minimum; ?></td>
                             <td><input type="text" name="minimum" value="<?php echo $minimum; ?>" size="2" /></td>
                         </tr>
-                         -->
+                        
                         <tr>
                             <td><?php echo $entry_subtract; ?></td>
                             <td><select name="subtract">
@@ -129,6 +134,7 @@
                                     <?php } ?>
                                 </select></td>
                         </tr>
+                        -->
                         <tr>
                             <td><?php echo $entry_stock_status; ?></td>
                             <td><select name="stock_status_id">
@@ -141,6 +147,7 @@
                                     <?php } ?>
                                 </select></td>
                         </tr>
+                        <!--
                         <tr>
                             <td><?php echo $entry_shipping; ?></td>
                             <td><?php if ($shipping) { ?>
@@ -155,6 +162,7 @@
                                 <?php echo $text_no; ?>
                                 <?php } ?></td>
                         </tr>
+                        -->
                         <tr>
                             <td><?php echo $entry_keyword; ?></td>
                             <td><input type="text" name="keyword" value="<?php echo $keyword; ?>" /></td>
@@ -256,6 +264,7 @@
                                 </div>
                                 <a onclick="$(this).parent().find(':checkbox').attr('checked', true);"><?php echo $text_select_all; ?></a> / <a onclick="$(this).parent().find(':checkbox').attr('checked', false);"><?php echo $text_unselect_all; ?></a></td>
                         </tr>
+                        <!--
                         <tr>
                             <td><?php echo $entry_store; ?></td>
                             <td><div class="scrollbox">
@@ -301,6 +310,7 @@
                                     <?php } ?>
                                 </div></td>
                         </tr>
+                        
                         <tr>
                             <td><?php echo $entry_related; ?></td>
                             <td><input type="text" name="related" value="" /></td>
@@ -317,6 +327,7 @@
                                     <?php } ?>
                                 </div></td>
                         </tr>
+                        -->
                     </table>
                 </div>
                 
