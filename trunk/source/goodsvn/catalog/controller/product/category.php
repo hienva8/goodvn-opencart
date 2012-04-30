@@ -44,15 +44,18 @@ class ControllerProductCategory extends Controller {
 		$this->data['categories'] = array();
 		$category_info = $this->model_catalog_category->getCategory($this->data['child_id']);	
 		$this->data['parent_category'] =$category_info;
+		$this->data['href_parent']='';
 		if ($category_info) {
 	  		$this->document->setTitle($category_info['name']);
 			$this->document->setDescription($category_info['meta_description']);
 			$this->document->setKeywords($category_info['meta_keyword']);
 			
 			$this->data['heading_title'] = $category_info['name'];
+			$this->data['href_parent'] = $this->url->link('product/listproduct', 'path=' . $category_info['category_id']);
 		}else {
 			$this->document->setTitle("Catalogue");
 			$this->data['heading_title'] = "Catalogue";
+			$this->data['href_parent']='';
 		}
 		$this->document->addLink('catalog/view/theme/default/goodsvn/css/products.css','stylesheet');
 		$categories = $this->model_catalog_category->getCategories($this->data['child_id']);
@@ -120,7 +123,8 @@ class ControllerProductCategory extends Controller {
 				'total'		  => $product_total ,
 				'children'    => $children_data,
 				'image'		  => $image,
-				'href'        => $href
+				'href'        => $href,
+				'cate_href'		=>$this->url->link('product/listproduct', 'path=' . $category['category_id'])
 			);
 		}
 		

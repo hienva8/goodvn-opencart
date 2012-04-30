@@ -20,11 +20,11 @@
     <div class="line2"></div>
     <div class="main_center">
     	<?php 
-		  //  var_dump($categories);
+		  // var_dump($categories);
 		  if($list_cate === 1){
 		    	foreach ($categories as $category)
 		    	{
-		    		echo '<div class="menu_center">' . $category['name']. '</div>';
+		    		echo '<a href="'.$category['cate_href'].'"><div class="menu_center">' . $category['name']. '</div></a>';
 		    		echo '<div class="products_list">';
 		    		if($category['children'])
 		    		{
@@ -36,7 +36,7 @@
 		    		echo '<div class="clear_both"></div></div>';
 		    	}
 		  }else {
-		  	echo '<div class="menu_center">' . $parent_category['name']. '</div>';
+		  	echo '<a href="'.$href_parent.'"><div class="menu_center">' . $parent_category['name']. '</div></a>';
 		  	echo '<div class="products_list">';
 		  	foreach ($categories as $category)
 		  	{
