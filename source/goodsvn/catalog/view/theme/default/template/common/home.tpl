@@ -1,39 +1,57 @@
 <?php echo $header; ?>
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/goodsvn/css/index.css" />
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/goodsvn/css/screen.css" />
-    <script type="text/javascript">
-		$(document).ready(function(){	
-			$("#slider").easySlider({
-				auto: true, 
-				continuous: true
-			});
-			
-	        $('#home').addClass('menu_item_active');
-		});	
-	</script>
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/goodsvn/css/global.css" />
 
+<script>
+		$(function(){
+			// Set starting slide to 1
+			var startSlide = 1;
+			// Get slide number if it exists
+			if (window.location.hash) {
+				startSlide = window.location.hash.replace('#','');
+			}
+			// Initialize Slides
+			$('#slides').slides({
+				preload: true,
+				preloadImage: 'img/loading.gif',
+				generatePagination: true,
+				play: 3000,
+				pause: 1000,
+				hoverPause: true,
+				// Get the starting slide
+				start: startSlide,
+				animationComplete: function(current){
+					// Set the slide number as a hash
+					window.location.hash = '#' + current;
+				}
+			});
+		});
+		$('#home').addClass('menu_item_active');
+	</script>
 <div class="main">
 	<div class="main_left">
-    <div id="slider" class="slide">
-            <ul>				
-				<li>
-                	<div class="bg_img"><img src="image/goodsvn/slide/slide1.png" /></div>
-                	<div class="slide_text"><a href="">Consumer products</a></div>
-                </li>
-                <li>
-                	<div class="bg_img"><img src="image/goodsvn/slide/slide2.png" /></div>
-                	<div class="slide_text"><a href="">Foodstuff & Beverage</a></div>
-                </li>
-                <li>
-                	<div class="bg_img"><img src="image/goodsvn/slide/slide3.png" /></div>
-                	<div class="slide_text"><a href="">RATTAN & BAMBOO</a></div>
-                </li>
-                <li>
-                	<div class="bg_img"><img src="image/goodsvn/slide/slide4.png" /></div>
-                	<div class="slide_text"><a href="">HOUSEHOLD GOODS </a></div>
-                </li>
-			</ul>
+		<div id="slides" class="slides">
+			<div class="slides_container">
+                    <div class="slide">
+                        <div class="bg_img"><img src="image/goodsvn/slide/slide1.png" /></div>
+                		<div class="slide_text"><a href="">Consumer products</a></div>
+                    </div>
+                    <div class="slide">
+                        <div class="bg_img"><img src="image/goodsvn/slide/slide2.png" /></div>
+                		<div class="slide_text"><a href="">Foodstuff & Beverage</a></div>
+                    </div>
+                    <div class="slide">
+                        <div class="bg_img"><img src="image/goodsvn/slide/slide3.png" /></div>
+                		<div class="slide_text"><a href="">RATTAN & BAMBOO</a></div>
+                    </div>
+                    <div class="slide">
+                        <div class="bg_img"><img src="image/goodsvn/slide/slide4.png" /></div>
+                		<div class="slide_text"><a href="">HOUSEHOLD GOODS </a></div>
+                    </div>
+               </div>
         </div>
+
         <!--end slider -->
         <div class="content_left">
         	<div class="title_img">

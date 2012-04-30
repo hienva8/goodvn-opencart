@@ -41,7 +41,7 @@ img,input[type="text"],input[type="submit"]
 	border-bottom:#2a73b2 2px solid;
 	text-align:center;
 }
-.header #logo img
+.header img
 {
 	margin-top:20px;
 }
@@ -123,10 +123,12 @@ img,input[type="text"],input[type="submit"]
 	height:1031px;
 	background:#FFF;
 }
-.slide
+.slides
 {
 	background:url(../image/bg_slide.png) repeat-x;
 	height:464px;
+	padding-top:13px;
+	padding-left:12px;
 }
 ul,li
 {
@@ -134,29 +136,29 @@ ul,li
 	list-style-type:none;
 	margin:0;
 }
+/*
 .slide ul
 {
 	width:654px;
 	height:464px;
-	padding-left:13px;
-	padding-top:13px;
 }
+
 .slide li
 {
 	width:654px;
 	height:464px;
 }
+*/
+.slides img
+{
+	width:606px;
+	height:382px;
+}
 .bg_img
 {
 	width:606px;
 	height:381px;
-	background:url(../image/bg_img.png) no-repeat;
-	padding:13px;
-}
-.slide img
-{
-	width:606px;
-	height:382px;
+	margin-bottom:23px;
 }
 .slide_text
 {
@@ -216,7 +218,7 @@ ul,li
 .your_request
 {
 	float:left;
-	width:277px;
+	width:258px;
 }
 .list_item
 {
@@ -294,9 +296,8 @@ ul,li
 {
 	width:1px;
 	border-left:dotted 1px #abaaaa;
-	height:200px;
-	float:left;
-	margin-right:37px;
+	height:200px;float:left;
+	margin-right:56px;
 }
 .your_request_text
 {
@@ -336,7 +337,7 @@ ul,li
 .btn_more
 {
 	position:absolute;
-	bottom:100px;
+	bottom:20px;
 	left:50px;
 }
 
@@ -371,12 +372,12 @@ ul,li
 }
 .support
 {
-	width:250px;
+	width:200px;
 	margin:5px auto;
 }
 .hotline
 {
-	width:200px;
+	width:175px;
 	margin:5px auto 5px 55px;
 	background:url(../image/icon_hotline.png) no-repeat 0 0;
 	padding-left:30px;
@@ -391,7 +392,7 @@ ul,li
 }
 .support_item
 {
-	width:100px;
+	width:80px;
 	height:30px;
 	float:left;
 	padding:5px 10px;
