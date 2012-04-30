@@ -24,7 +24,7 @@
             <ul id="sliderContent">
                 <li class="sliderImage">
                     <a href=""><img src="image/goodsvn/contact/contact1.jpg" alt="1" /></a>
-                    <span class="top"><strong>Bến Thành Market</strong></span>
+                    <span class="top"><strong>Ben Thanh Market</strong></span>
                 </li>
                 <li style='display: none;' class="sliderImage">
                     <a href=""><img src="image/goodsvn/contact/contact2.jpg" alt="2" /></a>

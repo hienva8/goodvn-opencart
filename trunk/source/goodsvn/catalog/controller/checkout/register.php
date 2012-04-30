@@ -97,6 +97,9 @@ class ControllerCheckoutRegister extends Controller {
                 unset($this->session->data['payment_methods']);
                 unset($this->session->data['payment_method']);
             }
+			
+			
+			
         } else {
             $this->data['text_select'] = $this->language->get('text_select');
             $this->data['text_your_details'] = $this->language->get('text_your_details');
