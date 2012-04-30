@@ -85,7 +85,11 @@ class ControllerModuleCategory extends Controller {
 				$href = $this->url->link('product/listproduct', 'path=' . $category['category_id']);	
 			}
 			else{
-				$href = $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' . $category['category_id']);
+				if(count($parts)==0){
+					$href = $this->url->link('product/category', 'path=' . $category['category_id']);
+				}else{
+					$href = $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' . $category['category_id']);
+				}
 			}				
 			$this->data['categories'][] = array(
 				'category_id' => $category['category_id'],
