@@ -1,5 +1,7 @@
 <?php 
 class ControllerProductManufacturer extends Controller {  
+	public $image_with = 183;
+	public $image_height = 164;
 	public function index() { 
 		$this->language->load('product/manufacturer');
 		
@@ -200,7 +202,7 @@ class ControllerProductManufacturer extends Controller {
 					
 			foreach ($results as $result) {
 				if ($result['image']) {
-					$image = $this->model_tool_image->resize($result['image'], $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height'));
+					$image = $this->model_tool_image->resize($result['image'], $this->image_with, $this->image_height);
 				} else {
 					$image = false;
 				}
