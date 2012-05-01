@@ -12,24 +12,24 @@
     <!--end main left-->
     <div class="line2"></div>
     <div class="main_center">
-    <div class="menu_center"><?php echo $heading_title;?></div>
-        <div class="products_list">
+    	<div class="menu_center"><?php echo $heading_title;?></div>
+        
         <?php 
         if($products)
         {
-        foreach ($products as $product)
-        {
-        	echo '<div class="products_item"><a href="'. $product['href'].'"><img src="'. $product['thumb'].'" /><div class="products_item_name">'.$product['name'].'</div></a></div>';
-
-        }
-         echo '<div class="clear_both"></div>
-        </div>';
-         echo '<div class="pagination">'.$pagination.'</div>'; 
+        	echo '<div class="products_list">';
+	        foreach ($products as $product)
+	        {
+	        	echo '<div class="products_item"><a href="'. $product['href'].'"><img src="'. $product['thumb'].'" /><div class="products_item_name">'.$product['name'].'</div></a></div>';
+	
+	        }
+         	echo '<div class="clear_both"></div>
+        	</div>';
+         	echo '<div class="pagination">'.$pagination.'</div>'; 
         }else { 
   			echo '<div class="content">'.$text_empty.'</div>';
         }
   		?>
-        
 		<?php echo $newproduct;?>
         
     </div>
