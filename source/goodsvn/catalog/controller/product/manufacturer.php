@@ -133,7 +133,8 @@ class ControllerProductManufacturer extends Controller {
 		
 		$manufacturer_info = $this->model_catalog_manufacturer->getManufacturer($manufacturer_id);
 	
-		if ($manufacturer_info) {
+		if ($manufacturer_info) 
+		{
 			$this->document->setTitle($manufacturer_info['name']);
 			
 			$url = '';
@@ -396,7 +397,9 @@ class ControllerProductManufacturer extends Controller {
 			);
 					
 			$this->response->setOutput($this->render());
-		} else {
+		}
+		else 
+		{
 			$url = '';
 			
 			if (isset($this->request->get['manufacturer_id'])) {
