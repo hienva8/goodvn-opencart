@@ -1,5 +1,7 @@
 <?php 
 class ControllerProductListproduct extends Controller {  
+	public $image_with = 183;
+	public $image_height = 164;
 	public function index() { 
 		$this->language->load('product/category');
 		
@@ -102,7 +104,7 @@ class ControllerProductListproduct extends Controller {
 			$this->data['button_continue'] = $this->language->get('button_continue');
 			*/		
 			if ($category_info['image']) {
-				$this->data['thumb'] = $this->model_tool_image->resize($category_info['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
+				$this->data['thumb'] = $this->model_tool_image->resize($category_info['image'], $this->image_with, $this->image_height);
 			} else {
 				$this->data['thumb'] = '';
 			}
@@ -158,7 +160,7 @@ class ControllerProductListproduct extends Controller {
 			
 			foreach ($results as $result) {
 				if ($result['image']) {
-					$image = $this->model_tool_image->resize($result['image'], $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height'));
+					$image = $this->model_tool_image->resize($result['image'], $this->image_with, $this->image_height);
 				} else {
 					$image = false;
 				}
