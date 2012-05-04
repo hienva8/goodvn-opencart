@@ -58,13 +58,21 @@ class ControllerModuleCategory extends Controller {
 					
 				$product_total = $this->model_catalog_product->getTotalProducts($data);
 				$total += $product_total;
-				if(count($parts)==0)
+				/*if(count($parts)==0)
 				{
 					$href = $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']);
 				}
 				else{
 					$href = $this->url->link('product/listproduct', 'path=' . $child['category_id']);
-				}			
+				}*/	
+			$child_childs = $this->model_catalog_category->getCategories($child['category_id']);	
+				if($child_childs && count($child_childs)>0)
+				{
+					$href = $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']);
+				}
+				else {
+					$href = $this->url->link('product/listproduct', 'path=' . $child['category_id']);
+				}	
 				$children_data[] = array(
 					'category_id' => $child['category_id'],
 					'name'        => $child['name'] ,
@@ -80,7 +88,7 @@ class ControllerModuleCategory extends Controller {
 			);		
 				
 			$product_total = $this->model_catalog_product->getTotalProducts($data);
-			if(count($parts)==2)
+			/*if(count($parts)==2)
 			{
 				$href = $this->url->link('product/listproduct', 'path=' . $category['category_id']);	
 			}
@@ -90,7 +98,19 @@ class ControllerModuleCategory extends Controller {
 				}else{
 					$href = $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' . $category['category_id']);
 				}
-			}				
+			}*/
+			if($children && count($children)>0)
+				{
+					//$href = $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' . $category['category_id']);
+					if(count($parts)==0){
+						$href = $this->url->link('product/category', 'path=' . $category['category_id']);
+					}else{
+						$href = $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' . $category['category_id']);
+					}
+				}
+				else{
+					$href = $this->url->link('product/listproduct', 'path=' . $category['category_id']);
+				}			
 			$this->data['categories'][] = array(
 				'category_id' => $category['category_id'],
 				'name'        => $category['name'] ,

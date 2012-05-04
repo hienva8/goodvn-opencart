@@ -40,6 +40,8 @@ class ControllerProductCategory extends Controller {
 			}
 			$this->data['name']='Catalogue';
 		}
+		
+		
 		//echo $this->data['child_id'];	
 		$this->data['categories'] = array();
 		$category_info = $this->model_catalog_category->getCategory($this->data['child_id']);	
@@ -60,6 +62,13 @@ class ControllerProductCategory extends Controller {
 		$this->document->addLink('catalog/view/theme/default/goodsvn/css/products.css','stylesheet');
 		$categories = $this->model_catalog_category->getCategories($this->data['child_id']);
 		
+		/*if($categories && count($categories)>0)
+		{
+			$this->data['list_cate']=1;
+		}else{
+			$this->data['list_cate']=0;
+		}*/
+		$this->data['list_cate']=0;
 		foreach ($categories as $category) 
 		{
 			$children_data = array();
@@ -68,6 +77,7 @@ class ControllerProductCategory extends Controller {
 			$total = 0;
 			foreach ($children as $child) 
 			{
+				$this->data['list_cate']=1;
 				$data = array(
 					'filter_category_id'  => $child['category_id'],
 					'filter_sub_category' => true
@@ -75,13 +85,24 @@ class ControllerProductCategory extends Controller {
 					
 				$product_total = $this->model_catalog_product->getTotalProducts($data);
 				$total += $product_total;
-				if(count($parts)==0)
+				
+				
+			/*	if(count($parts)==0)
 				{
 					$href = $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']);
 				}
 				else{
 					$href = $this->url->link('product/listproduct', 'path=' . $child['category_id']);
-				}		
+				}	
+				*/
+				$child_childs = $this->model_catalog_category->getCategories($child['category_id']);	
+				if($child_childs && count($child_childs)>0)
+				{
+					$href = $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']);
+				}
+				else {
+					$href = $this->url->link('product/listproduct', 'path=' . $child['category_id']);
+				}
 			 if ($child['image']) { 
 				$image = $this->model_tool_image->resize($child['image'], 183, 164); 
 				} else { 
@@ -107,7 +128,14 @@ class ControllerProductCategory extends Controller {
 				} else { 
 				$image = $this->model_tool_image->resize('no_image.jpg', 183, 164);  
 				}
-
+				if($children && count($children)>0)
+				{
+					$href = $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' . $category['category_id']);
+				}
+				else{
+					$href = $this->url->link('product/listproduct', 'path=' . $category['category_id']);
+				}
+/*
 				if(count($parts)==2)
 				{
 					$href = $this->url->link('product/listproduct', 'path=' . $category['category_id']);
@@ -116,7 +144,7 @@ class ControllerProductCategory extends Controller {
 				else{
 					$href = $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' . $category['category_id']);
 				}	
-				
+*/				
 			$this->data['categories'][] = array(
 				'category_id' => $category['category_id'],
 				'name'        => $category['name'] ,

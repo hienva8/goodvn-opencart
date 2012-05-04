@@ -17,15 +17,36 @@ class ControllerProductNewProduct extends Controller {
 		} else {
 			$parts = array();
 		}
-		
+		$list_cateid = array();
 		if(count($parts) == 0)
 		{
 			$cateid = '';	
 		}else{
 			$cateid = end($parts);
 		}
-		
-		
+		if($cateid !='')
+		{
+			array_push($list_cateid, $cateid);
+			$children = $this->model_catalog_category->getCategories($cateid);
+			foreach ($children as $child) 
+			{
+				array_push($list_cateid, $child['category_id']);
+				$children3 = $this->model_catalog_category->getCategories($child['category_id']);
+				foreach ($children3 as $child3)
+				{
+					array_push($list_cateid, $child3['category_id']);
+					$children4 = $this->model_catalog_category->getCategories($child3['category_id']);
+					foreach ($children4 as $child4)
+					{
+						array_push($list_cateid, $child4['category_id']);
+					}
+				}
+			}
+		}
+		if(count($list_cateid)>0)
+		{
+			$cateid = implode(",", $list_cateid);
+		}
 		$this->data['products'] = array();
 		$results = $this->model_catalog_product->getLatestProductsByCategory(9,$cateid);
 		if($results)
