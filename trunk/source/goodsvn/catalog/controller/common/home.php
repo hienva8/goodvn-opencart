@@ -26,11 +26,21 @@ class ControllerCommonHome extends Controller {
 				);
 					
 				$product_total = $this->model_catalog_product->getTotalProducts($data);
-					
+
+				//add new 2012-05-04
+				$href='';
+				$child_childs = $this->model_catalog_category->getCategories($child['category_id']);	
+				if($child_childs && count($child_childs)>0)
+				{
+					$href = $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']);
+				}
+				else {
+					$href = $this->url->link('product/listproduct', 'path=' . $child['category_id']);
+				}
 				$children_data[] = array(
 							'category_id' => $child['category_id'],
 							'name'        => $child['name'] . ' (' . $product_total . ')',
-							'href'        => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])	
+							'href'        => $href // $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])	
 				);
 			}
 				
@@ -41,11 +51,17 @@ class ControllerCommonHome extends Controller {
 		
 			$product_total = $this->model_catalog_product->getTotalProducts($data);
 		
+			if($children && count($children)>0)
+			{
+				$parent_href = $this->url->link('product/category', 'path=' . $category['category_id']);
+			}else {
+				$parent_href = $this->url->link('product/listproduct', 'path=' . $category['category_id']);
+			}
 			$this->data['categories'][] = array(
 						'category_id' => $category['category_id'],
 						'name'        => $category['name'] . ' (' . $product_total . ')',
 						'children'    => $children_data,
-						'href'        => $this->url->link('product/category', 'path=' . $category['category_id'])
+						'href'        => $parent_href // $this->url->link('product/category', 'path=' . $category['category_id'])
 			);
 		}
         

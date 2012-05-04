@@ -240,15 +240,15 @@ class ModelCatalogProduct extends Model {
 	}
 	
 	public function getLatestProductsByCategory($limit,$cateid) {
-		$product_data = $this->cache->get('product.latest.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . (int)$cateid . '.' . (int)$limit);
+		$product_data = $this->cache->get('product.latest.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $cateid . '.' . (int)$limit);
 		if (!$product_data) { 
 			if($cateid=='')
 			{
-				$query = $this->db->query("SELECT p.product_id FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' ORDER BY p.date_added DESC LIMIT " . (int)$limit);
+				$query = $this->db->query("SELECT distinct  p.product_id FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' ORDER BY p.date_added DESC LIMIT " . (int)$limit);
 			}else{
-				$query = $this->db->query("SELECT p.product_id FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) inner join ". DB_PREFIX ."product_to_category ptc on p.product_id=ptc.product_id WHERE p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' and ptc.category_id='" .$cateid. "' ORDER BY p.date_added DESC LIMIT " . (int)$limit);
+				$query = $this->db->query("SELECT distinct p.product_id FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) inner join ". DB_PREFIX ."product_to_category ptc on p.product_id=ptc.product_id WHERE p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' and ptc.category_id in (" .$cateid. ") ORDER BY p.date_added DESC LIMIT " . (int)$limit);
 			} 
-			//echo "SELECT p.product_id FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) inner join ". DB_PREFIX ."product_to_category ptc on p.product_id=ptc.product_id WHERE p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' and ptc.category_id='" .$cateid. "' ORDER BY p.date_added DESC LIMIT " . (int)$limit;
+			//echo "SELECT p.product_id FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) inner join ". DB_PREFIX ."product_to_category ptc on p.product_id=ptc.product_id WHERE p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' and ptc.category_id in (" .$cateid. ") ORDER BY p.date_added DESC LIMIT " . (int)$limit;
 			foreach ($query->rows as $result) {
 				$product_data[$result['product_id']] = $this->getProduct($result['product_id']);
 			}
@@ -278,12 +278,12 @@ class ModelCatalogProduct extends Model {
 	public function getPopularProducts($limit) {
 		$product_data = array();
 		
-		$query = $this->db->query("SELECT p.product_id FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' ORDER BY p.viewed, p.date_added DESC LIMIT " . (int)$limit);
+		$query = $this->db->query("SELECT p.product_id FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' ORDER BY p.viewed DESC, p.date_added DESC LIMIT " . (int)$limit);
 		
 		foreach ($query->rows as $result) { 		
 			$product_data[$result['product_id']] = $this->getProduct($result['product_id']);
 		}
-					 	 		
+		//echo "SELECT p.product_id FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' ORDER BY p.viewed, p.date_added DESC LIMIT " . (int)$limit;			 	 		
 		return $product_data;
 	}
 
