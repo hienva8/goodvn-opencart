@@ -53,7 +53,7 @@
             <td><?php echo $telephone; ?></td>
           </tr>
           <?php if ($return_status) { ?>
-          <tr>
+          <tr style='display:none;'>
             <td><?php echo $text_return_status; ?></td>
             <td id="return-status"><?php echo $return_status; ?></td>
           </tr>
