@@ -42,7 +42,7 @@ img,input[type="text"],input[type="submit"]
 	border-bottom:#2a73b2 2px solid;
 	text-align:center;
 }
-.header img
+.header #logo img
 {
 	margin-top:20px;
 }
@@ -174,7 +174,7 @@ ul,li
 .about_right
 {
 	float:left;
-	width:432px;
+	width:430px;
 	margin-left:29px;
 }
 .history,.our_object

@@ -28,7 +28,7 @@ class ControllerCheckoutSuccess extends Controller {
 			$this->load->model('account/address');
 			
 			if ($this->customer->isLogged()) {
-				$shipping_address = $this->model_account_address->getAddress($this->session->data['shipping_address_id']);		
+				$shipping_address = $this->model_account_address->getAddress('');//$this->session->data['shipping_address_id']);		
 			} elseif (isset($this->session->data['guest'])) {
 				$shipping_address = $this->session->data['guest']['shipping'];
 			}				
@@ -143,7 +143,7 @@ class ControllerCheckoutSuccess extends Controller {
 				if ($this->customer->isLogged()) {
 					$this->load->model('account/address');
 					
-					$shipping_address = $this->model_account_address->getAddress($this->session->data['shipping_address_id']);	
+					$shipping_address = $this->model_account_address->getAddress('');//$this->session->data['shipping_address_id']);	
 				} elseif (isset($this->session->data['guest'])) {
 					$shipping_address = $this->session->data['guest']['shipping'];
 				}			
@@ -283,7 +283,10 @@ class ControllerCheckoutSuccess extends Controller {
 			$this->load->model('checkout/order');
 			
 			$this->session->data['order_id'] = $this->model_checkout_order->create($data);
-			
+			//send mail
+                        error_log('Mail');
+                        $this->model_checkout_order->confirm($this->session->data['order_id'], 1, '', TRUE);
+                        
 			// Gift Voucher
 			if (isset($this->session->data['vouchers']) && is_array($this->session->data['vouchers'])) {
 				$this->load->model('checkout/voucher');

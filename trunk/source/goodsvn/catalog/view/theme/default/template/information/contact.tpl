@@ -60,6 +60,8 @@
                 Telephone: (+848) 3840 6667	Fax:  (+848) 3840 6677<br />
                 Hotline: (+84) 983 977 377<br />
 				License business/Tax Code<a href="http://tncnonline.com.vn/Pages/TracuuMST.aspx"> 0311681344</a><br />
+				Account Payment: <br/>
+				Swift Code:<br/>
                 Website: www.goodsvn.com<br />
                 E-mail: sales@goodsvn.com
         </div>
@@ -73,7 +75,7 @@
     
     <div class="contact_left">
     	<div class="introduction">
-            <p style="font-size:15.5px;">If you have any requirements or questions regarding our products, you can contact 
+            <p style="font-size:15px;">If you have any requirements or questions regarding our products, you can contact 
             us via the online system directly as Skype, Yahoo, and Email or call our hotline... We will 
             provide all information you need comprehensively and accurately. With conscientious and 
             friendly staff, our desire is to bring the best satisfaction to our customers so please 

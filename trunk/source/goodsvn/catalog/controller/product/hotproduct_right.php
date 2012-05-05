@@ -12,7 +12,7 @@ class ControllerProductHotProductRight extends Controller {
 		
 		$this->load->model('tool/image'); 
 		$this->data['products'] = array();
-		$results = $this->model_catalog_product->getPopularProducts(15);
+		$results = $this->model_catalog_product->getPopularProducts(10);
 		foreach ($results as $result) 
 		{
 			if ($result['image']) {

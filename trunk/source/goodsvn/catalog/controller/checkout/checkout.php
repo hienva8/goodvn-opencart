@@ -59,22 +59,11 @@ class ControllerCheckoutCheckout extends Controller {
         $this->data['text_modify'] = $this->language->get('text_modify');
 
         $this->data['logged'] = $this->customer->isLogged();
-        
-        //send mail
-        //chuyen qua okie
-        if($this->data['logged'])
+        if($this->customer->isLogged())
         {
-        	//send mail
-        	
-        	//unset
-        	unset($this->session->data['guest']['shipping']);
-        	unset($this->session->data['shipping_address_id']);
-        	unset($this->session->data['shipping_method']);
-        	unset($this->session->data['shipping_methods']);
-        	//rediect
-        	$this->redirect($this->url->link('checkout/success'));
+            //redirect to successfull
+             $this->redirect($this->url->link('checkout/success'));
         }
-        
         $this->data['shipping_required'] = '0';//$this->cart->hasShipping();
 
         if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout.tpl')) {

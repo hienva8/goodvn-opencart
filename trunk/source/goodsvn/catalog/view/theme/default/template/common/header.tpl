@@ -47,9 +47,7 @@ DD_belatedPNG.fix('#logo img');
 <![endif]-->
 <?php echo $google_analytics; ?>
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/goodsvn/css/header.css" />
-
-<script type="text/javascript" src="catalog/view/theme/default/goodsvn/js/jquery.cycle.all.js"></script>
-<script type="text/javascript" src="catalog/view/theme/default/goodsvn/js/slides.min.jquery.js"></script>
+<script type="text/javascript" src="catalog/view/theme/default/goodsvn/js/jquery.cycle.all.js"></script><script type="text/javascript" src="catalog/view/theme/default/goodsvn/js/slides.min.jquery.js"></script>
 <script type="text/javascript">
 				function googleTranslateElementInit() {
 				  new google.translate.TranslateElement({

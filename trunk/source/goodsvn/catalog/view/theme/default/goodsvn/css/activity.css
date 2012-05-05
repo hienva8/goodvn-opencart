@@ -42,7 +42,7 @@ img,input[type="text"],input[type="submit"]
 	border-bottom:#2a73b2 2px solid;
 	text-align:center;
 }
-.header img
+.header #logo img
 {
 	margin-top:20px;
 }
