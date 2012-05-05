@@ -42,7 +42,7 @@ img,input[type="text"],input[type="submit"]
 	border-bottom:#2a73b2 2px solid;
 	text-align:center;
 }
-.header img
+.header #logo img
 {
 	margin-top:20px;
 }
@@ -247,10 +247,10 @@ ul,li
 
 #slider {
     width: 420px; /* important to be same as image width */
-    height: 260px; /* important to be same as image height */
+    height: 254px; /* important to be same as image height */
     position: relative; /* important */
 	overflow: hidden; /* important */
-	border:5px solid #666;
+	border:1px solid #666;
 }
 #sliderContent {
     width: 420px; /* important to be same as image width or wider */

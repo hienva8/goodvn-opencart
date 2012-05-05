@@ -41,7 +41,7 @@ img,input[type="text"],input[type="submit"]
 	border-bottom:#2a73b2 2px solid;
 	text-align:center;
 }
-.header img
+.header #logo img
 {
 	margin-top:20px;
 }
@@ -372,12 +372,12 @@ ul,li
 }
 .support
 {
-	width:200px;
+	width:250px;
 	margin:5px auto;
 }
 .hotline
 {
-	width:175px;
+	width:203px;
 	margin:5px auto 5px 55px;
 	background:url(../image/icon_hotline.png) no-repeat 0 0;
 	padding-left:30px;
@@ -392,7 +392,7 @@ ul,li
 }
 .support_item
 {
-	width:80px;
+	width:104px;
 	height:30px;
 	float:left;
 	padding:5px 10px;
@@ -503,11 +503,11 @@ ul,li
 }
 .footer
 {
-	background:url(../image/bg_footer.png) repeat-x;
-	height:100px;
-	width:960px;
-	margin:0 auto;
-	position:relative;
+ background: url("../image/bg_footer.png") repeat-x scroll 0 0 transparent;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    width: 960px;
 }
 .sign
 {

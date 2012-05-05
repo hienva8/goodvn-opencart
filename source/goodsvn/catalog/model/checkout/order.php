@@ -146,9 +146,13 @@ class ModelCheckoutOrder extends Model {
 	}	
 
 	public function confirm($order_id, $order_status_id, $comment = '', $notify = false) {
+            error_log('Order id' . $order_id);
+            error_log('Status '. $order_status_id);
+            
 		$order_info = $this->getOrder($order_id);
-		 
-		if ($order_info && !$order_info['order_status_id']) {
+		 error_log('Step 1 ' . $order_info . '---' . $order_info['order_status_id']);
+		if ($order_info ) {
+                    error_log('Step 1 ');
 			$this->db->query("UPDATE `" . DB_PREFIX . "order` SET order_status_id = '" . (int)$order_status_id . "', date_modified = NOW() WHERE order_id = '" . (int)$order_id . "'");
 
 			$this->db->query("INSERT INTO " . DB_PREFIX . "order_history SET order_id = '" . (int)$order_id . "', order_status_id = '" . (int)$order_status_id . "', notify = '1', comment = '" . $this->db->escape(($comment && $notify) ? $comment : '') . "', date_added = NOW()");
@@ -183,14 +187,14 @@ class ModelCheckoutOrder extends Model {
 
 				$this->model_checkout_voucher->confirm($order_id);
 			}
-			
+			 error_log('Step 2 ');
 			// Send out order confirmation mail
 			$language = new Language($order_info['language_directory']);
 			$language->load($order_info['language_filename']);
 			$language->load('mail/order');
 		 
 			$order_status_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_status WHERE order_status_id = '" . (int)$order_status_id . "' AND language_id = '" . (int)$order_info['language_id'] . "'");
-			
+			 error_log('Step 3 ');
 			if ($order_status_query->num_rows) {
 				$order_status = $order_status_query->row['name'];	
 			} else {
@@ -202,7 +206,7 @@ class ModelCheckoutOrder extends Model {
 			$order_download_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_download WHERE order_id = '" . (int)$order_id . "'");
 			
 			$subject = sprintf($language->get('text_new_subject'), $order_info['store_name'], $order_id);
-		
+		 error_log('Step 4 ');
 			// HTML Mail
 			$template = new Template();
 			
@@ -249,7 +253,7 @@ class ModelCheckoutOrder extends Model {
 			$template->data['email'] = $order_info['email'];
 			$template->data['telephone'] = $order_info['telephone'];
 			$template->data['ip'] = $order_info['ip'];
-			
+			 error_log('Step 5 ');
 			if ($comment && $notify) {
 				$template->data['comment'] = nl2br($comment);
 			} else {
@@ -321,7 +325,7 @@ class ModelCheckoutOrder extends Model {
 				'zone_code' => $order_info['payment_zone_code'],
 				'country'   => $order_info['payment_country']  
 			);
-		
+		 error_log('Step 6');
 			$template->data['payment_address'] = str_replace(array("\r\n", "\r", "\n"), '<br />', preg_replace(array("/\s\s+/", "/\r\r+/", "/\n\n+/"), '<br />', trim(str_replace($find, $replace, $format))));
 			
 			$template->data['products'] = array();
@@ -358,13 +362,13 @@ class ModelCheckoutOrder extends Model {
 			}
 	
 			$template->data['totals'] = $order_total_query->rows;
-			
+			 error_log('Step 7 ');
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/mail/order.tpl')) {
 				$html = $template->fetch($this->config->get('config_template') . '/template/mail/order.tpl');
 			} else {
 				$html = $template->fetch('default/template/mail/order.tpl');
 			}
-			
+			 error_log('Step 8 ' . $html);
 			// Text Mail
 			$text  = sprintf($language->get('text_new_greeting'), html_entity_decode($order_info['store_name'], ENT_QUOTES, 'UTF-8')) . "\n\n";
 			$text .= $language->get('text_new_order_id') . ' ' . $order_id . "\n";
@@ -387,7 +391,7 @@ class ModelCheckoutOrder extends Model {
 					$text .= chr(9) . '-' . $option['name'] . ' ' . (strlen($option['value']) > 20 ? substr($option['value'], 0, 20) . '..' : $option['value']) . "\n";
 				}
 			}
-			
+			error_log('Step 9 ' );
 			$text .= "\n";
 			
 			$text .= $language->get('text_new_order_total') . "\n";
@@ -412,7 +416,7 @@ class ModelCheckoutOrder extends Model {
 				$text .= $language->get('text_new_comment') . "\n\n";
 				$text .= $order_info['comment'] . "\n\n";
 			}
-			
+			error_log('Step 10 ' );
 			$text .= $language->get('text_new_footer') . "\n\n";
 		
 			$mail = new Mail(); 
@@ -431,7 +435,7 @@ class ModelCheckoutOrder extends Model {
 			$mail->setText(html_entity_decode($text, ENT_QUOTES, 'UTF-8'));
 			$mail->addAttachment(DIR_IMAGE . $this->config->get('config_logo'), md5(basename($this->config->get('config_logo'))));
 			$mail->send();
-
+error_log('Step 11 ' );
 			// Admin Alert Mail
 			if ($this->config->get('config_alert_mail')) {
 				$subject = sprintf($language->get('text_new_subject'), html_entity_decode($this->config->get('config_name'), ENT_QUOTES, 'UTF-8'), $order_id);
@@ -501,7 +505,8 @@ class ModelCheckoutOrder extends Model {
 	}
 	
 	public function update($order_id, $order_status_id, $comment = '', $notify = false) {
-		$order_info = $this->getOrder($order_id);
+		
+            $order_info = $this->getOrder($order_id);
 
 		if ($order_info && $order_info['order_status_id']) {
 			$this->db->query("UPDATE `" . DB_PREFIX . "order` SET order_status_id = '" . (int)$order_status_id . "', date_modified = NOW() WHERE order_id = '" . (int)$order_id . "'");

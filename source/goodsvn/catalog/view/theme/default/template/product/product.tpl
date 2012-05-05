@@ -31,8 +31,8 @@
         <span><?php echo $text_model; ?></span> <?php echo $model; ?><br />
         <!--
         <span><?php echo $text_reward; ?></span> <?php echo $reward; ?><br />
-        -->
-        <span><?php echo $text_stock;?></span> <?php echo $stock; ?></div>
+        
+        <span><?php echo $text_stock; ?></span> <?php echo $stock; ?>		-->		</div>
       <!--
         <?php if ($price) { ?>
       <div class="price"><?php echo $text_price; ?>
@@ -208,10 +208,10 @@
       <div class="cart">
           
         <div>
-            
-          <!--<?php echo $text_qty; ?>-->
-          <input type="hidden" type="text" name="quantity" size="2" value="<?php echo $minimum; ?>" />
-            
+            <!--
+            <?php echo $text_qty; ?>
+          <input type="text" name="quantity" size="2" value="<?php echo $minimum; ?>" />
+            -->
           <input type="hidden" name="product_id" size="2" value="<?php echo $product_id; ?>" />
           
           &nbsp;

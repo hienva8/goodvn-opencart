@@ -2,7 +2,6 @@
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/goodsvn/css/index.css" />
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/goodsvn/css/screen.css" />
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/goodsvn/css/global.css" />
-
 <script>
 		$(function(){
 			// Set starting slide to 1
@@ -29,25 +28,30 @@
 		});
 		$('#home').addClass('menu_item_active');
 	</script>
+
 <div class="main">
 	<div class="main_left">
-		<div id="slides" class="slides">
+	<div id="slides" class="slides">
 			<div class="slides_container">
                     <div class="slide">
-                        <div class="bg_img"><img src="image/goodsvn/slide/slide1.png" /></div>
-                		<div class="slide_text"><a href="">Consumer products</a></div>
+                        <div class="bg_img"><a href="http://goodsvn.com/index.php?route=product/category"><img src="image/goodsvn/slide/goodsvn/comestic.jpg" /></a></div>
+                	<div class="slide_text"><a href="http://goodsvn.com/index.php?route=product/category">Consumer products</a></div>
                     </div>
                     <div class="slide">
-                        <div class="bg_img"><img src="image/goodsvn/slide/slide2.png" /></div>
-                		<div class="slide_text"><a href="">Foodstuff & Beverage</a></div>
+                        <div class="bg_img"><a href="http://goodsvn.com/index.php?route=product/category"><img src="image/goodsvn/slide/goodsvn/food.jpg" /></a></div>
+                	<div class="slide_text"><a href="http://goodsvn.com/index.php?route=product/category">Foodstuff & Beverage</a></div>
                     </div>
                     <div class="slide">
-                        <div class="bg_img"><img src="image/goodsvn/slide/slide3.png" /></div>
-                		<div class="slide_text"><a href="">RATTAN & BAMBOO</a></div>
+                       <div class="bg_img"><a href="http://goodsvn.com/index.php?route=product/category"><img src="image/goodsvn/slide/goodsvn/ceramic.jpg" /></a></div>             
+						<div class="slide_text"><a href="http://goodsvn.com/index.php?route=product/category">CERAMIC(POTTERY) </a></div>
                     </div>
                     <div class="slide">
-                        <div class="bg_img"><img src="image/goodsvn/slide/slide4.png" /></div>
-                		<div class="slide_text"><a href="">HOUSEHOLD GOODS </a></div>
+                        <div class="bg_img"><a href="http://goodsvn.com/index.php?route=product/category"><img src="image/goodsvn/slide/goodsvn/rattan.jpg" /></a></div>
+						<div class="slide_text"><a href="http://goodsvn.com/index.php?route=product/category">RATTAN & BAMBOO</a></div>
+                    </div>
+					<div class="slide">
+                        <div class="bg_img"><a href="http://goodsvn.com/index.php?route=product/category"><img src="image/goodsvn/slide/goodsvn/household.png" /></a></div>
+                	<div class="slide_text"><a href="http://goodsvn.com/index.php?route=product/category">HOUSEHOLD GOODS </a></div>
                     </div>
                </div>
         </div>
@@ -119,10 +123,10 @@ With a clear target is to bring the most qualified products to international mar
         <div class="clear_both20"></div>
         <div class="title_support"></div>
         <div class="support">
-        	<div class="support_item"><img src="image/goodsvn/icon_yahoo.png"><a href="ymsgr:sendim?goodsvn@ymail.com">GoodsVN</a></div>
-            <div class="support_item"><img src="image/goodsvn/icon_skype.png"><a href="skype:goodsvn?call">Mr.Khanh</a></div>
-            <div class="support_item"><img src="image/goodsvn/icon_yahoo.png"><a href="ymsgr:sendim?llicklick">GoodsVN</a></div>
-            <div class="support_item"><img src="image/goodsvn/icon_skype.png"><a href="skype:llicklick?call">Mr.Khanh</a></div>
+        	<div class="support_item"><img src="image/goodsvn/icon_yahoo.png"><a href="ymsgr:sendim?goodsvn@ymail.com">Goodsvn</a></div>
+            <div class="support_item"><img src="image/goodsvn/icon_skype.png"><a href="skype:goodsvn?chat">Mr.Khanh</a></div>
+            <div class="support_item"><img src="image/goodsvn/icon_yahoo.png"><a href="ymsgr:sendim?llicklick">Goodsvn</a></div>
+            <div class="support_item"><img src="image/goodsvn/icon_skype.png"><a href="skype:llicklick?chat">Mr.Khanh</a></div>
             <div class="clear_both5"></div>
         </div>
         <div class="like_google">

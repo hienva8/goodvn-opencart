@@ -90,15 +90,17 @@ jQuery(document).ready(function() {
         </div>
         <div style="width: 298px;float:left;">
          <img class="about_image_img" src="image/goodsvn/about/about_img2.jpg" />
-         <p>The factory is processing ceramic products for customers</p>
+         <p>The factory is processing ceramic products</p>
          </div>
          <div style="width: 298px;float:left;">
-        <img src="image/goodsvn/about/maydan.JPG" style="width: 267px;" />
-		<p>Here is Rattan & Bamboo, our products</p>
+        <img src="image/goodsvn/about/xuat di nhat.jpg" style="width: 267px;" />
+		<p>We are loading products export to Japan.</p>
         </div>
     </div>
     <div class="clear_both10"></div>
-    <a href="http://localhost/goodsvn/source/goodsvn/index.php?route=information/activity"><img src="image/goodsvn/about/ouractivity.png" width="141" height="35" /></a>
+	<p style='text-align:right;'>
+		<a href="http://goodsvn.com/index.php?route=information/activity"><img src="image/goodsvn/about/ouractivity.png" width="141" height="35" /></a>
+	</p>
 </div>
   
 </div>
