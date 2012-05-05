@@ -75,15 +75,15 @@
                                 <span class="error"><?php echo $error_model; ?></span>
                                 <?php } ?></td>
                         </tr>
-                        <tr>
+                        <tr style='display:none;'>
                             <td><?php echo $entry_sku; ?></td>
                             <td><input type="text" name="sku" value="<?php echo $sku; ?>" /></td>
                         </tr>
-                        <tr>
+                        <tr style='display:none;'>
                             <td><?php echo $entry_upc; ?></td>
                             <td><input type="text" name="upc" value="<?php echo $upc; ?>" /></td>
                         </tr>
-                        <tr>
+                        <tr style='display:none;'>
                             <td><?php echo $entry_location; ?></td>
                             <td><input type="text" name="location" value="<?php echo $location; ?>" /></td>
                         </tr>
@@ -93,7 +93,7 @@
                             <td><input type="text" name="price" value="<?php echo $price; ?>" /></td>
                         </tr>
        
-                        <tr>
+                        <tr style='display:none;'>
                             <td><?php echo $entry_tax_class; ?></td>
                             <td><select name="tax_class_id">
                                     <option value="0"><?php echo $text_none; ?></option>
@@ -115,7 +115,7 @@
                             <td><?php echo $entry_minimum; ?></td>
                             <td><input type="text" name="minimum" value="<?php echo $minimum; ?>" size="2" /></td>
                         </tr>
-                        <tr>
+                        <tr style='display:none;'>
                             <td><?php echo $entry_subtract; ?></td>
                             <td><select name="subtract">
                                     <?php if ($subtract) { ?>
@@ -127,7 +127,7 @@
                                     <?php } ?>
                                 </select></td>
                         </tr>
-                        <tr>
+                        <tr style='display:none;'>
                             <td><?php echo $entry_stock_status; ?></td>
                             <td><select name="stock_status_id">
                                     <?php foreach ($stock_statuses as $stock_status) { ?>
@@ -139,7 +139,7 @@
                                     <?php } ?>
                                 </select></td>
                         </tr>
-                        <tr>
+                        <tr style='display:none;'>
                             <td><?php echo $entry_shipping; ?></td>
                             <td><?php if ($shipping) { ?>
                                 <input type="radio" name="shipping" value="1" checked="checked" />
@@ -167,13 +167,13 @@
                             <td><?php echo $entry_date_available; ?></td>
                             <td><input type="text" name="date_available" value="<?php echo $date_available; ?>" size="12" class="date" /></td>
                         </tr>
-                        <tr>
+                        <tr style='display:none;'>
                             <td><?php echo $entry_dimension; ?></td>
                             <td><input type="text" name="length" value="<?php echo $length; ?>" size="4" />
                                 <input type="text" name="width" value="<?php echo $width; ?>" size="4" />
                                 <input type="text" name="height" value="<?php echo $height; ?>" size="4" /></td>
                         </tr>
-                        <tr>
+                        <tr style='display:none;'>
                             <td><?php echo $entry_length; ?></td>
                             <td><select name="length_class_id">
                                     <?php foreach ($length_classes as $length_class) { ?>
@@ -185,11 +185,11 @@
                                     <?php } ?>
                                 </select></td>
                         </tr>
-                        <tr>
+                        <tr style='display:none;'>
                             <td><?php echo $entry_weight; ?></td>
                             <td><input type="text" name="weight" value="<?php echo $weight; ?>" /></td>
                         </tr>
-                        <tr>
+                        <tr style='display:none;'>
                             <td><?php echo $entry_weight_class; ?></td>
                             <td><select name="weight_class_id">
                                     <?php foreach ($weight_classes as $weight_class) { ?>
@@ -254,7 +254,7 @@
                                 </div>
                                 <a onclick="$(this).parent().find(':checkbox').attr('checked', true);"><?php echo $text_select_all; ?></a> / <a onclick="$(this).parent().find(':checkbox').attr('checked', false);"><?php echo $text_unselect_all; ?></a></td>
                         </tr>
-                        <tr>
+                        <tr style='display:none;'>
                             <td><?php echo $entry_store; ?></td>
                             <td><div class="scrollbox">
                                     <?php $class = 'even'; ?>
@@ -281,7 +281,7 @@
                                     <?php } ?>
                                 </div></td>
                         </tr>
-                        <tr>
+                        <tr style='display:none;'>
                             <td><?php echo $entry_download; ?></td>
                             <td><div class="scrollbox">
                                     <?php $class = 'odd'; ?>
@@ -299,11 +299,11 @@
                                     <?php } ?>
                                 </div></td>
                         </tr>
-                        <tr>
+                        <tr style='display:none;'>
                             <td><?php echo $entry_related; ?></td>
                             <td><input type="text" name="related" value="" /></td>
                         </tr>
-                        <tr>
+                        <tr style='display:none;'>
                             <td>&nbsp;</td>
                             <td><div class="scrollbox" id="product-related">
                                     <?php $class = 'odd'; ?>
@@ -351,7 +351,7 @@
                     </table>
                 </div>
                 
-                <div id="tab-option">
+                <div id="tab-option" style='display:none;'>
                     <div id="vtab-option" class="vtabs">
                         <?php $option_row = 0; ?>
                         <?php foreach ($product_options as $product_option) { ?>
@@ -635,7 +635,7 @@
                         </tfoot>
                     </table>
                 </div>
-                <div id="tab-reward">
+                <div id="tab-reward" style='display:none;'>
                     <table class="form">
                         <tr>
                             <td><?php echo $entry_points; ?></td>

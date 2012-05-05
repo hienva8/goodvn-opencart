@@ -109,7 +109,7 @@ $(document).ready(function(){
 		  <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
         </ul>
       </li>
-<!--
+
       <li id="system"><a class="top"><?php echo $text_system; ?></a>
         <ul>
           <li><a href="<?php echo $setting; ?>"><?php echo $text_setting; ?></a></li>
@@ -154,7 +154,7 @@ $(document).ready(function(){
           <li><a href="<?php echo $error_log; ?>"><?php echo $text_error_log; ?></a></li>
           <li><a href="<?php echo $backup; ?>"><?php echo $text_backup; ?></a></li>
         </ul>
-      </li>-->
+      </li>
 
       <li id="reports"><a class="top"><?php echo $text_reports; ?></a>
         <ul>

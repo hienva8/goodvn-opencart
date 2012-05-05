@@ -76,14 +76,6 @@ table.list .center {
 <body>
 <div id="container"><a href="<?php echo $store_url; ?>" title="<?php echo $store_name; ?>"><img src="<?php echo $logo; ?>" alt="<?php echo $store_name; ?>" id="logo" /></a>
   <p><?php echo $text_greeting; ?></p>
-  <?php if ($customer_id) { ?>
-  <p><?php echo $text_link; ?></p>
-  <p><a href="<?php echo $link; ?>"><?php echo $link; ?></a></p>
-  <?php } ?>
-  <?php if ($download) { ?>
-  <p><?php echo $text_download; ?></p>
-  <p><a href="<?php echo $download; ?>"><?php echo $download; ?></a></p>
-  <?php } ?>
   <table class="list">
     <thead>
       <tr>
@@ -94,45 +86,10 @@ table.list .center {
       <tr>
         <td class="left"><b><?php echo $text_order_id; ?></b> <?php echo $order_id; ?><br />
           <b><?php echo $text_date_added; ?></b> <?php echo $date_added; ?><br />
-          <b><?php echo $text_payment_method; ?></b> <?php echo $payment_method; ?><br />
-          <?php if ($shipping_method) { ?>
-          <b><?php echo $text_shipping_method; ?></b> <?php echo $shipping_method; ?>
-          <?php } ?></td>
+        </td>
         <td class="left"><b><?php echo $text_email; ?></b> <?php echo $email; ?><br />
           <b><?php echo $text_telephone; ?></b> <?php echo $telephone; ?><br />
           <b><?php echo $text_ip; ?></b> <?php echo $ip; ?><br /></td>
-      </tr>
-    </tbody>
-  </table>
-  <?php if ($comment) { ?>
-    <table class="list">
-    <thead>
-      <tr>
-        <td class="left"><?php echo $text_instruction; ?></td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="left"><?php echo $comment; ?></td>
-      </tr>
-    </tbody>
-  </table>
-  <?php } ?>
-  <table class="list">
-    <thead>
-      <tr>
-        <td class="left"><?php echo $text_payment_address; ?></td>
-        <?php if ($shipping_address) { ?>
-        <td class="left"><?php echo $text_shipping_address; ?></td>
-        <?php } ?>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="left"><?php echo $payment_address; ?></td>
-        <?php if ($shipping_address) { ?>
-        <td class="left"><?php echo $shipping_address; ?></td>
-        <?php } ?>
       </tr>
     </tbody>
   </table>
@@ -142,8 +99,6 @@ table.list .center {
         <td class="left"><?php echo $text_product; ?></td>
         <td class="left"><?php echo $text_model; ?></td>
         <td class="right"><?php echo $text_quantity; ?></td>
-        <td class="right"><?php echo $text_price; ?></td>
-        <td class="right"><?php echo $text_total; ?></td>
       </tr>
     </thead>
     <tbody>
@@ -156,8 +111,6 @@ table.list .center {
           <?php } ?></td>
         <td class="left"><?php echo $product['model']; ?></td>
         <td class="right"><?php echo $product['quantity']; ?></td>
-        <td class="right"><?php echo $product['price']; ?></td>
-        <td class="right"><?php echo $product['total']; ?></td>
       </tr>
       <?php } ?>
     </tbody>
@@ -171,7 +124,6 @@ table.list .center {
     </tfoot>
   </table>
   <p><?php echo $text_footer; ?></p>
-  <p><?php echo $text_powered; ?></p>
 </div>
 </body>
 </html>

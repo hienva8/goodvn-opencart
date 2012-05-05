@@ -356,8 +356,8 @@ class ModelCheckoutOrder extends Model {
 					'model'    => $product['model'],
 					'option'   => $option_data,
 					'quantity' => $product['quantity'],
-					'price'    => $this->currency->format($product['price'], $order_info['currency_code'], $order_info['currency_value']),
-					'total'    => $this->currency->format($product['total'], $order_info['currency_code'], $order_info['currency_value'])
+					//'price'    => $this->currency->format($product['price'], $order_info['currency_code'], $order_info['currency_value']),
+					//'total'    => $this->currency->format($product['total'], $order_info['currency_code'], $order_info['currency_value'])
 				);
 			}
 	
@@ -373,17 +373,17 @@ class ModelCheckoutOrder extends Model {
 			$text  = sprintf($language->get('text_new_greeting'), html_entity_decode($order_info['store_name'], ENT_QUOTES, 'UTF-8')) . "\n\n";
 			$text .= $language->get('text_new_order_id') . ' ' . $order_id . "\n";
 			$text .= $language->get('text_new_date_added') . ' ' . date($language->get('date_format_short'), strtotime($order_info['date_added'])) . "\n";
-			$text .= $language->get('text_new_order_status') . ' ' . $order_status . "\n\n";
+			//$text .= $language->get('text_new_order_status') . ' ' . $order_status . "\n\n";
 			
-			if ($comment && $notify) {
+			/*if ($comment && $notify) {
 				$text .= $language->get('text_new_instruction') . "\n\n";
 				$text .= $comment . "\n\n";
-			}
+			}*/
 			
 			$text .= $language->get('text_new_products') . "\n";
 			
 			foreach ($order_product_query->rows as $result) {
-				$text .= $result['quantity'] . 'x ' . $result['name'] . ' (' . $result['model'] . ') ' . html_entity_decode($this->currency->format($result['total'], $order_info['currency_code'], $order_info['currency_value']), ENT_NOQUOTES, 'UTF-8') . "\n";
+				$text .= $result['quantity'] . 'x ' . $result['name'] . ' (' . $result['model'] . ') ' ./* html_entity_decode($this->currency->format($result['total'], $order_info['currency_code'], $order_info['currency_value']), ENT_NOQUOTES, 'UTF-8') .*/ "\n";
 				
 				$order_option_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_option WHERE order_id = '" . (int)$order_id . "' AND order_product_id = '" . $result['order_product_id'] . "'");
 				
@@ -396,16 +396,16 @@ class ModelCheckoutOrder extends Model {
 			
 			$text .= $language->get('text_new_order_total') . "\n";
 			
-			foreach ($order_total_query->rows as $result) {
+			/*foreach ($order_total_query->rows as $result) {
 				$text .= $result['title'] . ' ' . html_entity_decode($result['text'], ENT_NOQUOTES, 'UTF-8') . "\n";
-			}			
+			}*/			
 			
 			$text .= "\n";
 			
-			if ($order_info['customer_id']) {
+			/*if ($order_info['customer_id']) {
 				$text .= $language->get('text_new_link') . "\n";
 				$text .= $order_info['store_url'] . 'index.php?route=account/order/info&order_id=' . $order_id . "\n\n";
-			}
+			}*/
 		
 			if ($order_download_query->num_rows) {
 				$text .= $language->get('text_new_download') . "\n";
@@ -416,7 +416,7 @@ class ModelCheckoutOrder extends Model {
 				$text .= $language->get('text_new_comment') . "\n\n";
 				$text .= $order_info['comment'] . "\n\n";
 			}
-			error_log('Step 10 ' );
+		
 			$text .= $language->get('text_new_footer') . "\n\n";
 		
 			$mail = new Mail(); 
@@ -435,72 +435,34 @@ class ModelCheckoutOrder extends Model {
 			$mail->setText(html_entity_decode($text, ENT_QUOTES, 'UTF-8'));
 			$mail->addAttachment(DIR_IMAGE . $this->config->get('config_logo'), md5(basename($this->config->get('config_logo'))));
 			$mail->send();
-error_log('Step 11 ' );
+                        
 			// Admin Alert Mail
-			if ($this->config->get('config_alert_mail')) {
-				$subject = sprintf($language->get('text_new_subject'), html_entity_decode($this->config->get('config_name'), ENT_QUOTES, 'UTF-8'), $order_id);
-				
-				// Text 
-				$text  = $language->get('text_new_received') . "\n\n";
-				$text .= $language->get('text_new_order_id') . ' ' . $order_id . "\n";
-				$text .= $language->get('text_new_date_added') . ' ' . date($language->get('date_format_short'), strtotime($order_info['date_added'])) . "\n";
-				$text .= $language->get('text_new_order_status') . ' ' . $order_status . "\n\n";
-				$text .= $language->get('text_new_products') . "\n";
-				
-				foreach ($order_product_query->rows as $result) {
-					$text .= $result['quantity'] . 'x ' . $result['name'] . ' (' . $result['model'] . ') ' . html_entity_decode($this->currency->format($result['total'], $order_info['currency_code'], $order_info['currency_value']), ENT_NOQUOTES, 'UTF-8') . "\n";
-					
-					$order_option_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_option WHERE order_id = '" . (int)$order_id . "' AND order_product_id = '" . $result['order_product_id'] . "'");
-					
-					foreach ($order_option_query->rows as $option) {
-						$text .= chr(9) . '-' . $option['name'] . ' ' . (strlen($option['value']) > 20 ? substr($option['value'], 0, 20) . '..' : $option['value']) . "\n";
-					}
-				}
-				
-				$text .= "\n";
-
-				$text .= $language->get('text_new_order_total') . "\n";
-				
-				foreach ($order_total_query->rows as $result) {
-					$text .= $result['title'] . ' ' . html_entity_decode($result['text'], ENT_NOQUOTES, 'UTF-8') . "\n";
-				}			
-				
-				$text .= "\n";
-				
-				if ($order_info['comment'] != '') {
-					$comment = ($order_info['comment'] .  "\n\n" . $comment);
-				}
-				
-				if ($comment) {
-					$text .= $language->get('text_new_comment') . "\n\n";
-					$text .= $comment . "\n\n";
-				}
-			
-				$mail = new Mail(); 
-				$mail->protocol = $this->config->get('config_mail_protocol');
-				$mail->parameter = $this->config->get('config_mail_parameter');
-				$mail->hostname = $this->config->get('config_smtp_host');
-				$mail->username = $this->config->get('config_smtp_username');
-				$mail->password = $this->config->get('config_smtp_password');
-				$mail->port = $this->config->get('config_smtp_port');
-				$mail->timeout = $this->config->get('config_smtp_timeout');
-				$mail->setTo($this->config->get('config_email'));
-				$mail->setFrom($this->config->get('config_email'));
-				$mail->setSender($order_info['store_name']);
-				$mail->setSubject($subject);
-				$mail->setText($text);
-				$mail->send();
+				$mail2 = new Mail(); 
+				$mail2->protocol = $this->config->get('config_mail_protocol');
+				$mail2->parameter = $this->config->get('config_mail_parameter');
+				$mail2->hostname = $this->config->get('config_smtp_host');
+				$mail2->username = $this->config->get('config_smtp_username');
+				$mail2->password = $this->config->get('config_smtp_password');
+				$mail2->port = $this->config->get('config_smtp_port');
+				$mail2->timeout = $this->config->get('config_smtp_timeout');
+				$mail2->setTo($this->config->get('config_email'));
+				$mail2->setFrom($this->config->get('config_email'));
+				$mail2->setSender($order_info['store_name']);
+				$mail2->setSubject($subject);
+				$mail2->setHtml($html);
+                                $mail2->setText(html_entity_decode($text, ENT_QUOTES, 'UTF-8'));
+				$mail2->send();
 				
 				// Send to additional alert emails
 				$emails = explode(',', $this->config->get('config_alert_emails'));
 				
 				foreach ($emails as $email) {
 					if ($email && preg_match('/^[^\@]+@.*\.[a-z]{2,6}$/i', $email)) {
-						$mail->setTo($email);
-						$mail->send();
+						$mail2->setTo($email);
+						$mail2->send();
 					}
 				}				
-			}		
+			//}		
 		}
 	}
 	

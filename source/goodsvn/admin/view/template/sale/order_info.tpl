@@ -11,11 +11,11 @@
       <div class="buttons"><a onclick="window.open('<?php echo $invoice; ?>');" class="button"><?php echo $button_invoice; ?></a><a onclick="location = '<?php echo $cancel; ?>';" class="button"><?php echo $button_cancel; ?></a></div>
     </div>
     <div class="content">
-      <div class="vtabs"><a href="#tab-order"><?php echo $tab_order; ?></a><a href="#tab-payment"><?php echo $tab_payment; ?></a>
+      <div class="vtabs"><a href="#tab-order"><?php echo $tab_order; ?></a>
         <?php if ($shipping_method) { ?>
         <a href="#tab-shipping"><?php echo $tab_shipping; ?></a>
         <?php } ?>
-        <a href="#tab-product"><?php echo $tab_product; ?></a><a href="#tab-history"><?php echo $tab_order_history; ?></a></div>
+        <a href="#tab-product"><?php echo $tab_product; ?></a></div>
       <div id="tab-order" class="vtabs-content">
         <table class="form">
           <tr>
@@ -68,12 +68,12 @@
             <td><?php echo $telephone; ?></td>
           </tr>
           <?php if ($fax) { ?>
-          <tr>
+          <tr style='display:none;'>
             <td><?php echo $text_fax; ?></td>
             <td><?php echo $fax; ?></td>
           </tr>
           <?php } ?>
-          <tr>
+          <tr style='display:none;'>
             <td><?php echo $text_total; ?></td>
             <td><?php echo $total; ?>
               <?php if ($credit && $customer) { ?>
@@ -85,7 +85,7 @@
               <?php } ?></td>
           </tr>
           <?php if ($reward && $customer) { ?>
-          <tr>
+          <tr style='display:none;'>
             <td><?php echo $text_reward; ?></td>
             <td><?php echo $reward; ?>
               <?php if (!$reward_total) { ?>
@@ -96,7 +96,7 @@
           </tr>
           <?php } ?>
           <?php if ($order_status) { ?>
-          <tr>
+          <tr style='display:none;'>
             <td><?php echo $text_order_status; ?></td>
             <td id="order-status"><?php echo $order_status; ?></td>
           </tr>
@@ -132,7 +132,7 @@
           </tr>
         </table>
       </div>
-      <div id="tab-payment" class="vtabs-content">
+      <div id="tab-payment" class="vtabs-content" style='display:none;'>
         <table class="form">
           <tr>
             <td><?php echo $text_firstname; ?></td>
@@ -255,8 +255,8 @@
               <td class="left"><?php echo $column_product; ?></td>
               <td class="left"><?php echo $column_model; ?></td>
               <td class="right"><?php echo $column_quantity; ?></td>
-              <td class="right"><?php echo $column_price; ?></td>
-              <td class="right"><?php echo $column_total; ?></td>
+              <td class="right" style='display:none;'><?php echo $column_price; ?></td>
+              <td class="right" style='display:none;'><?php echo $column_total; ?></td>
             </tr>
           </thead>
           <?php foreach ($products as $product) { ?>
@@ -277,8 +277,8 @@
                 <?php } ?></td>
               <td class="left"><?php echo $product['model']; ?></td>
               <td class="right"><?php echo $product['quantity']; ?></td>
-              <td class="right"><?php echo $product['price']; ?></td>
-              <td class="right"><?php echo $product['total']; ?></td>
+              <td class="right" style='display:none;'><?php echo $product['price']; ?></td>
+              <td class="right" style='display:none;'><?php echo $product['total']; ?></td>
             </tr>
           </tbody>
           <?php } ?>
@@ -313,7 +313,7 @@
         </table>
         <?php } ?>
       </div>
-      <div id="tab-history" class="vtabs-content">
+      <div id="tab-history" class="vtabs-content" style='display:none;'>
         <div id="history"></div>
         <table class="form">
           <tr>

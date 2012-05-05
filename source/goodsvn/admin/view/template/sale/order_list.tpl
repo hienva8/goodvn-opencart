@@ -32,12 +32,12 @@
                 <?php } else { ?>
                 <a href="<?php echo $sort_customer; ?>"><?php echo $column_customer; ?></a>
                 <?php } ?></td>
-              <td class="left"><?php if ($sort == 'status') { ?>
+              <td class="left" style='display:none;'><?php if ($sort == 'status') { ?>
                 <a href="<?php echo $sort_status; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_status; ?></a>
                 <?php } else { ?>
                 <a href="<?php echo $sort_status; ?>"><?php echo $column_status; ?></a>
                 <?php } ?></td>
-              <td class="right"><?php if ($sort == 'o.total') { ?>
+              <td class="right" style='display:none;'><?php if ($sort == 'o.total') { ?>
                 <a href="<?php echo $sort_total; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_total; ?></a>
                 <?php } else { ?>
                 <a href="<?php echo $sort_total; ?>"><?php echo $column_total; ?></a>
@@ -60,7 +60,7 @@
               <td></td>
               <td align="right"><input type="text" name="filter_order_id" value="<?php echo $filter_order_id; ?>" size="4" style="text-align: right;" /></td>
               <td><input type="text" name="filter_customer" value="<?php echo $filter_customer; ?>" /></td>
-              <td><select name="filter_order_status_id">
+              <td style='display:none;'><select name="filter_order_status_id">
                   <option value="*"></option>
                   <?php if ($filter_order_status_id == '0') { ?>
                   <option value="0" selected="selected"><?php echo $text_abandoned_orders; ?></option>
@@ -75,7 +75,7 @@
                   <?php } ?>
                   <?php } ?>
                 </select></td>
-              <td align="right"><input type="text" name="filter_total" value="<?php echo $filter_total; ?>" size="4" style="text-align: right;" /></td>
+              <td align="right" style='display:none;'><input type="text" name="filter_total" value="<?php echo $filter_total; ?>" size="4" style="text-align: right;" /></td>
               <td><input type="text" name="filter_date_added" value="<?php echo $filter_date_added; ?>" size="12" class="date" /></td>
               <td><input type="text" name="filter_date_modified" value="<?php echo $filter_date_modified; ?>" size="12" class="date" /></td>
               <td align="right"><a onclick="filter();" class="button"><?php echo $button_filter; ?></a></td>
@@ -90,8 +90,8 @@
                 <?php } ?></td>
               <td class="right"><?php echo $order['order_id']; ?></td>
               <td class="left"><?php echo $order['customer']; ?></td>
-              <td class="left"><?php echo $order['status']; ?></td>
-              <td class="right"><?php echo $order['total']; ?></td>
+              <td class="left" style='display:none;'><?php echo $order['status']; ?></td>
+              <td class="right" style='display:none;'><?php echo $order['total']; ?></td>
               <td class="left"><?php echo $order['date_added']; ?></td>
               <td class="left"><?php echo $order['date_modified']; ?></td>
               <td class="right"><?php foreach ($order['action'] as $action) { ?>
