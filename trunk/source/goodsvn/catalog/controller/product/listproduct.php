@@ -146,6 +146,8 @@ class ControllerProductListproduct extends Controller {
 			*/
 			$this->data['products'] = array();
 			
+			$sort = 'pd.name';
+			$order = 'ASC';
 			$data = array(
 				'filter_category_id' => $category_id, 
 				'sort'               => $sort,
