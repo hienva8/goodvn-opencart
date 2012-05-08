@@ -16,7 +16,7 @@ class ControllerProductCategory extends Controller {
 			$parts = array();
 		}
 		
-		if (isset($parts[0])) {
+	/*	if (isset($parts[0])) {
 			$this->data['category_id'] = $parts[0];
 		} else {
 			$this->data['category_id'] = 0;
@@ -40,8 +40,10 @@ class ControllerProductCategory extends Controller {
 			}
 			$this->data['name']='Catalogue';
 		}
-		
-		
+		*/
+		$this->data['category_id'] = 0;
+		$this->data['child_id'] = 0;
+		$this->data['name']='Catalogue';
 		//echo $this->data['child_id'];	
 		$this->data['categories'] = array();
 		$category_info = $this->model_catalog_category->getCategory($this->data['child_id']);	
@@ -70,6 +72,7 @@ class ControllerProductCategory extends Controller {
 		}*/
 		$this->data['list_cate']=0;
 		//echo count($categories);
+		
 		foreach ($categories as $category) 
 		{
 			$children_data = array();
@@ -99,7 +102,7 @@ class ControllerProductCategory extends Controller {
 				$child_childs = $this->model_catalog_category->getCategories($child['category_id']);	
 				if($child_childs && count($child_childs)>0)
 				{
-					$href = $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']);
+					$href = $this->url->link('product/subcategory', 'path=' . $category['category_id'] . '_' . $child['category_id']);
 				}
 				else {
 					$href = $this->url->link('product/listproduct', 'path=' . $child['category_id']);
@@ -131,7 +134,7 @@ class ControllerProductCategory extends Controller {
 				}
 				if($children && count($children)>0)
 				{
-					$href = $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' . $category['category_id']);
+					$href = $this->url->link('product/subcategory', 'path=' . $this->data['category_id']. '_' . $category['category_id']);
 				}
 				else{
 					$href = $this->url->link('product/listproduct', 'path=' . $category['category_id']);
@@ -145,8 +148,7 @@ class ControllerProductCategory extends Controller {
 				else{
 					$href = $this->url->link('product/category', 'path=' . $this->data['category_id']. '_' . $category['category_id']);
 				}	
-*/			if($children && count($children)>0)
-			{	
+*/				
 				$this->data['categories'][] = array(
 					'category_id' => $category['category_id'],
 					'name'        => $category['name'] ,
@@ -156,18 +158,13 @@ class ControllerProductCategory extends Controller {
 					'href'        => $href,
 					'cate_href'		=>$this->url->link('product/listproduct', 'path=' . $category['category_id'])
 				);
-			}
-			$this->data['categories_bk'][] = array(
-					'category_id' => $category['category_id'],
-					'name'        => $category['name'] ,
-					'total'		  => $product_total ,
-					'children'    => $children_data,
-					'image'		  => $image,
-					'href'        => $href,
-					'cate_href'		=>$this->url->link('product/listproduct', 'path=' . $category['category_id'])
-				);
+			
 		}
 		
+		if(count($categories)==0)
+		{
+			$this->redirect($this->url->link('product/listproduct&path='.$this->data['child_id']));
+		}
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/category.tpl')) {
 				$this->template = $this->config->get('config_template') . '/template/product/category.tpl';
 			} else {

@@ -6,7 +6,7 @@
 	</script>
 <div class="main">
 	<div class="main_left">
-		<br/>
+		<?php echo $category;?>
         <!-- start manufactor -->
         <?php echo $manufacturer_left;?>
         <!-- end manufactor -->
@@ -19,6 +19,11 @@
     <!--end main left-->
     <div class="line2"></div>
     <div class="main_center">
+    	<div class="breadcrumb">
+		    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+		    <?php echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
+		    <?php } ?>
+		</div><br/>
 	    <div class="menu_center"><?php echo $heading_title;?></div>
 	        
 	        <?php 

@@ -38,7 +38,7 @@
 		  }else {
 		  	echo '<div class="menu_center">' . $parent_category['name']. '</div>';
 		  	echo '<div class="products_list">';
-		  	foreach ($categories_bk as $category)
+		  	foreach ($categories as $category)
 		  	{
 		  		echo '<div class="products_item"><a href="'. $category['href'] .'"><img src="'. $category['image'].'" /><div class="products_item_name">'. $category['name'] .'</div></a></div>';
 		  	}
