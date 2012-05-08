@@ -32,7 +32,7 @@ class ControllerCommonHome extends Controller {
 				$child_childs = $this->model_catalog_category->getCategories($child['category_id']);	
 				if($child_childs && count($child_childs)>0)
 				{
-					$href = $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']);
+					$href = $this->url->link('product/subcategory', 'path=' . $category['category_id'] . '_' . $child['category_id']);
 				}
 				else {
 					$href = $this->url->link('product/listproduct', 'path=' . $child['category_id']);
@@ -53,7 +53,7 @@ class ControllerCommonHome extends Controller {
 		
 			if($children && count($children)>0)
 			{
-				$parent_href = $this->url->link('product/category', 'path=' . $category['category_id']);
+				$parent_href = $this->url->link('product/subcategory', 'path=' . $category['category_id']);
 			}else {
 				$parent_href = $this->url->link('product/listproduct', 'path=' . $category['category_id']);
 			}
