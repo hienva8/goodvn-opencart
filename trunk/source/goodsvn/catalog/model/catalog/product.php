@@ -535,5 +535,41 @@ class ModelCatalogProduct extends Model {
 			return 0;	
 		}
 	}	
+	
+	public function getListCategoryOfProduct($product_id) {
+
+		$categories = $this->getCategories($product_id);
+		$cate_list ='';
+		foreach ($categories as $category) {
+			$path = $this->getPath($category['category_id']);
+			
+			if ($path && strlen($cate_list)< strlen($path)) {
+				$cate_list = $path ;
+				
+			}
+		}
+		return $cate_list;
+	}
+	
+	
+	protected function getPath($parent_id, $current_path = '') {
+		$category_info = $this->model_catalog_category->getCategory($parent_id);
+	
+		if ($category_info) {
+			if (!$current_path) {
+				$new_path = $category_info['category_id'];
+			} else {
+				$new_path = $category_info['category_id'] . '_' . $current_path;
+			}	
+		
+			$path = $this->getPath($category_info['parent_id'], $new_path);
+					
+			if ($path) {
+				return $path;
+			} else {
+				return $new_path;
+			}
+		}
+	}
 }
 ?>
