@@ -15,27 +15,35 @@ class ControllerProductProduct extends Controller {
 		
 		$this->load->model('catalog/category');	
 		
-		if (isset($this->request->get['path'])) {
-			$path = '';
-				
-			foreach (explode('_', $this->request->get['path']) as $path_id) {
-				if (!$path) {
-					$path = $path_id;
-				} else {
-					$path .= '_' . $path_id;
-				}
-				
-				$category_info = $this->model_catalog_category->getCategory($path_id);
-				
-				if ($category_info) {
-					$this->data['breadcrumbs'][] = array(
-						'text'      => $category_info['name'],
-						'href'      => $this->url->link('product/category', 'path=' . $path),
-						'separator' => $this->language->get('text_separator')
-					);
-				}
+		/*if (isset($this->request->get['path'])) 
+		{*/
+		$path = '';
+		if (isset($this->request->get['product_id'])) {
+			$product_id = $this->request->get['product_id'];
+		} else {
+			$product_id = 0;
+		}
+		
+		$this->load->model('catalog/product');
+		$paths_cate = $this->model_catalog_product->getListCategoryOfProduct($product_id);		
+		foreach (explode('_', $paths_cate) as $path_id) {
+			if (!$path) {
+				$path = $path_id;
+			} else {
+				$path .= '_' . $path_id;
+			}
+			
+			$category_info = $this->model_catalog_category->getCategory($path_id);
+			
+			if ($category_info) {
+				$this->data['breadcrumbs'][] = array(
+					'text'      => $category_info['name'],
+					'href'      => $this->url->link('product/subcategory', 'path=' . $path),
+					'separator' => $this->language->get('text_separator')
+				);
 			}
 		}
+		//}
 		
 		$this->load->model('catalog/manufacturer');	
 		
@@ -82,7 +90,7 @@ class ControllerProductProduct extends Controller {
 				'separator' => $this->language->get('text_separator')
 			);	
 		}
-		
+		/*
 		if (isset($this->request->get['product_id'])) {
 			$product_id = $this->request->get['product_id'];
 		} else {
@@ -90,7 +98,7 @@ class ControllerProductProduct extends Controller {
 		}
 		
 		$this->load->model('catalog/product');
-		
+		*/
 		$product_info = $this->model_catalog_product->getProduct($product_id);
 		
 		$this->data['product_info'] = $product_info;
