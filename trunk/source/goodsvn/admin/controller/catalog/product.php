@@ -34,8 +34,8 @@ class ControllerCatalogProduct extends Controller {
 				$url .= '&filter_model=' . $this->request->get['filter_model'];
 			}
 			
-			if (isset($this->request->get['filter_price'])) {
-				$url .= '&filter_price=' . $this->request->get['filter_price'];
+			if (isset($this->request->get['date_available'])) {
+				$url .= '&date_available=' . $this->request->get['date_available'];
 			}
 			
 			if (isset($this->request->get['filter_quantity'])) {
@@ -86,8 +86,8 @@ class ControllerCatalogProduct extends Controller {
 				$url .= '&filter_model=' . $this->request->get['filter_model'];
 			}
 			
-			if (isset($this->request->get['filter_price'])) {
-				$url .= '&filter_price=' . $this->request->get['filter_price'];
+			if (isset($this->request->get['date_available'])) {
+				$url .= '&date_available=' . $this->request->get['date_available'];
 			}
 			
 			if (isset($this->request->get['filter_quantity'])) {
@@ -140,8 +140,8 @@ class ControllerCatalogProduct extends Controller {
 				$url .= '&filter_model=' . $this->request->get['filter_model'];
 			}
 			
-			if (isset($this->request->get['filter_price'])) {
-				$url .= '&filter_price=' . $this->request->get['filter_price'];
+			if (isset($this->request->get['date_available'])) {
+				$url .= '&date_available=' . $this->request->get['date_available'];
 			}
 			
 			if (isset($this->request->get['filter_quantity'])) {
@@ -194,8 +194,8 @@ class ControllerCatalogProduct extends Controller {
 				$url .= '&filter_model=' . $this->request->get['filter_model'];
 			}
 			
-			if (isset($this->request->get['filter_price'])) {
-				$url .= '&filter_price=' . $this->request->get['filter_price'];
+			if (isset($this->request->get['date_available'])) {
+				$url .= '&date_available=' . $this->request->get['date_available'];
 			}
 			
 			if (isset($this->request->get['filter_quantity'])) {
@@ -237,10 +237,10 @@ class ControllerCatalogProduct extends Controller {
 			$filter_model = null;
 		}
 		
-		if (isset($this->request->get['filter_price'])) {
-			$filter_price = $this->request->get['filter_price'];
+		if (isset($this->request->get['date_available'])) {
+			$date_available = $this->request->get['date_available'];
 		} else {
-			$filter_price = null;
+			$date_available = null;
 		}
 
 		if (isset($this->request->get['filter_quantity'])) {
@@ -283,8 +283,8 @@ class ControllerCatalogProduct extends Controller {
 			$url .= '&filter_model=' . $this->request->get['filter_model'];
 		}
 		
-		if (isset($this->request->get['filter_price'])) {
-			$url .= '&filter_price=' . $this->request->get['filter_price'];
+		if (isset($this->request->get['date_available'])) {
+			$url .= '&date_available=' . $this->request->get['date_available'];
 		}
 		
 		if (isset($this->request->get['filter_quantity'])) {
@@ -330,7 +330,7 @@ class ControllerCatalogProduct extends Controller {
 		$data = array(
 			'filter_name'	  => $filter_name, 
 			'filter_model'	  => $filter_model,
-			'filter_price'	  => $filter_price,
+			'date_available'	  => $date_available,
 			'filter_quantity' => $filter_quantity,
 			'filter_status'   => $filter_status,
 			'sort'            => $sort,
@@ -376,6 +376,7 @@ class ControllerCatalogProduct extends Controller {
 				'name'       => $result['name'],
 				'model'      => $result['model'],
 				'price'      => $result['price'],
+      			'date_available'=>$result['date_available'],
 				'special'    => $special,
 				'image'      => $image,
 				'quantity'   => $result['quantity'],
@@ -431,8 +432,8 @@ class ControllerCatalogProduct extends Controller {
 			$url .= '&filter_model=' . $this->request->get['filter_model'];
 		}
 		
-		if (isset($this->request->get['filter_price'])) {
-			$url .= '&filter_price=' . $this->request->get['filter_price'];
+		if (isset($this->request->get['date_available'])) {
+			$url .= '&date_available=' . $this->request->get['date_available'];
 		}
 		
 		if (isset($this->request->get['filter_quantity'])) {
@@ -455,7 +456,7 @@ class ControllerCatalogProduct extends Controller {
 					
 		$this->data['sort_name'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'] . '&sort=pd.name' . $url, 'SSL');
 		$this->data['sort_model'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'] . '&sort=p.model' . $url, 'SSL');
-		$this->data['sort_price'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'] . '&sort=p.price' . $url, 'SSL');
+		$this->data['sort_date_available'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'] . '&sort=p.date_available' . $url, 'SSL');
 		$this->data['sort_quantity'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'] . '&sort=p.quantity' . $url, 'SSL');
 		$this->data['sort_status'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'] . '&sort=p.status' . $url, 'SSL');
 		$this->data['sort_order'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'] . '&sort=p.sort_order' . $url, 'SSL');
@@ -470,8 +471,8 @@ class ControllerCatalogProduct extends Controller {
 			$url .= '&filter_model=' . $this->request->get['filter_model'];
 		}
 		
-		if (isset($this->request->get['filter_price'])) {
-			$url .= '&filter_price=' . $this->request->get['filter_price'];
+		if (isset($this->request->get['date_available'])) {
+			$url .= '&date_available=' . $this->request->get['date_available'];
 		}
 		
 		if (isset($this->request->get['filter_quantity'])) {
@@ -501,7 +502,7 @@ class ControllerCatalogProduct extends Controller {
 	
 		$this->data['filter_name'] = $filter_name;
 		$this->data['filter_model'] = $filter_model;
-		$this->data['filter_price'] = $filter_price;
+		$this->data['date_available'] = $date_available;
 		$this->data['filter_quantity'] = $filter_quantity;
 		$this->data['filter_status'] = $filter_status;
 		
@@ -652,8 +653,8 @@ class ControllerCatalogProduct extends Controller {
 			$url .= '&filter_model=' . $this->request->get['filter_model'];
 		}
 		
-		if (isset($this->request->get['filter_price'])) {
-			$url .= '&filter_price=' . $this->request->get['filter_price'];
+		if (isset($this->request->get['date_available'])) {
+			$url .= '&date_available=' . $this->request->get['date_available'];
 		}
 		
 		if (isset($this->request->get['filter_quantity'])) {
@@ -812,12 +813,12 @@ class ControllerCatalogProduct extends Controller {
 			$this->data['shipping'] = 1;
 		}
 		
-    	if (isset($this->request->post['price'])) {
-      		$this->data['price'] = $this->request->post['price'];
+    	if (isset($this->request->post['date_available'])) {
+      		$this->data['date_available'] = $this->request->post['date_available'];
     	} else if (!empty($product_info)) {
-			$this->data['price'] = $product_info['price'];
+			$this->data['date_available'] = $product_info['date_available'];
 		} else {
-      		$this->data['price'] = '';
+      		$this->data['date_available'] = '';
     	}
 		
 		$this->load->model('localisation/tax_class');

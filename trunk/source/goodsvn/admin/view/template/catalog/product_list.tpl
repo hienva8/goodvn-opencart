@@ -33,13 +33,13 @@
                                 <?php } else { ?>
                                 <a href="<?php echo $sort_model; ?>"><?php echo $column_model; ?></a>
                                 <?php } ?></td>
-                            <!--
-                            <td class="left"><?php if ($sort == 'p.price') { ?>
-                                <a href="<?php echo $sort_price; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_price; ?></a>
+                       
+                            <td class="left"><?php if ($sort == 'p.date_available') { ?>
+                                <a href="<?php echo $sort_date_available; ?>" class="<?php echo strtolower($order); ?>">Date Available</a>
                                 <?php } else { ?>
-                                <a href="<?php echo $sort_price; ?>"><?php echo $column_price; ?></a>
-                                <?php } ?></td>  -->
-                            <td class="right"><?php if ($sort == 'p.quantity') { ?>
+                                <a href="<?php echo $sort_date_available; ?>">Date Available</a>
+                                <?php } ?></td>  
+                            <td class="right" style='display:none;'><?php if ($sort == 'p.quantity') { ?>
                                 <a href="<?php echo $sort_quantity; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_quantity; ?></a>
                                 <?php } else { ?>
                                 <a href="<?php echo $sort_quantity; ?>"><?php echo $column_quantity; ?></a>
@@ -60,8 +60,8 @@
                             <td><input type="text" name="filter_name" value="<?php echo $filter_name; ?>" /></td>
                             <td><input type="text" name="filter_model" value="<?php echo $filter_model; ?>" /></td>
                             
-                              <!--  <td align="left"><input type="text" name="filter_price" value="<?php echo $filter_price; ?>" size="8"/></td>
-                          --><td align="right"><input type="text" name="filter_quantity" value="<?php echo $filter_quantity; ?>" style="text-align: right;" /></td>
+                              <td align="left"><input type="text" name="date_available" value="<?php echo $date_available; ?>" size="15"/></td>
+                          <td align="right" style='display:none;'><input type="text" name="filter_quantity" value="<?php echo $filter_quantity; ?>" style="text-align: right;" /></td>
                           
                             <td><select name="filter_status">
                                     <option value="*"></option>
@@ -89,14 +89,11 @@
                             <td class="center"><img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>" style="padding: 1px; border: 1px solid #DDDDDD;" /></td>
                             <td class="left"><?php echo $product['name']; ?></td>
                             <td class="left"><?php echo $product['model']; ?></td>
-                            <!--
-                            <td class="left"><?php if ($product['special']) { ?>
-                                <span style="text-decoration: line-through;"><?php echo $product['price']; ?></span><br/>
-                                <span style="color: #b00;"><?php echo $product['special']; ?></span>
-                                <?php } else { ?>
-                                <?php echo $product['price']; ?>
-                                <?php } ?></td>      -->
-                            <td class="right"><?php if ($product['quantity'] <= 0) { ?>
+                            
+                            <td class="left">
+                                <?php echo $product['date_available']; ?>
+							</td>      
+                            <td class="right" style='display:none;'><?php if ($product['quantity'] <= 0) { ?>
                                 <span style="color: #FF0000;"><?php echo $product['quantity']; ?></span>
                                 <?php } elseif ($product['quantity'] <= 5) { ?>
                                 <span style="color: #FFA500;"><?php echo $product['quantity']; ?></span>
@@ -138,10 +135,10 @@ if (filter_model) {
 url += '&filter_model=' + encodeURIComponent(filter_model);
 }
 	
-var filter_price = $('input[name=\'filter_price\']').attr('value');
+var date_available = $('input[name=\'date_available\']').attr('value');
 	
-if (filter_price) {
-url += '&filter_price=' + encodeURIComponent(filter_price);
+if (date_available) {
+url += '&date_available=' + encodeURIComponent(date_available);
 }
 	
 var filter_quantity = $('input[name=\'filter_quantity\']').attr('value');

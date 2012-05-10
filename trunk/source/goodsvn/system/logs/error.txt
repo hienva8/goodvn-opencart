@@ -1,2 +1,7 @@
 2012-05-04 17:39:52 - PHP Warning:  mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\goodsvn\source\goodsvn\system\library\mail.php on line 157
 2012-05-04 20:32:19 - PHP Warning:  mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\goodsvn\source\goodsvn\system\library\mail.php on line 157
+2012-05-10 19:10:29 - PHP Notice:  Undefined variable: filter_price in C:\xampp\htdocs\goodsvn\source\goodsvn\admin\controller\catalog\product.php on line 505
+2012-05-10 19:10:29 - PHP Notice:  Undefined variable: date_available in C:\xampp\htdocs\goodsvn\source\goodsvn\admin\view\template\catalog\product_list.tpl on line 63
+2012-05-10 19:23:03 - PHP Notice:  Undefined variable: price in C:\xampp\htdocs\goodsvn\source\goodsvn\admin\view\template\catalog\product_form.tpl on line 93
+2012-05-10 19:23:26 - PHP Notice:  Undefined variable: price in C:\xampp\htdocs\goodsvn\source\goodsvn\admin\view\template\catalog\product_form.tpl on line 93
+2012-05-10 19:25:31 - PHP Notice:  Undefined variable: price in C:\xampp\htdocs\goodsvn\source\goodsvn\admin\view\template\catalog\product_form.tpl on line 93
