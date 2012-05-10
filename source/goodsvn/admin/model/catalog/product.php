@@ -353,8 +353,8 @@ class ModelCatalogProduct extends Model {
 				$sql .= " AND LCASE(p.model) LIKE '" . $this->db->escape(utf8_strtolower($data['filter_model'])) . "%'";
 			}
 			
-			if (!empty($data['filter_price'])) {
-				$sql .= " AND p.price LIKE '" . $this->db->escape($data['filter_price']) . "%'";
+			if (!empty($data['date_available'])) {
+				$sql .= " AND p.date_available LIKE '%" . $this->db->escape($data['date_available']) . "%'";
 			}
 			
 			if (isset($data['filter_quantity']) && !is_null($data['filter_quantity'])) {
